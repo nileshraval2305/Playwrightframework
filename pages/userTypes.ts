@@ -25,7 +25,7 @@ export default class UserTypes {
 
 
     async validatePerformerLogin() {
-        const gettext= await this.page.locator("text=Upcoming events").textContent();
+        const gettext = await this.page.locator("text=Upcoming events").textContent();
         await expect.soft(gettext).toContain('Upcoming events');
 
 
