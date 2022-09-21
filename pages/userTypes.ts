@@ -1,33 +1,51 @@
-import type {Page} from '@playwright/test';
+import type {Page,Locator} from '@playwright/test';
 import { expect } from '@playwright/test';
 
 export default class UserTypes {
-	constructor(public page: Page) {}
+	
+	readonly PerformerOption:Locator;
+    readonly AgentOption:Locator;
+	readonly CastingDirectorOption:Locator;
+	readonly ValidatePerformerLogin:Locator;
+	readonly ValidateAgentLogin:Locator;
+	readonly ValidateCastingDirectorLogin:Locator;
+	
+	constructor( public page: Page) {
+		this.PerformerOption = this.page.locator('a.performer');
+        this.AgentOption= this.page.locator('a.agent');
+        this.CastingDirectorOption=this.page.locator('a.casting');
+	    this.ValidatePerformerLogin= this.page.locator('text=Upcoming events');
+	    this.ValidateAgentLogin=this.page.locator('input[placeholder=\'Search performer name\']');
+	    this.ValidateCastingDirectorLogin=this.page.locator('div[class=\'a-content-container\'] li:nth-child(1) a:nth-child(1)');
+	
+	
+	
+	}
 
 	async performerOption() {
-		await this.page.locator('a.performer').click();
+		await this.PerformerOption.click();
 	}
 
 	async agentOption() {
-		await this.page.locator('a.agent').click();
+		await this.AgentOption.click();
 	}
 
 	async castingDirectorOption() {
-		await this.page.locator('a.casting').click();
+		await this.CastingDirectorOption.click();
 	}
 
 	async validatePerformerLogin() {
-		const gettext = await this.page.locator('text=Upcoming events').textContent();
+		const gettext = await this.ValidatePerformerLogin.textContent();
 		await expect.soft(gettext).toContain('Upcoming events');
 	}
 
 	async validateAgentLogin() {
-		await expect.soft(this.page.locator('input[placeholder=\'Search performer name\']')).toBeVisible();
+		await expect.soft(this.ValidateAgentLogin).toBeVisible();
 	}
 
 	async validateCastingDirectorLogin() {
 		await expect
-			.soft(this.page.locator('div[class=\'a-content-container\'] li:nth-child(1) a:nth-child(1)'))
+			.soft(this.ValidateCastingDirectorLogin)
 			.toBeVisible();
 	}
 }
