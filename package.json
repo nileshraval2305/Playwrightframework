@@ -3,14 +3,26 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "playwright:install": "npx playwright install",
+    "test:e2e": "npx playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.25.1"
+    "@playwright/test": "^1.26.0",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "eslint": "8.22.0",
+    "eslint-config-xo": "^0.42.0",
+    "eslint-config-xo-typescript": "^0.53.0",
+    "eslint-plugin-playwright": "^0.11.2",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
   },
   "dependencies": {
-    "playwright": "^1.25.2"
+    "uuid": "^9.0.0"
   }
 }
