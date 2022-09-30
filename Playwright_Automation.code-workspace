@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "../Playwright_Automation"
+		},
+		{
+			"path": "../PlayWrightAutomation"
+		},
+		{
+			"path": "../Spotlight_Automation_V2"
+		},
+		{
+			"path": "../Javascript_Basics"
+		},
+		{
+			"path": "../Typescript_Basics"
+		},
+		{
+			"path": "../Spotlight_Automation_New"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
