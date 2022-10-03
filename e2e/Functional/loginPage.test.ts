@@ -9,7 +9,7 @@ test('Validate Login using Performer from Spotlight', async ({ page }) => {
 	await loginPage.navigateToUrl(testdata.URL);
 	await loginPage.signinbuttonOnMainPage();
 	await usertype.performerOption();
-    
+
 	await loginPage.doLogin(testdata.Performer_username, testdata.Performer_password);
 	await usertype.validatePerformerLogin();
 });
