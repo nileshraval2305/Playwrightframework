@@ -21,7 +21,7 @@ test('Validate Findoutmore button in performer section', async ({ page }) => {
     await performer.Validate_Performer_Text();
     await performer.Validate_performer_Contact();
     await performer.Validate_Performer_Get_Price_Text();
-    await performer.UUID_alphabet();
+    
     
 });
 

@@ -21,11 +21,11 @@ export default class Performer {
   readonly unicid: String;
   readonly Performer_Firstname: Locator;
   readonly Performer_Surname: Locator;
-  readonly Check_name_availability:Locator;
-  readonly Performer_Email:Locator;
-  readonly Performer_Term_Checkbox:Locator;
-  readonly Performer_Continue_Eligibility:Locator;
-  readonly Performer_Vaidate_Eligibility_Text:Locator;
+  readonly Check_name_availability: Locator;
+  readonly Performer_Email: Locator;
+  readonly Performer_Term_Checkbox: Locator;
+  readonly Performer_Continue_Eligibility: Locator;
+  readonly Performer_Vaidate_Eligibility_Text: Locator;
 
   constructor(public page: Page) {
     this.unicid = uuidv4();
@@ -47,13 +47,13 @@ export default class Performer {
     this.Performer_Recommendation_Text = page.locator("//strong[normalize-space()='Recommendation']");
     this.Performer_Experience_Text = page.locator("//strong[normalize-space()='Experience']");
     this.Performer_Firstname = page.locator("#forenames");
-    this.Performer_Surname=page.locator("#surname");
-    this.Check_name_availability=page.locator("a[id='btn-check-name-available'] span[class='c-button__text']");
-    this.Performer_Email=page.locator("#email");
-    this.Performer_Term_Checkbox=page.locator("input[name='termsAgree']");
-    this.Performer_Continue_Eligibility=page.locator("a[id='btn-signup-application'] span[class='c-button__text']");
-    this.Performer_Vaidate_Eligibility_Text=page.locator(".py-4.text-2xl");
-  
+    this.Performer_Surname = page.locator("#surname");
+    this.Check_name_availability = page.locator("a[id='btn-check-name-available'] span[class='c-button__text']");
+    this.Performer_Email = page.locator("#email");
+    this.Performer_Term_Checkbox = page.locator("input[name='termsAgree']");
+    this.Performer_Continue_Eligibility = page.locator("a[id='btn-signup-application'] span[class='c-button__text']");
+    this.Performer_Vaidate_Eligibility_Text = page.locator(".py-4.text-2xl");
+
   }
 
   async Performer_Findmore_Button_Click() {
@@ -116,51 +116,43 @@ export default class Performer {
 
   }
 
-async Enter_Performer_Firstname()
-{
+  async Enter_Performer_Firstname() {
 
-   await this.Performer_Firstname.fill(await this.UUID_alphabet())
-                                                        
-}
-
-async Enter_Performer_Surname()
-{
-
-   await this.Performer_Surname.fill(await this.UUID_alphabet())
-                                                        
-}
-
-async Check_name_availability_Btn_Click()
-{
-
-   await this.Check_name_availability.click();
-                                                        
-}
-async Enter_Performer_Email()
-{
-
-   await this.Performer_Email.fill(await this.UUID_alphabet()+"@gmail.com");
-                                                        
-}
-
- async Select_Performer_Term_Checkbox()
- {
-
-  await this.Performer_Term_Checkbox.click();
- }
-
-  async Performer_Continue_Eligibility_Click()
-  {
-
-   await this.Performer_Continue_Eligibility.click();
+    await this.Performer_Firstname.fill(await this.UUID_alphabet())
 
   }
 
-  async Validate_Performer_Vaidate_Eligibility_Text()
-  {
+  async Enter_Performer_Surname() {
+
+    await this.Performer_Surname.fill(await this.UUID_alphabet())
+
+  }
+
+  async Check_name_availability_Btn_Click() {
+
+    await this.Check_name_availability.click();
+
+  }
+  async Enter_Performer_Email() {
+
+    await this.Performer_Email.fill(await this.UUID_alphabet() + "@gmail.com");
+
+  }
+
+  async Select_Performer_Term_Checkbox() {
+
+    await this.Performer_Term_Checkbox.click();
+  }
+
+  async Performer_Continue_Eligibility_Click() {
+
+    await this.Performer_Continue_Eligibility.click();
+
+  }
+
+  async Validate_Performer_Vaidate_Eligibility_Text() {
     await expect(this.Performer_Vaidate_Eligibility_Text).toHaveText('Eligibility:');
   }
 
-  }
+}
 
-   
