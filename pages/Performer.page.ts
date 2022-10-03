@@ -2,7 +2,7 @@ import { Page, Locator } from '@playwright/test';
 import { expect } from '@playwright/test';
 import { v4 as uuidv4, V4Options } from 'uuid';
 
-export default class Performer {
+export default class PerformerPage {
 
   readonly Performer_Findmore_Btn: Locator;
   readonly Performer_Text: Locator;
