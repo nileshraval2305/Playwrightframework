@@ -35,11 +35,11 @@ export default class PerformerPage {
     this.Performer_Join_Btn = this.page.locator("div[class='heroItem'] a[class='button']");
     this.Performer_Spotlight_Profile_Text = this.page.locator("text=Spotlight profile");
     this.Performer_Spotlight_Discounts_Text = this.page.locator("//strong[normalize-space()='Discounts']");
-    this.Performer_Developement_Events_Text = this.page.locator("//strong[normalize-space()='Development and Events']");
-    this.Performer_Advice_and_Support_Text = this.page.locator("ul:nth-child(2) > li:nth-child(4) > strong:nth-child(2)");
-    this.performer_Contact_Text = this.page.locator("li:nth-child(5) > strong:nth-child(2) > a:nth-child(1)");
+    this.Performer_Developement_Events_Text = this.page.locator("text=Development and Events");
+    this.Performer_Advice_and_Support_Text = this.page.locator("//strong[normalize-space()='Advice and Support']");
+    this.performer_Contact_Text = this.page.locator("//a[@class='itemLink'][normalize-space()='Contacts']");
     this.Performer_Get_Price_Text = this.page.locator("div[class='joinPriceInfo'] h3");
-    this.Performer_Faq_Text = page.locator(" li:nth-child(6) > strong:nth-child(2) > a:nth-child(1)");
+    this.Performer_Faq_Text = page.locator("//a[@class='itemLink'][normalize-space()='FAQs']");
 
     this.Performer_Welcome_Text = page.locator(".py-1.text-2xl");
 
