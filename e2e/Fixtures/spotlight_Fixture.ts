@@ -1,7 +1,7 @@
 import {test as basetest} from "@playwright/test";
 import JoinNowPage from '../../pages/joinNow.page';
 import PerformerPage from '../../pages/Performer.page';
-import * as testdata from '../../test-Data/login-Testdata.json';
+
 import LoginPage from '../../pages/login.page';
 import UserTypes from "../../pages/userTypes";
 
