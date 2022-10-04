@@ -32,7 +32,7 @@ export default class Performer {
 
     this.Performer_Text = page.locator(".heroHeading");
     this.Performer_Findmore_Btn = page.locator("a[href='/join-us/performers/']");
-    this.Performer_Join_Btn = page.locator("div[class='heroItem'] a[class='button']");
+    this.Performer_Join_Btn = page.locator("div.heroItem a[class='button']");
     this.Performer_Spotlight_Profile_Text = page.locator("text=Spotlight profile");
     this.Performer_Spotlight_Discounts_Text = page.locator("//strong[normalize-space()='Discounts']");
     this.Performer_Developement_Events_Text = page.locator("text=Development and Events");
