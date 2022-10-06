@@ -1,51 +1,33 @@
-import type { Page, Locator } from '@playwright/test';
 
-export default class LoginPage {
-	readonly page: Page;
-	readonly signInLink: Locator;
-	readonly loginInput: Locator;
-	readonly passwordInput: Locator;
-	readonly performerCheckbox: Locator;
-	readonly signInBtn: Locator;
 
-	constructor(page: Page) {
-		this.page = page;
-		this.signInLink = this.page.locator('#signInLink');
-		this.loginInput = this.page.locator('#Username');
-		this.passwordInput = this.page.locator('#Password');
-		this.performerCheckbox = this.page.locator('a.performer');
-		this.signInBtn = this.page.locator('#sign-in-button');
-	}
+import * as testdata from '../../test-Data/login-Testdata.json';
+import { test } from "../Fixtures/spotlight_Fixture"
 
-	async navigateToUrl(URL: string) {
-		await this.page.goto(URL);
-	}
 
-	async signinbuttonOnMainPage() {
-		await this.signInLink.click();
-	}
+test('Validate Login using Performer from Spotlight', async ({ loginpage,usertype }) => {
 
-	async enterUsername(username: string) {
-		await this.loginInput.fill(username);
-	}
+	await loginpage.navigateToUrl(testdata.URL);
+	await loginpage.signinbuttonOnMainPage();
+	await usertype.performerOption();
+    
+	await loginpage.doLogin(testdata.Performer_username, testdata.Performer_password);
+	await usertype.validatePerformerLogin();
+});
 
-	async enterPassword(password: string) {
-		await this.passwordInput.fill(password);
-	}
+test('Validate Login using Agent from Spotlight', async ({ loginpage,usertype }) => {
 
-	async performerOption() {
-		await this.performerCheckbox.click();
-	}
+	await loginpage.navigateToUrl(testdata.URL);
+	await loginpage.signinbuttonOnMainPage();
+	await usertype.agentOption();
+	await loginpage.doLogin(testdata.Agent_username, testdata.Agent_password);
+	await usertype.validateAgentLogin();
+});
 
-	async continueButton() {
-		await Promise.all([this.page.waitForLoadState("domcontentloaded"), this.signInBtn.click()]);
-	}
+test('Validate Login using Casting Director from Spotlight', async ({ loginpage,usertype }) => {
 
-	async doLogin(username: string, password: string) {
-		await this.enterUsername(username);
-		await this.enterPassword(password);
-		
-		await this.continueButton();
-		
-	}
-}
+	await loginpage.navigateToUrl(testdata.URL);
+	await loginpage.signinbuttonOnMainPage();
+	await usertype.castingDirectorOption();
+	await loginpage.doLogin(testdata.Casting_username, testdata.Casting_password);
+	await usertype.validateCastingDirectorLogin();
+});
