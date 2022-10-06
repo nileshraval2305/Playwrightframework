@@ -1,6 +1,6 @@
 import { Page, Locator } from '@playwright/test';
 import { expect } from '@playwright/test';
-import { v4 as uuidv4, V4Options } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 export default class PerformerPage {
 
@@ -26,6 +26,8 @@ export default class PerformerPage {
   readonly Performer_Term_Checkbox:Locator;
   readonly Performer_Continue_Eligibility:Locator;
   readonly Performer_Vaidate_Eligibility_Text:Locator;
+  readonly Performer_Experience_Criteria_Option:Locator;
+  readonly Performer_Eligibility_Continue_Btn_2:Locator;
 
   constructor(public page: Page) {
     this.unicid = uuidv4();
@@ -53,7 +55,9 @@ export default class PerformerPage {
     this.Performer_Term_Checkbox=page.locator("input[name='termsAgree']");
     this.Performer_Continue_Eligibility=page.locator("a[id='btn-signup-application'] span[class='c-button__text']");
     this.Performer_Vaidate_Eligibility_Text=page.locator(".py-4.text-2xl");
-  
+    this.Performer_Experience_Criteria_Option=page.locator("text=I meet the experience criteria ");
+    this.Performer_Eligibility_Continue_Btn_2 = page.locator("#btn-continue-eligibility-pathway");
+ 
   }
 
   async Performer_Findmore_Button_Click() {
@@ -161,6 +165,20 @@ async Enter_Performer_Email()
     await expect(this.Performer_Vaidate_Eligibility_Text).toHaveText('Eligibility:');
   }
 
+  
+  async select_Performer_Experience_Criteria_Option()
+  {
+    await this.Performer_Experience_Criteria_Option.click()
   }
 
-   
+
+  async Performer_Continue_Eligibility_Btn2_Click()
+  {
+
+   await this.Performer_Eligibility_Continue_Btn_2.click();
+
+  }
+
+}
+
+  
