@@ -114,7 +114,7 @@ export default class Performer_JoinNow {
    }
 
    async Validate_Performer_Get_Credit_Header_Text() {
-      await expect(this.Performer_Get_Credit_Header_Text).toHaveText('Fox Star Studios:');
+      await expect(this.Performer_Get_Credit_Header_Text).toHaveText('FOX STAR STUDIOS');
    }
   
    async Performer_Continue_About_To_You_Btn_Click() {
