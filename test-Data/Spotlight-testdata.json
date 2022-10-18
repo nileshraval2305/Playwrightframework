@@ -4,6 +4,28 @@
     "Performer_Role_Name":"Actor",
     "Performer_Production_Company":"Fox Studios",
     "Performer_Director_Name":"Rakesh roshan",
-    "Performer_Credit_Link_Textbox":"https://www.imdb.com/title/mymovie"
-    
+    "Performer_Credit_Link_Textbox":"https://www.imdb.com/title/mymovie",
+    "Performer_Mobile":"9725288129",
+    "Performer_Landline":"9998623262",
+    "Performer_Previous_Name":"Jenil Raval",
+    "Performer_Previous_Register_Email":"nilesh.qa2012@gmail.com",
+    "Performer_First_Name":"nilesh",
+    "Performer_Last_Name":"Raval",
+    "Performer_Address":"London",
+    "Performer_City":"London",
+    "Performer_Postcode":"WC2N 5DU",
+    "Visa_Card":"4929000000006",
+    "Visa_CVV":"123",
+    "Visa_OTP":"challenge",
+    "Performer_SchoolName":"London School of Dramatic Art",
+    "Performer_CourseName":"Diploma in Acting",
+    "Performer_Course_URL":"https://lsda-acting.com/",
+    "Performer_Credit_Header_Text":"FOX STAR STUDIOS",
+    "Performer_Add_Course_Title":"London School of Dramatic Art",
+    "Performer_Recommended_Header_Text":"Please add your recommendation information",
+    "Recommended_Full_Name":"Rohit shetty",
+    "Recommended_Letter":"Recommendation_letter.jpg"
+
+
+
 }

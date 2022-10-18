@@ -28,6 +28,10 @@ export default class PerformerPage {
   readonly Performer_Vaidate_Eligibility_Text:Locator;
   readonly Performer_Experience_Criteria_Option:Locator;
   readonly Performer_Eligibility_Continue_Btn_2:Locator;
+  readonly Performer_Training_Radio_Btn:Locator;
+  readonly Performer_Recommended_Radio_Btn:Locator;
+ 
+
 
   constructor(public page: Page) {
     this.unicid = uuidv4();
@@ -57,7 +61,9 @@ export default class PerformerPage {
     this.Performer_Vaidate_Eligibility_Text=page.locator(".py-4.text-2xl");
     this.Performer_Experience_Criteria_Option=page.locator("text=I meet the experience criteria ");
     this.Performer_Eligibility_Continue_Btn_2 = page.locator("#btn-continue-eligibility-pathway");
- 
+    this.Performer_Training_Radio_Btn=page.locator("text=I meet the training criteria");
+    this.Performer_Recommended_Radio_Btn=page.locator("text=I have a recommendation")
+   
   }
 
   async Performer_Findmore_Button_Click() {
@@ -160,7 +166,7 @@ async Enter_Performer_Email()
 
   }
 
-  async Validate_Performer_Vaidate_Eligibility_Text()
+  async Validate_Performer_Eligibility_Text()
   {
     await expect(this.Performer_Vaidate_Eligibility_Text).toHaveText('Eligibility:');
   }
@@ -178,6 +184,18 @@ async Enter_Performer_Email()
    await this.Performer_Eligibility_Continue_Btn_2.click();
 
   }
+
+  async Performer_Training_Option_Click() {
+   
+    await this.Performer_Training_Radio_Btn.click();
+ }
+ async Performer_Recommended_Radio_Btn_Click() {
+   
+  await this.Performer_Recommended_Radio_Btn.click();
+}
+
+
+
 
 }
 
