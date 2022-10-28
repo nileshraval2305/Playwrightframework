@@ -114,6 +114,7 @@ export default class Performer_JoinNow {
    readonly Validate_File_IS_Loaded: Locator;
    readonly Validate_Eligibility_Recommendation: Locator;
    readonly Validate_Referee_Membership: Locator;
+   readonly Performer_Payment_Pay_Now_Btn:Locator;
 
    constructor(public page: Page) {
 
@@ -168,7 +169,7 @@ export default class Performer_JoinNow {
       this.Performer_Course_Name_Text = page.locator("text=Diploma in Acting")
       this.Performer_Role_Text = page.locator("text=Actor");
       this.Performer_Production_Compnay_Text = page.locator("text=Fox Studios");
-      this.Performer_Qualification_Level_Text = page.locator("text=Diploma of Higher Education (DipHE)")
+      this.Performer_Qualification_Level_Text = page.locator("text=BA (Hons)")
       this.Performer_Director_Name_Text = page.locator("text=Rakesh roshan");
       this.Performer_Phone_Number_Text = page.locator("text=+44 9725288129");
       this.Performer_DOB_Text = page.locator("text=06.03.1995");
@@ -204,6 +205,7 @@ export default class Performer_JoinNow {
       this.Performer_Payment_By_Card_Processed_Btn = page.locator("img[name='proceed']");
       this.Performer_Payment_By_Card_First_Name = page.locator("input[name='cardfirstnames']");
       this.Performer_Payment_By_Card_Last_Name = page.locator("input[name='cardsurname']");
+      this.Performer_Payment_Pay_Now_Btn = page.locator("img[alt='Pay Now']");
 
       this.Performer_Payment_By_Card_Next_Btn = page.locator("input[value='Next']");
       this.Performer_Registration_Complete_Get_Text = page.locator(".py-4.text-2xl");
@@ -414,7 +416,8 @@ export default class Performer_JoinNow {
 
       await this.Validate_Get_And_Compare_Text(this.Performer_Eligibility_Training_Text, "Eligibility - Training");
       await this.Validate_Get_And_Compare_Text(this.Performer_Course_Name_Text, "Diploma in Acting");
-      await this.Validate_Get_And_Compare_Text(this.Performer_Qualification_Level_Text, "Diploma of Higher Education (DipHE)");
+      await this.page.pause();
+      await this.Validate_Get_And_Compare_Text(this.Performer_Qualification_Level_Text, "BA (Hons)");
 
    }
 
@@ -499,17 +502,25 @@ export default class Performer_JoinNow {
    }
 
    async Performer_Payment_Processed_Btn_Click() {
-
+      
       await this.Performer_Payment_By_Card_Processed_Btn.click();
 
    }
 
    async Performer_Payment_By_Card_Enter_OTP() {
-
+     
       const OTP = this.page.frameLocator("iframe[name='3diframe']").getByPlaceholder("xxxxxx");
       await OTP.fill(testdata.Visa_OTP);
+      
 
    }
+   
+   async Performer_Payment_Paynow_Btn() {
+
+      await this.Performer_Payment_Pay_Now_Btn.click();
+   }
+
+   
    async Performer_Payment_By_Card_Next_Btn_Click() {
       const Nextbutton = this.page.frameLocator("iframe[name='3diframe']").locator("input[value='Next']");
 

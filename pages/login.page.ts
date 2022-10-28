@@ -3,6 +3,7 @@ import type { Page, Locator } from '@playwright/test';
 export default class LoginPage {
 	readonly page: Page;
 	readonly signInLink: Locator;
+	readonly myaccountbtn:Locator;
 	readonly loginInput: Locator;
 	readonly passwordInput: Locator;
 	readonly performerCheckbox: Locator;
@@ -14,8 +15,10 @@ export default class LoginPage {
 		this.loginInput = this.page.locator('#Username');
 		this.passwordInput = this.page.locator('#Password');
 		this.performerCheckbox = this.page.locator('a.performer');
-		this.signInBtn = this.page.locator('#sign-in-button');
-	}
+	  	this.signInBtn = this.page.locator('#sign-in-button');
+	    this.myaccountbtn=this.page.locator('#myAccountLink');
+	
+	 }
 
 	async navigateToUrl(URL: string) {
 		await this.page.goto(URL);
@@ -23,6 +26,10 @@ export default class LoginPage {
 
 	async signinbuttonOnMainPage() {
 		await this.signInLink.click();
+	}
+
+	async myaccountbtnOnMainPage() {
+		await this.myaccountbtn.click();
 	}
 
 	async enterUsername(username: string) {
