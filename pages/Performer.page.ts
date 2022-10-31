@@ -4,168 +4,168 @@ import {expect} from '@playwright/test';
 import {v4 as uuidv4} from 'uuid';
 
 export default class PerformerPage {
-	readonly Performer_Findmore_Btn: Locator;
-	readonly Performer_Text: Locator;
-	readonly Performer_Join_Btn: Locator;
-	readonly Performer_Spotlight_Profile_Text: Locator;
-	readonly Performer_Spotlight_Discounts_Text: Locator;
-	readonly Performer_Developement_Events_Text: Locator;
-	readonly Performer_Advice_and_Support_Text: Locator;
-	readonly performer_Contact_Text: Locator;
-	readonly Performer_Faq_Text: Locator;
-	readonly Performer_Get_Price_Text: Locator;
-	readonly Performer_Welcome_Text: Locator;
-	readonly Performer_Training_Text: Locator;
-	readonly Performer_Recommendation_Text: Locator;
-	readonly Performer_Experience_Text: Locator;
+	readonly performerFindmoreBtn: Locator;
+	readonly performerText: Locator;
+	readonly performerJoinBtn: Locator;
+	readonly performerSpotlightProfileText: Locator;
+	readonly performerSpotlightDiscountsText: Locator;
+	readonly performerDevelopementEventsText: Locator;
+	readonly performerAdviceandSupportText: Locator;
+	readonly performerContactText: Locator;
+	readonly performerFaqText: Locator;
+	readonly performerGetPriceText: Locator;
+	readonly performerWelcomeText: Locator;
+	readonly performerTrainingText: Locator;
+	readonly performerRecommendationText: Locator;
+	readonly performerExperienceText: Locator;
 	readonly unicid: string;
-	readonly Performer_Firstname: Locator;
-	readonly Performer_Surname: Locator;
-	readonly Check_name_availability: Locator;
-	readonly Performer_Email: Locator;
-	readonly Performer_Term_Checkbox: Locator;
-	readonly Performer_Continue_Eligibility: Locator;
-	readonly Performer_Vaidate_Eligibility_Text: Locator;
-	readonly Performer_Experience_Criteria_Option: Locator;
-	readonly Performer_Eligibility_Continue_Btn_2: Locator;
-	readonly Performer_Training_Radio_Btn: Locator;
-	readonly Performer_Recommended_Radio_Btn: Locator;
+	readonly performerFirstname: Locator;
+	readonly performerSurname: Locator;
+	readonly checknameavailability: Locator;
+	readonly performerEmail: Locator;
+	readonly performerTermCheckbox: Locator;
+	readonly performerContinueEligibility: Locator;
+	readonly performerValidateEligibilityText: Locator;
+	readonly performerExperienceCriteriaOption: Locator;
+	readonly performerEligibilityContinueBtn2: Locator;
+	readonly performerTrainingRadioBtn: Locator;
+	readonly performerRecommendedRadioBtn: Locator;
 
 	constructor(public page: Page) {
 		this.unicid = uuidv4();
 
-		this.Performer_Text = this.page.locator('.heroHeading');
-		this.Performer_Findmore_Btn = this.page.locator('a[href=\'/join-us/performers/\']');
-		this.Performer_Join_Btn = this.page.locator('div[class=\'heroItem\'] a[class=\'button\']');
-		this.Performer_Spotlight_Profile_Text = this.page.locator('text=Spotlight profile');
-		this.Performer_Spotlight_Discounts_Text = this.page.locator('//strong[normalize-space()=\'Discounts\']');
-		this.Performer_Developement_Events_Text = this.page.locator('text=Development and Events');
-		this.Performer_Advice_and_Support_Text = this.page.locator('//strong[normalize-space()=\'Advice and Support\']');
-		this.performer_Contact_Text = this.page.locator('//a[@class=\'itemLink\'][normalize-space()=\'Contacts\']');
-		this.Performer_Get_Price_Text = this.page.locator('div[class=\'joinPriceInfo\'] h3');
-		this.Performer_Faq_Text = page.locator('//a[@class=\'itemLink\'][normalize-space()=\'FAQs\']');
+		this.performerText = this.page.locator('.heroHeading');
+		this.performerFindmoreBtn = this.page.locator('a[href=\'/join-us/performers/\']');
+		this.performerJoinBtn = this.page.locator('div[class=\'heroItem\'] a[class=\'button\']');
+		this.performerSpotlightProfileText = this.page.locator('text=Spotlight profile');
+		this.performerSpotlightDiscountsText = this.page.locator('//strong[normalize-space()=\'Discounts\']');
+		this.performerDevelopementEventsText = this.page.locator('text=Development and Events');
+		this.performerAdviceandSupportText = this.page.locator('//strong[normalize-space()=\'Advice and Support\']');
+		this.performerContactText = this.page.locator('//a[@class=\'itemLink\'][normalize-space()=\'Contacts\']');
+		this.performerGetPriceText = this.page.locator('div[class=\'joinPriceInfo\'] h3');
+		this.performerFaqText = page.locator('//a[@class=\'itemLink\'][normalize-space()=\'FAQs\']');
 
-		this.Performer_Welcome_Text = page.locator('.py-1.text-2xl');
+		this.performerWelcomeText = page.locator('.py-1.text-2xl');
 
-		this.Performer_Training_Text = page.locator('//strong[normalize-space()=\'Training\']');
-		this.Performer_Recommendation_Text = page.locator('//strong[normalize-space()=\'Recommendation\']');
-		this.Performer_Experience_Text = page.locator('//strong[normalize-space()=\'Experience\']');
-		this.Performer_Firstname = page.locator('#forenames');
-		this.Performer_Surname = page.locator('#surname');
-		this.Check_name_availability = page.locator('a[id=\'btn-check-name-available\'] span[class=\'c-button__text\']');
-		this.Performer_Email = page.locator('#email');
-		this.Performer_Term_Checkbox = page.locator('input[name=\'termsAgree\']');
-		this.Performer_Continue_Eligibility = page.locator('a[id=\'btn-signup-application\'] span[class=\'c-button__text\']');
-		this.Performer_Vaidate_Eligibility_Text = page.locator('.py-4.text-2xl');
-		this.Performer_Experience_Criteria_Option = page.locator('text=I meet the experience criteria ');
-		this.Performer_Eligibility_Continue_Btn_2 = page.locator('#btn-continue-eligibility-pathway');
-		this.Performer_Training_Radio_Btn = page.locator('text=I meet the training criteria');
-		this.Performer_Recommended_Radio_Btn = page.locator('text=I have a recommendation');
+		this.performerTrainingText = page.locator('//strong[normalize-space()=\'Training\']');
+		this.performerRecommendationText = page.locator('//strong[normalize-space()=\'Recommendation\']');
+		this.performerExperienceText = page.locator('//strong[normalize-space()=\'Experience\']');
+		this.performerFirstname = page.locator('#forenames');
+		this.performerSurname = page.locator('#surname');
+		this.checknameavailability = page.locator('a[id=\'btn-check-name-available\'] span[class=\'c-button__text\']');
+		this.performerEmail = page.locator('#email');
+		this.performerTermCheckbox = page.locator('input[name=\'termsAgree\']');
+		this.performerContinueEligibility = page.locator('a[id=\'btn-signup-application\'] span[class=\'c-button__text\']');
+		this.performerValidateEligibilityText = page.locator('.py-4.text-2xl');
+		this.performerExperienceCriteriaOption = page.locator('text=I meet the experience criteria ');
+		this.performerEligibilityContinueBtn2 = page.locator('#btn-continue-eligibility-pathway');
+		this.performerTrainingRadioBtn = page.locator('text=I meet the training criteria');
+		this.performerRecommendedRadioBtn = page.locator('text=I have a recommendation');
 	}
 
-	async performer_Findmore_Button_Click() {
-		await this.Performer_Findmore_Btn.click();
+	async performerFindmoreButtonClick() {
+		await this.performerFindmoreBtn.click();
 	}
 
-	async validate_Performer_Text() {
-		await expect(this.Performer_Text).toHaveText('Performers');
+	async validatePerformerText() {
+		await expect(this.performerText).toHaveText('Performers');
 	}
 
-	async validate_Performer_Spotlight_Profile_Text() {
-		await expect(this.Performer_Spotlight_Profile_Text).toHaveText('Spotlight profile');
+	async validatePerformerSpotlightProfileText() {
+		await expect(this.performerSpotlightProfileText).toHaveText('Spotlight profile');
 	}
 
-	async Validate_Performer_Spotlight_Discounts_Text() {
-		await expect(this.Performer_Spotlight_Discounts_Text).toHaveText('Discounts');
+	async validatePerformerSpotlightDiscountsText() {
+		await expect(this.performerSpotlightProfileText).toHaveText('Discounts');
 	}
 
-	async Validate_Performer_Developement_Events_Text() {
-		await expect(this.Performer_Developement_Events_Text).toHaveText('Development and Events');
+	async validatePerformerDevelopementEventsText() {
+		await expect(this.performerDevelopementEventsText).toHaveText('Development and Events');
 	}
 
-	async Validate_Performer_Advice_and_Support_Text() {
-		await expect(this.Performer_Advice_and_Support_Text).toHaveText('Advice and Support');
+	async validatePerformerAdviceandSupportText() {
+		await expect(this.performerAdviceandSupportText).toHaveText('Advice and Support');
 	}
 
-	async Validate_performer_Contact() {
-		await expect(this.performer_Contact_Text).toHaveText('Contacts');
+	async validateperformerContact() {
+		await expect(this.performerContactText).toHaveText('Contacts');
 	}
 
-	async Validate_Performer_Faq_Text() {
-		await expect(this.Performer_Faq_Text).toHaveText('FAQs');
+	async validatePerformerFaqText() {
+		await expect(this.performerFaqText).toHaveText('FAQs');
 	}
 
-	async Validate_Performer_Get_Price_Text() {
-		await expect(this.Performer_Get_Price_Text).toHaveText('From £172.50 per year*');
+	async validatePerformerGetPriceText() {
+		await expect(this.performerGetPriceText).toHaveText('From £172.50 per year*');
 	}
 
-	async joinnow_Button_Click() {
-		await this.Performer_Join_Btn.click();
+	async joinnowButtonClick() {
+		await this.performerJoinBtn.click();
 	}
 
-	async validate_Performer_Welcome_Text() {
-		await expect(this.Performer_Welcome_Text).toHaveText('Welcome to the Spotlight Performer Application');
+	async validatePerformerWelcomeText() {
+		await expect(this.performerWelcomeText).toHaveText('Welcome to the Spotlight Performer Application');
 	}
 
-	async validate_Performer_Experience_Text() {
-		await expect(this.Performer_Experience_Text).toHaveText('Experience');
+	async validatePerformerExperienceText() {
+		await expect(this.performerExperienceText).toHaveText('Experience');
 	}
 
-	async validate_Performer_Training_Text() {
-		await expect(this.Performer_Training_Text).toHaveText('Training');
+	async validatePerformerTrainingText() {
+		await expect(this.performerTrainingText).toHaveText('Training');
 	}
 
-	async validate_Performer_Recommendation_Text() {
-		await expect(this.Performer_Recommendation_Text).toHaveText('Recommendation');
+	async validatePerformerRecommendationText() {
+		await expect(this.performerRecommendationText).toHaveText('Recommendation');
 	}
 
-	async UUID_alphabet() {
+	async uuidalphabet() {
 		// Console.log(this.unicid.replace(/[0-9,-]/g, ''));
 
 		return this.unicid.replace(/[0-9,-]/g, '');
 	}
 
-	async enter_Performer_Firstname() 	{
-		await this.Performer_Firstname.fill(await this.UUID_alphabet());
+	async enterPerformerFirstname() 	{
+		await this.performerFirstname.fill(await this.uuidalphabet());
 	}
 
-	async enter_Performer_Surname() 	{
-		await this.Performer_Surname.fill(await this.UUID_alphabet());
+	async enterPerformerSurname() 	{
+		await this.performerSurname.fill(await this.uuidalphabet());
 	}
 
-	async check_name_availability_Btn_Click() 	{
-		await this.Check_name_availability.click();
+	async checknameavailabilityBtnClick() 	{
+		await this.checknameavailability.click();
 	}
 
-	async enter_Performer_Email() 	{
-		await this.Performer_Email.fill(await this.UUID_alphabet() + '@gmail.com');
+	async enterPerformerEmail() 	{
+		await this.performerEmail.fill(await this.uuidalphabet() + '@gmail.com');
 	}
 
-	async select_Performer_Term_Checkbox() {
-		await this.Performer_Term_Checkbox.click();
+	async selectPerformerTermCheckbox() {
+		await this.performerTermCheckbox.click();
 	}
 
-	async performer_Continue_Eligibility_Click() {
-		await this.Performer_Continue_Eligibility.click();
+	async performerContinueEligibilityClick() {
+		await this.performerContinueEligibility.click();
 	}
 
-	async validate_Performer_Eligibility_Text() {
-	 await expect(this.Performer_Vaidate_Eligibility_Text).toHaveText('Eligibility:');
+	async validatePerformerEligibilityText() {
+	 await expect(this.performerValidateEligibilityText).toHaveText('Eligibility:');
 	}
 
-	async select_Performer_Experience_Criteria_Option() {
-		await this.Performer_Experience_Criteria_Option.click();
+	async selectPerformerExperienceCriteriaOption() {
+		await this.performerExperienceCriteriaOption.click();
 	}
 
-	async performer_Continue_Eligibility_Btn2_Click() {
-		await this.Performer_Eligibility_Continue_Btn_2.click();
+	async performerContinueEligibilityBtn2Click() {
+		await this.performerEligibilityContinueBtn2.click();
 	}
 
-	async performer_Training_Option_Click() {
-		await this.Performer_Training_Radio_Btn.click();
+	async performerTrainingOptionClick() {
+		await this.performerTrainingRadioBtn.click();
 	}
 
-	async performer_Recommended_Radio_Btn_Click() {
-		await this.Performer_Recommended_Radio_Btn.click();
+	async performerRecommendedRadioBtnClick() {
+		await this.performerRecommendedRadioBtn.click();
 	}
 }
