@@ -1,3 +1,4 @@
+/* eslint-disable no-trailing-spaces */
 import {test} from '../Fixtures/spotlight_Fixture';
 
 import * as testdata from '../../test-Data/login-Testdata.json';
@@ -60,110 +61,110 @@ test('Perform joining application using Experience Option', async ({page, loginp
 	});
 
 	await test.step('Click on Add credits button and enter all required details', async () => {
-		await Performer_registerpage.Performer_Add_Credit_Section();
+		await Performer_registerpage.performerAddCreditSection();
 	});
 	await test.step('Validate Get credit header title', async () => {
-		await Performer_registerpage.Validate_Get_And_Compare_Text(Performer_registerpage.Performer_Get_Credit_Header_Text, userdata.Performer_Credit_Header_Text);
+		await Performer_registerpage.validateGetAndCompareText(Performer_registerpage.performerGetCreditHeaderText, userdata.Performer_Credit_Header_Text);
 	});
 
 	await test.step('Click on Continue About to You button', async () => {
-		await Performer_registerpage.Performer_Continue_About_To_You_Btn_Click();
+		await Performer_registerpage.performerContinueAboutToYouBtnClick();
 	});
 
 	await test.step('Validate About You Page Text', async () => {
-		await Performer_registerpage.Validate_Performer_About_To_You_page_Text();
+		await Performer_registerpage.validatePerformerAboutToYoupageText();
 	});
 
 	await test.step('Upload Headshot', async () => {
-		await Performer_registerpage.Performer_Upload_File_Images('Upload_Doc/headhshot.jpg');
+		await Performer_registerpage.performerUploadFileImages('Upload_Doc/headhshot.jpg');
 	});
 	await test.step('Select Existing Photographer', async () => {
-		await Performer_registerpage.Performer_Select_Photographer();
+		await Performer_registerpage.performerSelectPhotographer();
 	});
 	await test.step('Click on Choose Photo button', async () => {
-		await Performer_registerpage.Performer_choose_Poto_Btn_Click();
+		await Performer_registerpage.performerChoosePotoBtnClick();
 	});
 	await test.step('Enter Phone Number', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Enter_PhoneNumber();
+		await Performer_registerpage.performerAboutToPageEnterPhoneNumber();
 	});
 	await test.step('Enter Landline Number', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Enter_Landlinenumber();
+		await Performer_registerpage.performerAboutToPageEnterLandlinenumber();
 	});
 	await test.step('Select Previous Membership option', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Previous_Membership();
+		await Performer_registerpage.performerAboutToPagePreviousMembership();
 	});
 	await test.step('Enter Performer DOB', async () => {
-		await Performer_registerpage.Performer_Select_DOB__Calender_Dropdown();
+		await Performer_registerpage.performerSelectDobCalenderDropdown();
 	});
 
 	await test.step('Select Performer Publish Age Checkbox', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Select_Publish_Age_Checkbox();
+		await Performer_registerpage.performerAboutToPageSelectPublishAgeCheckbox();
 	});
-
+	// eslint-disable-next-line no-trailing-spaces
+	
 	await test.step('Select Performer Playing Age', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Select_Playing_Age();
+		await Performer_registerpage.performerAboutToPageSelectPlayingAge();
 	});
 	await test.step('Select Performer Select Gender', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Select_Gender();
+		await Performer_registerpage.performerAboutToPageSelectGender();
 	});
 	await test.step('Select Public Profile Radio Button', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Select_Displayed_Public_Profile();
+		await Performer_registerpage.performerAboutToPageSelectDisplayedPublicProfile();
 	});
 	await test.step('Select About Page continue Button', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Continue_Button_Click();
+		await Performer_registerpage.performerAboutToPageContinueButtonClick();
 	});
 	await test.step('Validate Performer Review page text', async () => {
-		await Performer_registerpage.Validate_Performer_Review_page_Text();
+		await Performer_registerpage.validatePerformerReviewpageText();
 	});
 
 	await test.step('Validate Performer Review page Credit label text', async () => {
-		await Performer_registerpage.Validate_Performer_Review_Page_Eligibility_Credits_Label_Text();
+		await Performer_registerpage.validatePerformerReviewPageEligibilityCreditsLabelText();
 	});
 	await test.step('Click on Continue Checkout button', async () => {
-		await Performer_registerpage.Performer_Continue_Checkout_Click();
+		await Performer_registerpage.performerContinueCheckoutClick();
 	});
 	await test.step('Validate Payment Subscription text', async () => {
-		await Performer_registerpage.Performer_Validate_Payment_Subscription_Text();
+		await Performer_registerpage.performerValidatePaymentSubscriptionText();
 	});
 	await test.step('Select Debit and Credit Card option', async () => {
-		await Performer_registerpage.Performer_Select_Creditcard_Btn_Click();
+		await Performer_registerpage.performerselectcreditcardBtnClick();
 	});
 	await test.step('Validate Payment Invoice Text', async () => {
-		await Performer_registerpage.Performer_Validate_Payment_Invoice_Text();
+		await Performer_registerpage.performerValidatePaymentInvoiceText();
 	});
 
 	await test.step('Click on Payment Continue Btn', async () => {
-		await Performer_registerpage.Performer_Creditcard_Payment_Continue_Btn_Click();
+		await Performer_registerpage.performercreditcardPaymentContinueBtnClick();
 	});
 
 	await test.step('Enter Performer Billing Details', async () => {
-		await Performer_registerpage.Performer_Billing_Details();
+		await Performer_registerpage.performerBillingDetails();
 	});
 
 	await test.step('Click on Confirm Pay Button', async () => {
-		await Performer_registerpage.Performer_Billing_Confirm_Pay_Btn_Click();
+		await Performer_registerpage.performerBillingConfirmPayBtnClick();
 	});
 
 	await test.step('Select Payment using Visa Card', async () => {
-		await Performer_registerpage.Performer_Payment_Using_Visa_Card();
+		await Performer_registerpage.performerPaymentUsingVisaCard();
 	});
 
-	
 	await test.step('Select Payment Processed Button', async () => {
-		await Performer_registerpage.Performer_Payment_Processed_Btn_Click();
+		await Performer_registerpage.performerPaymentProcessedBtnClick();
 	});
 	await test.step('Click on Pay Now Button', async () => {
-		await Performer_registerpage.Performer_Payment_Paynow_Btn();
+		await Performer_registerpage.performerPaymentPaynowBtn();
 	});
-	
-	//await test.step('Enter OTP ', async () => {
+
+	// Await test.step('Enter OTP ', async () => {
 	//	await Performer_registerpage.Performer_Payment_By_Card_Enter_OTP();
-	//});
-	//await test.step('Click on Next Button ', async () => {
+	// });
+	// await test.step('Click on Next Button ', async () => {
 	//	await Performer_registerpage.Performer_Payment_By_Card_Next_Btn_Click();
-//	});
+	//	});
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.Validate_Performer_Registration_Complete_Text();
+		await Performer_registerpage.validatePerformerRegistrationCompleteText();
 	});
 });
 
@@ -224,110 +225,104 @@ test('Perform joining application using Training Option', async ({page, loginpag
 	});
 
 	await test.step('Click on Add course button and fill all the details', async () => {
-		await Performer_registerpage.Performer_Add_Course_Section();
+		await Performer_registerpage.performerAddCourseSection();
 	});
 
 	await test.step('Validate Add course Header', async () => {
-		await Performer_registerpage.Validate_Get_And_Compare_Text(Performer_registerpage.Performer_Get_Credit_Header_Text, userdata.Performer_Add_Course_Title);
+		await Performer_registerpage.validateGetAndCompareText(Performer_registerpage.performerGetCreditHeaderText, userdata.Performer_Add_Course_Title);	
 	});
 
 	await test.step('Click on Continue About to You Button', async () => {
-		await Performer_registerpage.Webapplication_Event_Click(Performer_registerpage.Performer_Continue_About_To_You_Btn);
+		await Performer_registerpage.webapplicationEventClick(Performer_registerpage.performerContinueAboutToYouBtn);
 	});
 
 	await test.step('Validate About Page text', async () => {
-		await Performer_registerpage.Validate_Performer_About_To_You_page_Text();
+		await Performer_registerpage.validatePerformerAboutToYoupageText();
 	});
 	await test.step('Upload Headshot', async () => {
-		await Performer_registerpage.Performer_Upload_File_Images('Upload_Doc/headhshot.jpg');
+		await Performer_registerpage.performerUploadFileImages('Upload_Doc/headhshot.jpg');
 	});
 	await test.step('Select Existing Photographer', async () => {
-		await Performer_registerpage.Performer_Select_Photographer();
+		await Performer_registerpage.performerSelectPhotographer();
 	});
 	await test.step('Click on Choose Photo button', async () => {
-		await Performer_registerpage.Performer_choose_Poto_Btn_Click();
+		await Performer_registerpage.performerChoosePotoBtnClick();
 	});
 	await test.step('Enter Phone Number', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Enter_PhoneNumber();
+		await Performer_registerpage.performerAboutToPageEnterPhoneNumber();
 	});
 	await test.step('Enter Landline Number', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Enter_Landlinenumber();
+		await Performer_registerpage.performerAboutToPageEnterLandlinenumber();
 	});
 	await test.step('Select Previous Membership option', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Previous_Membership();
+		await Performer_registerpage.performerAboutToPagePreviousMembership();
 	});
 	await test.step('Enter Performer DOB', async () => {
-		await Performer_registerpage.Performer_Select_DOB__Calender_Dropdown();
+		await Performer_registerpage.performerSelectDobCalenderDropdown();
 	});
 
 	await test.step('Select Performer Publish Age Checkbox', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Select_Publish_Age_Checkbox();
+		await Performer_registerpage.performerAboutToPageSelectPublishAgeCheckbox();
 	});
 
 	await test.step('Select Performer Playing Age', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Select_Playing_Age();
+		await Performer_registerpage.performerAboutToPageSelectPlayingAge();
 	});
 	await test.step('Select Performer Select Gender', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Select_Gender();
+		await Performer_registerpage.performerAboutToPageSelectGender();
 	});
 	await test.step('Select Public Profile Radio Button', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Select_Displayed_Public_Profile();
+		await Performer_registerpage.performerAboutToPageSelectDisplayedPublicProfile();
 	});
 	await test.step('Select About Page continue Button', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Continue_Button_Click();
+		await Performer_registerpage.performerAboutToPageContinueButtonClick();
 	});
 	await test.step('Validate Performer Review page text', async () => {
-		await Performer_registerpage.Validate_Performer_Review_page_Text();
+		await Performer_registerpage.validatePerformerReviewpageText();
 	});
 
 	await test.step('Validate Review page Add course details data text', async () => {
-		await Performer_registerpage.Validate_Performer_Review_Page_Add_Course_Credits_Label_Text();
+		await Performer_registerpage.validatePerformerReviewPageAddCourseCreditsLabelText();
 	});
 	await test.step('Click on Continue Checkout button', async () => {
-		await Performer_registerpage.Performer_Continue_Checkout_Click();
+		await Performer_registerpage.performerContinueCheckoutClick();
 	});
 	await test.step('Validate Payment Subscription text', async () => {
-		await Performer_registerpage.Performer_Validate_Payment_Subscription_Text();
+		await Performer_registerpage.performerValidatePaymentSubscriptionText();
 	});
 	await test.step('Select Debit and Credit Card option', async () => {
-		await Performer_registerpage.Performer_Select_Creditcard_Btn_Click();
+		await Performer_registerpage.performerselectcreditcardBtnClick();
 	});
 	await test.step('Validate Payment Invoice Text', async () => {
-		await Performer_registerpage.Performer_Validate_Payment_Invoice_Text();
+		await Performer_registerpage.performerValidatePaymentInvoiceText();
 	});
 
 	await test.step('Click on Payment Continue Btn', async () => {
-		await Performer_registerpage.Performer_Creditcard_Payment_Continue_Btn_Click();
+		await Performer_registerpage.performercreditcardPaymentContinueBtnClick();
 	});
 
 	await test.step('Enter Performer Billing Details', async () => {
-		await Performer_registerpage.Performer_Billing_Details();
+		await Performer_registerpage.performerBillingDetails();
 	});
 
 	await test.step('Click on Confirm Pay Button', async () => {
-		await Performer_registerpage.Performer_Billing_Confirm_Pay_Btn_Click();
+		await Performer_registerpage.performerBillingConfirmPayBtnClick();
 	});
 
 	await test.step('Select Payment using Visa Card', async () => {
-		await Performer_registerpage.Performer_Payment_Using_Visa_Card();
+		await Performer_registerpage.performerPaymentUsingVisaCard();
 	});
 
 	await test.step('Select Payment Processed Button', async () => {
-		await Performer_registerpage.Performer_Payment_Processed_Btn_Click();
+		await Performer_registerpage.performerPaymentProcessedBtnClick();
 	});
-	
+
 	await test.step('Click on Pay Now Button', async () => {
-		await Performer_registerpage.Performer_Payment_Paynow_Btn();
+		await Performer_registerpage.performerPaymentPaynowBtn();
 	});
-	
-	//await test.step('Enter OTP ', async () => {
-	//	await Performer_registerpage.Performer_Payment_By_Card_Enter_OTP();
-	//});
-	//await test.step('Click on Next Button ', async () => {
-	//	await Performer_registerpage.Performer_Payment_By_Card_Next_Btn_Click();
-	//});
+
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.Validate_Performer_Registration_Complete_Text();
+		await Performer_registerpage.validatePerformerRegistrationCompleteText();
 	});
 });
 
@@ -385,113 +380,172 @@ test('Perform joining application using Recommended Option', async ({page, login
 		await performerpage.performer_Continue_Eligibility_Btn2_Click();
 	});
 	await test.step('Validate Performerm Recommended header', async () => {
-		await Performer_registerpage.Validate_Get_And_Compare_Text(Performer_registerpage.Performer_Get_Recommended_Header, userdata.Performer_Recommended_Header_Text);
+		await Performer_registerpage.validateGetAndCompareText(Performer_registerpage.performerGetRecommendedHeader, userdata.Performer_Recommended_Header_Text);
 	});
 	await test.step('Enter full name of Referee', async () => {
-		await Performer_registerpage.Performer_Enter_Full_Name_Of_Referee();
+		await Performer_registerpage.performerEnterFullNameOfReferee();
 	});
 
 	await test.step('Select Referee\'s Membership', async () => {
-		await Performer_registerpage.Performer_Select_Referee_Membership();
+		await Performer_registerpage.performerSelectRefereeMembership();
 	});
 	await test.step('Upload Recommendation Letter', async () => {
-		await Performer_registerpage.Performer_Upload_File_Images('Upload_Doc/Recommendation_letter.jpg');
+		await Performer_registerpage.performerUploadFileImages('Upload_Doc/Recommendation_letter.jpg');
 	});
 	await test.step('Validate upload file is loaded', async () => {
-		await Performer_registerpage.Check_Upload_File_is_Loaded(Performer_registerpage.Validate_File_IS_Loaded, userdata.Recommended_Letter);
+		await Performer_registerpage.checkUploadFileisLoaded(Performer_registerpage.validateFileIsLoaded, userdata.Recommended_Letter);
 	});
 
 	await test.step('Click on Continue About to You Button', async () => {
-		await Performer_registerpage.Webapplication_Event_Click(Performer_registerpage.Performer_Continue_About_To_You_Btn);
+		await Performer_registerpage.webapplicationEventClick(Performer_registerpage.performerContinueAboutToYouBtn);
 	});
 	await test.step('Validate About Page text', async () => {
-		await Performer_registerpage.Validate_Performer_About_To_You_page_Text();
+		await Performer_registerpage.validatePerformerAboutToYoupageText();
 	});
 	await test.step('Upload Headshot', async () => {
-		await Performer_registerpage.Performer_Upload_File_Images('Upload_Doc/headhshot.jpg');
+		await Performer_registerpage.performerUploadFileImages('Upload_Doc/headhshot.jpg');
 	});
 	await test.step('Select Existing Photographer', async () => {
-		await Performer_registerpage.Performer_Select_Photographer();
+		await Performer_registerpage.performerSelectPhotographer();
 	});
 	await test.step('Click on Choose Photo button', async () => {
-		await Performer_registerpage.Performer_choose_Poto_Btn_Click();
+		await Performer_registerpage.performerChoosePotoBtnClick();
 	});
 	await test.step('Enter Phone Number', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Enter_PhoneNumber();
+		await Performer_registerpage.performerAboutToPageEnterPhoneNumber();
 	});
 	await test.step('Enter Landline Number', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Enter_Landlinenumber();
+		await Performer_registerpage.performerAboutToPageEnterLandlinenumber();
 	});
 	await test.step('Select Previous Membership option', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Previous_Membership();
+		await Performer_registerpage.performerAboutToPagePreviousMembership();
 	});
 	await test.step('Enter Performer DOB', async () => {
-		await Performer_registerpage.Performer_Select_DOB__Calender_Dropdown();
+		await Performer_registerpage.performerSelectDobCalenderDropdown();
 	});
 
 	await test.step('Select Performer Publish Age Checkbox', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Select_Publish_Age_Checkbox();
+		await Performer_registerpage.performerAboutToPageSelectPublishAgeCheckbox();
 	});
 
 	await test.step('Select Performer Playing Age', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Select_Playing_Age();
+		await Performer_registerpage.performerAboutToPageSelectPlayingAge();
 	});
 
 	await test.step('Select Performer Select Gender', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Select_Gender();
+		await Performer_registerpage.performerAboutToPageSelectGender();
 	});
 	await test.step('Select Public Profile Radio Button', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Select_Displayed_Public_Profile();
+		await Performer_registerpage.performerAboutToPageSelectDisplayedPublicProfile();
 	});
 	await test.step('Select About Page continue Button', async () => {
-		await Performer_registerpage.Performer_About_To_Page_Continue_Button_Click();
+		await Performer_registerpage.performerAboutToPageContinueButtonClick();
 	});
 	await test.step('Validate Performer Review page text', async () => {
-		await Performer_registerpage.Validate_Performer_Review_page_Text();
+		await Performer_registerpage.validatePerformerReviewpageText();
 	});
 
 	await test.step('Validate Review page Recommendation data text', async () => {
-		await Performer_registerpage.Validate_Performer_Review_Page_Add_Recommedation_Label_Text();
+		await Performer_registerpage.validatePerformerReviewPageAddRecommedationLabelText();
 	});
 	await test.step('Click on Continue Checkout button', async () => {
-		await Performer_registerpage.Performer_Continue_Checkout_Click();
+		await Performer_registerpage.performerContinueCheckoutClick();
 	});
 	await test.step('Validate Payment Subscription text', async () => {
-		await Performer_registerpage.Performer_Validate_Payment_Subscription_Text();
+		await Performer_registerpage.performerValidatePaymentSubscriptionText();
 	});
 	await test.step('Select Debit and Credit Card option', async () => {
-		await Performer_registerpage.Performer_Select_Creditcard_Btn_Click();
+		await Performer_registerpage.performerselectcreditcardBtnClick();
 	});
 	await test.step('Validate Payment Invoice Text', async () => {
-		await Performer_registerpage.Performer_Validate_Payment_Invoice_Text();
+		await Performer_registerpage.performerValidatePaymentInvoiceText();
 	});
 
 	await test.step('Click on Payment Continue Btn', async () => {
-		await Performer_registerpage.Performer_Creditcard_Payment_Continue_Btn_Click();
+		await Performer_registerpage.performercreditcardPaymentContinueBtnClick();
 	});
 
 	await test.step('Enter Performer Billing Details', async () => {
-		await Performer_registerpage.Performer_Billing_Details();
+		await Performer_registerpage.performerBillingDetails();
 	});
 
 	await test.step('Click on Confirm Pay Button', async () => {
-		await Performer_registerpage.Performer_Billing_Confirm_Pay_Btn_Click();
+		await Performer_registerpage.performerBillingConfirmPayBtnClick();
 	});
 
 	await test.step('Select Payment using Visa Card', async () => {
-		await Performer_registerpage.Performer_Payment_Using_Visa_Card();
+		await Performer_registerpage.performerPaymentUsingVisaCard();
 	});
 
 	await test.step('Select Payment Processed Button', async () => {
-		await Performer_registerpage.Performer_Payment_Processed_Btn_Click();
+		await Performer_registerpage.performerPaymentProcessedBtnClick();
 	});
 	await test.step('Click on Pay Now Button', async () => {
-		await Performer_registerpage.Performer_Payment_Paynow_Btn();
+		await Performer_registerpage.performerPaymentPaynowBtn();
 	});
-	
 
-	
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.Validate_Performer_Registration_Complete_Text();
+		await Performer_registerpage.validatePerformerRegistrationCompleteText();
+	});
+});
+
+test('Validate Back Button in Eligibility section from Performers', async ({page, loginpage, performerpage, joinpage, Performer_registerpage}) => {
+	await test.step('Navigate to Webapplication URL', async () => {
+		await loginpage.navigateToUrl(testdata.URL);
+	});
+	await test.step('Click on Join Now button in Home Page', async () => {
+		await joinpage.joinnowbtnOnMainPage();
+	});
+	await test.step('Click on Findmore button', async () => {
+		await performerpage.performer_Findmore_Button_Click();
+	});
+	await test.step('Click on Join Button', async () => {
+		await performerpage.joinnow_Button_Click();
+	});
+	await test.step('Validate Welcome Text Header ', async () => {
+		await performerpage.validate_Performer_Welcome_Text();
+	});
+	await test.step('Validate Experience Text Header', async () => {
+		await performerpage.validate_Performer_Experience_Text();
+	});
+	await test.step('Validate Training Text Header', async () => {
+		await performerpage.validate_Performer_Training_Text();
+	});
+	await test.step('Validate Recommendation Text Header', async () => {
+		await performerpage.validate_Performer_Recommendation_Text();
+	});
+	await test.step('Enter First Name of Performer', async () => {
+		await performerpage.enter_Performer_Firstname();
+	});
+	await test.step('Enter SirName of Performer', async () => {
+		await performerpage.enter_Performer_Surname();
+	});
+	await test.step('Click On Avaiable button to check name', async () => {
+		await performerpage.check_name_availability_Btn_Click();
+	});
+
+	await test.step('Enter Email address of Performer', async () => {
+		await performerpage.enter_Performer_Email();
+	});
+	await test.step('Select Term checkbox', async () => {
+		await performerpage.select_Performer_Term_Checkbox();
+	});
+	await test.step('Click on Eligibility button', async () => {
+		await performerpage.performer_Continue_Eligibility_Click();
+	});
+	await test.step('Validate Performer Eligibility text', async () => {
+		await performerpage.validate_Performer_Eligibility_Text();
+	});
+
+	await test.step('Click on Performer Experience Radio Button', async () => {
+		await performerpage.select_Performer_Experience_Criteria_Option();
+	});
+
+	await test.step('Click on Continue Eligibility Button', async () => {
+		await performerpage.performer_Continue_Eligibility_Btn2_Click();
+	});
+
+	await test.step('Click on Back Button', async () => {
+		await Performer_registerpage.performerBackBtnInEligibility();
 	});
 });
