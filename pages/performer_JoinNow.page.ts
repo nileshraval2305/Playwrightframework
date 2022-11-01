@@ -117,6 +117,11 @@ export default class PerformerJoinNow {
 	readonly validateRefereeMembership: Locator;
 	readonly performerPaymentPayNowBtn: Locator;
 	readonly validateBackBtnInEligibility: Locator;
+	readonly backBtnAboutToPage: Locator;
+	readonly backBtnReviewPage: Locator;
+	readonly backBtnCheckoutPage: Locator;
+	readonly performerCancelBtn: Locator;
+	readonly performerLeaveApplicationBtn: Locator;
 
 	constructor(public page: Page) {
 		this.performerAddcreditBtn = page.locator('#btn-add-credit span.c-button__text');
@@ -228,6 +233,11 @@ export default class PerformerJoinNow {
 		this.validateEligibilityRecommendation = page.locator('text=Eligibility - Recommendation');
 		this.validateRefereeMembership = page.locator('//span[contains(text(),\'Association of Talent Agents to update later when \')]');
 	    this.validateBackBtnInEligibility = page.locator('#btn-eligibility-back-0');
+	    this.backBtnAboutToPage = page.locator('#btn-aboutyou-back');
+		this.backBtnReviewPage = page.locator('//div[@class=\'flex space-x-2\']//div[1]//a[1]');
+		this.backBtnCheckoutPage = page.locator('#cancel-button');
+		this.performerCancelBtn = page.locator('text=Cancel');
+	    this.performerLeaveApplicationBtn = page.locator('text=Leave application');
 	}
 
 	async performerAddCreditBtnClick() {
@@ -359,7 +369,8 @@ export default class PerformerJoinNow {
 	}
 
 	async validatePerformerReviewpageText() {
-		await expect(this.performerReviewPageText).toHaveText('Review');
+		await Promise.all([this.page.waitForLoadState('domcontentloaded'),
+			 await expect(this.performerReviewPageText).toHaveText('Review')]);
 	}
 
 	async validatePerformerReviewPageEligibilityCreditsLabelText() {
@@ -517,7 +528,30 @@ export default class PerformerJoinNow {
 	}
 
 	async performerBackBtnInEligibility() {
-		await this.validateBackBtnInEligibility.isEnabled();
-		await this.validateBackBtnInEligibility.click();
+		await Promise.all([this.page.waitForLoadState('domcontentloaded'),
+		 this.validateBackBtnInEligibility.click()]);
+	}
+
+	async performerBackBtnInAboutPage() {
+		await Promise.all([this.page.waitForLoadState('domcontentloaded'),
+		 this.backBtnAboutToPage.click()]);
+	}
+
+	async performerBackBtnInReviewPage() {
+		await Promise.all([this.page.waitForLoadState('domcontentloaded'),
+		 this.backBtnReviewPage.click()]);
+	}
+
+	async performerBackBtnInCheckoutPage() {
+		await Promise.all([this.page.waitForLoadState('domcontentloaded'),
+		 this.backBtnCheckoutPage.click()]);
+	}
+
+	async doperformerReviewCancelBtn() {
+		await this.performerCancelBtn.click();
+	}
+
+	async doperformerLeaveApplicationBtn() {
+		await this.performerLeaveApplicationBtn.click();
 	}
 }

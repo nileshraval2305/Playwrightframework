@@ -168,4 +168,8 @@ export default class PerformerPage {
 	async performerRecommendedRadioBtnClick() {
 		await this.performerRecommendedRadioBtn.click();
 	}
+
+	async validatePerformerExperienceCriteriaOption() {
+		await expect(this.performerExperienceCriteriaOption).toHaveText('I meet the experience criteria');
+	}
 }
