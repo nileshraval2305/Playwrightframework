@@ -1,4 +1,4 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
+
 /* eslint-disable @typescript-eslint/no-confusing-void-expression */
 import type {Page, Locator} from '@playwright/test';
 import {FrameLocator} from '@playwright/test';
@@ -144,7 +144,7 @@ export default class PerformerJoinNow {
 		this.performerAboutToYoupage = page.locator('.py-4.text-2xl');
 		this.performerAboutToPagePhoneNumber = page.locator('input[name=\'mobileNumber\']');
 		this.performerAboutToPageLandlinenumber = page.locator('input[name=\'landlineNumber\']');
-		this.performerSpotlightMemberOption = page.locator('//section[@class=\'flex flex-col pb-4 space-y-4 border-b border-grey-light\']//span[@class=\'c-radio-formik__text\'][normalize-space()=\'No\']');
+		this.performerSpotlightMemberOption = page.locator('//section[@class=\'flex flex-col pb-4 space-y-4 border-b border-grey-light\']//span[@class=\'c-radio-formik__text\'][normalize-space()=\'Yes\']');
 		this.performerSelectDropdownDobDate = page.locator('.react-datepicker__day.react-datepicker__day--006');
 		this.performerSelectDropdownDobMonth = page.locator('.react-datepicker__month-select');
 		this.performerSelectDropdownDobMonVal = page.locator('.react-datepicker__month-select');
@@ -154,15 +154,15 @@ export default class PerformerJoinNow {
 		this.performerChoosePoto = page.locator('#btn-headshot-choose-photo');
 		this.performerPhotographerNameVal = page.locator('.SelectFormik__option.css-ff68kf-option');
 		this.performerPreviousName = page.locator('#currentName');
-		this.performerType = page.locator('.css-18e889c-control .css-1d8n9bt');
-		this.performerTypeValue = page.locator('//div[contains(@class,\'css-18e889c-control\')]//div[contains(@class,\'css-1d8n9bt\')]');
+		this.performerType = page.locator('.css-n1zvgg-control');
+		this.performerTypeValue = page.locator('.SelectFormik__option.css-ff68kf-option');
 		this.performerPreviousEmail = page.locator('#currentEmail');
 		this.performerPublishAge = page.locator('input[name=\'publishAge\']');
-		this.performerPlayingAgeFrom = page.locator('//div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]');
+		this.performerPlayingAgeFrom = page.locator('//section[1]/main[1]/section[3]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]');
 		this.performerPlayingAgeFromValue = page.locator('//div[normalize-space()=\'20 years\']');
-		this.performerPlayingAgeTo = page.locator('//div[3]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]');
+		this.performerPlayingAgeTo = page.locator('//section[1]/main[1]/section[3]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]');
 
-		this.performerPlayingAgeToValue = page.locator('//div[3]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[41]');
+		this.performerPlayingAgeToValue = page.locator('//div[normalize-space()=\'22 years\']');
 		this.performerSelectGenderDropdown = page.locator('section[class=\'flex flex-col pt-2 border-b border-grey-light\'] div div[class=\' css-1bnsk3c-placeholder\']');
 		this.performerSelectGenderDropdownVal = page.locator('.SelectFormik__option.css-ff68kf-option');
 		this.performerDisplayedPubllicProfile = page.locator('(//div[@class=\'radio-group-formik__fields\']/div[1]/label[1]/span[1])[2]');
@@ -232,12 +232,12 @@ export default class PerformerJoinNow {
 		this.validateFileIsLoaded = page.locator('.c-record-with-action-controls__title');
 		this.validateEligibilityRecommendation = page.locator('text=Eligibility - Recommendation');
 		this.validateRefereeMembership = page.locator('//span[contains(text(),\'Association of Talent Agents to update later when \')]');
-	    this.validateBackBtnInEligibility = page.locator('#btn-eligibility-back-0');
-	    this.backBtnAboutToPage = page.locator('#btn-aboutyou-back');
+		this.validateBackBtnInEligibility = page.locator('#btn-eligibility-back-0');
+		this.backBtnAboutToPage = page.locator('#btn-aboutyou-back');
 		this.backBtnReviewPage = page.locator('//div[@class=\'flex space-x-2\']//div[1]//a[1]');
 		this.backBtnCheckoutPage = page.locator('#cancel-button');
 		this.performerCancelBtn = page.locator('text=Cancel');
-	    this.performerLeaveApplicationBtn = page.locator('text=Leave application');
+		this.performerLeaveApplicationBtn = page.locator('text=Leave application');
 	}
 
 	async performerAddCreditBtnClick() {
@@ -301,7 +301,10 @@ export default class PerformerJoinNow {
 	}
 
 	async performerContinueAboutToYouBtnClick() {
-		await this.performerContinueAboutToYouBtn.click();
+		await Promise.all([
+			this.page.waitForLoadState('domcontentloaded'),
+			this.performerContinueAboutToYouBtn.click(),
+		]);
 	}
 
 	async validatePerformerAboutToYoupageText() {
@@ -338,10 +341,12 @@ export default class PerformerJoinNow {
 
 	async performerAboutToPagePreviousMembership() {
 		await this.performerSpotlightMemberOption.click();
-		// Await this.Performer_Previous_Name.type(testdata.Performer_Previous_Name)
-		// await this.Performer_Type.click();
-		// await this.Performer_Type_Value.click();
-		// await this.Performer_Previous_Email.type(testdata.Performer_Previous_Register_Email)
+		await this.performerPreviousName.type(testdata.Performer_Previous_Name);
+
+		await Promise.all([this.performerType.click(),
+			this.performerTypeValue.click()]);
+
+		await this.performerPreviousEmail.type(testdata.Performer_Previous_Register_Email);
 	}
 
 	async performerAboutToPageSelectPublishAgeCheckbox() {
@@ -370,7 +375,7 @@ export default class PerformerJoinNow {
 
 	async validatePerformerReviewpageText() {
 		await Promise.all([this.page.waitForLoadState('domcontentloaded'),
-			 await expect(this.performerReviewPageText).toHaveText('Review')]);
+			await expect(this.performerReviewPageText).toHaveText('Review')]);
 	}
 
 	async validatePerformerReviewPageEligibilityCreditsLabelText() {
@@ -411,13 +416,13 @@ export default class PerformerJoinNow {
 			this.performerSelectCreditcardOption.click()]);
 	}
 
-	async performerValidatePaymentInvoiceText() {
+	async performerValidatePaymentInvoiceText(Membershipfee: string, installmentfrequency: string) {
 		await this.page.waitForLoadState('domcontentloaded');
 
-		expect(await this.performerGetMembershipFeeText.getAttribute('value')).toContain('£172.50');
+		expect(await this.performerGetMembershipFeeText.getAttribute('value')).toContain(Membershipfee);
 
-		expect(await this.performerTotalPayText.getAttribute('value')).toContain('£172.50');
-		expect(await this.performerGetFrequencyText.getAttribute('value')).toContain('year');
+		expect(await this.performerTotalPayText.getAttribute('value')).toContain(Membershipfee);
+		expect(await this.performerGetFrequencyText.getAttribute('value')).toContain(installmentfrequency);
 		expect(await this.performerGetTotalInstallmentText.getAttribute('value')).toContain('1');
 	}
 
@@ -476,7 +481,7 @@ export default class PerformerJoinNow {
 
 	async validatePerformerRegistrationCompleteText() {
 		await Promise.all([this.page.waitForNavigation(),
-			// eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+
 			await expect(this.performerRegistrationCompleteGetText).toHaveText('Application complete!')]);
 	}
 
@@ -529,22 +534,22 @@ export default class PerformerJoinNow {
 
 	async performerBackBtnInEligibility() {
 		await Promise.all([this.page.waitForLoadState('domcontentloaded'),
-		 this.validateBackBtnInEligibility.click()]);
+			this.validateBackBtnInEligibility.click()]);
 	}
 
 	async performerBackBtnInAboutPage() {
 		await Promise.all([this.page.waitForLoadState('domcontentloaded'),
-		 this.backBtnAboutToPage.click()]);
+			this.backBtnAboutToPage.click()]);
 	}
 
 	async performerBackBtnInReviewPage() {
 		await Promise.all([this.page.waitForLoadState('domcontentloaded'),
-		 this.backBtnReviewPage.click()]);
+			this.backBtnReviewPage.click()]);
 	}
 
 	async performerBackBtnInCheckoutPage() {
 		await Promise.all([this.page.waitForLoadState('domcontentloaded'),
-		 this.backBtnCheckoutPage.click()]);
+			this.backBtnCheckoutPage.click()]);
 	}
 
 	async doperformerReviewCancelBtn() {
@@ -553,5 +558,12 @@ export default class PerformerJoinNow {
 
 	async doperformerLeaveApplicationBtn() {
 		await this.performerLeaveApplicationBtn.click();
+	}
+
+	async youngPerformerValidatePaymentSubscriptionText() {
+		await expect(this.validatePaymentSubscriptionText).toHaveText('Your Spotlight Subscription');
+		await expect(this.validatePerformerAnnualDirectDebitText).toHaveText('Young Performer Annual Direct Debit');
+		await expect(this.validatePerformerAnnualCreditDebitCardText).toHaveText('Young Performer Annual Credit / Debit Card');
+		await expect(this.validatePerformerMonthlyInstalmentDirectDebitText).toHaveText('Young Performer Monthly Instalment Direct Debit');
 	}
 }

@@ -99,7 +99,6 @@ test('Perform joining application using Experience Option', async ({page, loginp
 	await test.step('Select Performer Publish Age Checkbox', async () => {
 		await Performer_registerpage.performerAboutToPageSelectPublishAgeCheckbox();
 	});
-	// eslint-disable-next-line no-trailing-spaces
 	
 	await test.step('Select Performer Playing Age', async () => {
 		await Performer_registerpage.performerAboutToPageSelectPlayingAge();
@@ -130,7 +129,7 @@ test('Perform joining application using Experience Option', async ({page, loginp
 		await Performer_registerpage.performerselectcreditcardBtnClick();
 	});
 	await test.step('Validate Payment Invoice Text', async () => {
-		await Performer_registerpage.performerValidatePaymentInvoiceText();
+		await Performer_registerpage.performerValidatePaymentInvoiceText('£172.50', 'year');
 	});
 
 	await test.step('Click on Payment Continue Btn', async () => {
@@ -293,7 +292,7 @@ test('Perform joining application using Training Option', async ({page, loginpag
 		await Performer_registerpage.performerselectcreditcardBtnClick();
 	});
 	await test.step('Validate Payment Invoice Text', async () => {
-		await Performer_registerpage.performerValidatePaymentInvoiceText();
+		await Performer_registerpage.performerValidatePaymentInvoiceText('£172.50', 'year');
 	});
 
 	await test.step('Click on Payment Continue Btn', async () => {
@@ -457,7 +456,7 @@ test('Perform joining application using Recommended Option', async ({page, login
 		await Performer_registerpage.performerselectcreditcardBtnClick();
 	});
 	await test.step('Validate Payment Invoice Text', async () => {
-		await Performer_registerpage.performerValidatePaymentInvoiceText();
+		await Performer_registerpage.performerValidatePaymentInvoiceText('£172.50', 'year');
 	});
 
 	await test.step('Click on Payment Continue Btn', async () => {
@@ -842,7 +841,6 @@ test('Validate Back Button on Payment Page', async ({page, loginpage, performerp
 	await test.step('Select Performer Publish Age Checkbox', async () => {
 		await Performer_registerpage.performerAboutToPageSelectPublishAgeCheckbox();
 	});
-	// eslint-disable-next-line no-trailing-spaces
 	
 	await test.step('Select Performer Playing Age', async () => {
 		await Performer_registerpage.performerAboutToPageSelectPlayingAge();
@@ -967,7 +965,6 @@ test('Validate Cancel button on Review page', async ({page, loginpage, performer
 	await test.step('Select Performer Publish Age Checkbox', async () => {
 		await Performer_registerpage.performerAboutToPageSelectPublishAgeCheckbox();
 	});
-	// eslint-disable-next-line no-trailing-spaces
 	
 	await test.step('Select Performer Playing Age', async () => {
 		await Performer_registerpage.performerAboutToPageSelectPlayingAge();
@@ -1091,7 +1088,6 @@ test('Validate Cancel button on About page', async ({page, loginpage, performerp
 	await test.step('Select Performer Publish Age Checkbox', async () => {
 		await Performer_registerpage.performerAboutToPageSelectPublishAgeCheckbox();
 	});
-	// eslint-disable-next-line no-trailing-spaces
 	
 	await test.step('Select Performer Playing Age', async () => {
 		await Performer_registerpage.performerAboutToPageSelectPlayingAge();

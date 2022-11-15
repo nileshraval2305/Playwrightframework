@@ -12,6 +12,7 @@
     "Performer_First_Name":"nilesh",
     "Performer_Last_Name":"Raval",
     "Performer_Address":"London",
+    "Performer_BillingAddress":"Blackfaulds Cottage, Doggetts Park",
     "Performer_City":"London",
     "Performer_Postcode":"WC2N 5DU",
     "Visa_Card":"4929000000006",
@@ -24,7 +25,11 @@
     "Performer_Add_Course_Title":"London School of Dramatic Art",
     "Performer_Recommended_Header_Text":"Please add your recommendation information",
     "Recommended_Full_Name":"Rohit shetty",
-    "Recommended_Letter":"Recommendation_letter.jpg"
+    "Recommended_Letter":"Recommendation_letter.jpg",
+     "young_Performer_welcome_Text":"Welcome to the Spotlight Young Performer Application",
+     "Debit_Card_Sort_Code":"40-47-84",
+     "AccountNumber":"70872490"
+
 
 
 

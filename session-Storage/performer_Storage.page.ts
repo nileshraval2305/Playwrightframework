@@ -1,19 +1,18 @@
-import { test as base, Page, Browser} from '@playwright/test';
-export { expect } from '@playwright/test';
-
-
+/* eslint-disable @typescript-eslint/member-ordering */
+import type {Page, Browser} from '@playwright/test';
+import {test as base} from '@playwright/test';
+export {expect} from '@playwright/test';
 
 export default class Performer_Storage {
-  // Page signed in as "Performer".
-  page: Page;
+	// Page signed in as "Performer".
 
-  constructor(page: Page) {
-    this.page = page;
-  }
+ constructor(public page: Page) {
+		this.page = page;
+	}
 
-  static async create(browser: Browser) {
-    const context = await browser.newContext({ storageState: 'Performer.json' });
-    const page = await context.newPage();
-    return new Performer_Storage(page);
-  }
+	static async create(browser: Browser) {
+		const context = await browser.newContext({storageState: 'Performer.json'});
+		const page = await context.newPage();
+		return new Performer_Storage(page);
+	}
 }

@@ -2,10 +2,13 @@
 import {test as basetest} from '@playwright/test';
 import JoinNowPage from '../../pages/joinNow.page';
 import PerformerPage from '../../pages/Performer.page';
-import Performer_joinnowpage from '../../pages/performer_JoinNow.page';
+import Performer_joinnowpage from '../../pages/PerformerJoinNow.page';
 import LoginPage from '../../pages/login.page';
 import UserTypes from '../../pages/userTypes';
 import Performerstorage from '../../session-Storage/performer_Storage.page';
+import YoungPerformerpage from '../../pages/youngPerformerJoinnow.page';
+import WebApplicationactions from '../../lib/webapplicationActions';
+import PaymentOption from '../../pages/joinNowPaymentOptions.page';
 
 type pages = {
 	joinpage: JoinNowPage;
@@ -14,6 +17,10 @@ type pages = {
 	usertype: UserTypes;
 	Performer_registerpage: Performer_joinnowpage;
 	performer_Auto_Login: Performerstorage;
+	youngperformer: YoungPerformerpage;
+	webevents: WebApplicationactions;
+	Payment: PaymentOption;
+
 };
 
 const testpages = basetest.extend<pages>({
@@ -36,6 +43,14 @@ const testpages = basetest.extend<pages>({
 	async performer_Auto_Login({browser}, use) {
 		await use(await Performerstorage.create(browser));
 	},
-
+	async youngperformer({page}, use) {
+		await use(new YoungPerformerpage(page));
+	},
+	async webevents({page}, use) {
+		await use(new WebApplicationactions(page));
+	},
+	async Payment({page}, use) {
+		await use(new PaymentOption(page));
+	},
 });
 export const test = testpages;
