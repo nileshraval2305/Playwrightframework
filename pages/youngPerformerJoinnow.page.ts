@@ -1,7 +1,8 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import type {Page, Locator, Browser} from '@playwright/test';
+import type {Page, Locator} from '@playwright/test';
+import {Browser} from '@playwright/test';
 import {expect} from '@playwright/test';
 import WebActions from '../lib/webapplicationActions';
 import * as userdata from '../test-Data/Spotlight-testdata.json';

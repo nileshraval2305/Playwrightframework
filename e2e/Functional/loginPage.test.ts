@@ -8,14 +8,14 @@ test('Validate Login using Performer from Spotlight', async ({page, loginpage, u
 	await usertype.doperformerOption();
 	await loginpage.doLogin(testdata.Performer_username, testdata.Performer_password);
 	await page.context().storageState({path: 'Performer.json'});
-	await usertype.dovalidatePerformerLogin();
+	await usertype.validatePerformerLogintest();
 });
 test.use({storageState: 'Performer.json'});
 test('Validate By pass Login using Performer from Spotlight', async ({loginpage, usertype}) => {
 	await loginpage.navigateToUrl(testdata.URL);
 	await loginpage.myaccountbtnOnMainPage();
 
-	await usertype.dovalidatePerformerLogin();
+	await usertype.validatePerformerLogintest();
 });
 test.use({storageState: 'Agent.json'});
 test('Validate By pass Login using Agent from Spotlight', async ({loginpage, usertype, page}) => {
@@ -25,7 +25,7 @@ test('Validate By pass Login using Agent from Spotlight', async ({loginpage, use
 	// await loginpage.doLogin(testdata.Agent_username, testdata.Agent_password);
 
 	// await page.context().storageState({ path: 'Agent.json'});
-	await usertype.dovalidateAgentLogin();
+	await usertype.validateAgentLogintest();
 });
 
 test('Validate Login using Agent from Spotlight', async ({loginpage, usertype, page}) => {
@@ -35,7 +35,7 @@ test('Validate Login using Agent from Spotlight', async ({loginpage, usertype, p
 	await loginpage.doLogin(testdata.Agent_username, testdata.Agent_password);
 
 	await page.context().storageState({path: 'Agent.json'});
-	await usertype.dovalidateAgentLogin();
+	await usertype.validateAgentLogintest();
 });
 
 test.use({storageState: 'Castingdirector.json'});
@@ -46,7 +46,7 @@ test('Validate By Pass Login using Casting Director from Spotlight', async ({log
 	// await loginpage.doLogin(testdata.Casting_username, testdata.Casting_password);
 	// await page.context().storageState({ path: 'Castingdirector.json'});
 
-	await usertype.dovalidateCastingDirectorLogin();
+	await usertype.validateCastingDirectorLogintest();
 });
 
 test('Validate Login using Casting Director from Spotlight', async ({loginpage, usertype, page}) => {
@@ -56,5 +56,5 @@ test('Validate Login using Casting Director from Spotlight', async ({loginpage, 
 	await loginpage.doLogin(testdata.Casting_username, testdata.Casting_password);
 	await page.context().storageState({path: 'Castingdirector.json'});
 
-	await usertype.dovalidateCastingDirectorLogin();
+	await usertype.validateCastingDirectorLogintest();
 });

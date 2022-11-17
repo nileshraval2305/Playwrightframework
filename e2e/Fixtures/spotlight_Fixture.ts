@@ -2,7 +2,7 @@
 import {test as basetest} from '@playwright/test';
 import JoinNowPage from '../../pages/joinNow.page';
 import PerformerPage from '../../pages/Performer.page';
-import Performer_joinnowpage from '../../pages/PerformerJoinNow.page';
+import Performerjoinnowpage from '../../pages/PerformerJoinNow.page';
 import LoginPage from '../../pages/login.page';
 import UserTypes from '../../pages/userTypes';
 import Performerstorage from '../../session-Storage/performer_Storage.page';
@@ -15,7 +15,7 @@ type pages = {
 	performerpage: PerformerPage;
 	loginpage: LoginPage;
 	usertype: UserTypes;
-	Performer_registerpage: Performer_joinnowpage;
+	Performer_registerpage: Performerjoinnowpage;
 	performer_Auto_Login: Performerstorage;
 	youngperformer: YoungPerformerpage;
 	webevents: WebApplicationactions;
@@ -38,7 +38,7 @@ const testpages = basetest.extend<pages>({
 		await use(new UserTypes(page));
 	},
 	async Performer_registerpage({page}, use) {
-		await use(new Performer_joinnowpage(page));
+		await use(new Performerjoinnowpage(page));
 	},
 	async performer_Auto_Login({browser}, use) {
 		await use(await Performerstorage.create(browser));

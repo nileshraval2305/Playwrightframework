@@ -31,16 +31,16 @@ export default class UserTypes {
 		await this.castingDirectorOption.click();
 	}
 
-	async dovalidatePerformerLogin() {
+	async validatePerformerLogintest() {
 		const gettext = await this.validatePerformerLogin.textContent();
 		expect.soft(gettext).toContain('Upcoming events');
 	}
 
-	async dovalidateAgentLogin() {
+	async validateAgentLogintest() {
 		await expect.soft(this.validateAgentLogin).toBeVisible();
 	}
 
-	async dovalidateCastingDirectorLogin() {
+	async validateCastingDirectorLogintest() {
 		await expect
 			.soft(this.validateCastingDirectorLogin)
 			.toBeVisible();
