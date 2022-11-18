@@ -49,7 +49,7 @@ export default class LoginPage {
 		await Promise.all([this.page.waitForLoadState('domcontentloaded'), this.signInBtn.click()]);
 	}
 
-	async doLogin(username: string, password: string) {
+	async logintest(username: string, password: string) {
 		await this.enterUsername(username);
 		await this.enterPassword(password);
 		await this.continueButton();

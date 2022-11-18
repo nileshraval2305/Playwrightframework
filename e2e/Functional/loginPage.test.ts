@@ -6,7 +6,7 @@ test('Validate Login using Performer from Spotlight', async ({page, loginpage, u
 	await loginpage.navigateToUrl(testdata.URL);
 	await loginpage.signinbuttonOnMainPage();
 	await usertype.doperformerOption();
-	await loginpage.doLogin(testdata.Performer_username, testdata.Performer_password);
+	await loginpage.logintest(testdata.Performer_username, testdata.Performer_password);
 	await page.context().storageState({path: 'Performer.json'});
 	await usertype.validatePerformerLogintest();
 });
@@ -31,8 +31,8 @@ test('Validate By pass Login using Agent from Spotlight', async ({loginpage, use
 test('Validate Login using Agent from Spotlight', async ({loginpage, usertype, page}) => {
 	await loginpage.navigateToUrl(testdata.URL);
 	await loginpage.signinbuttonOnMainPage();
-	await usertype.doagentOption();
-	await loginpage.doLogin(testdata.Agent_username, testdata.Agent_password);
+	await usertype.agentOptiontest();
+	await loginpage.logintest(testdata.Agent_username, testdata.Agent_password);
 
 	await page.context().storageState({path: 'Agent.json'});
 	await usertype.validateAgentLogintest();
@@ -52,8 +52,8 @@ test('Validate By Pass Login using Casting Director from Spotlight', async ({log
 test('Validate Login using Casting Director from Spotlight', async ({loginpage, usertype, page}) => {
 	await loginpage.navigateToUrl(testdata.URL);
 	await loginpage.signinbuttonOnMainPage();
-	await usertype.docastingDirectorOption();
-	await loginpage.doLogin(testdata.Casting_username, testdata.Casting_password);
+	await usertype.castingDirectorOptiontest();
+	await loginpage.logintest(testdata.Casting_username, testdata.Casting_password);
 	await page.context().storageState({path: 'Castingdirector.json'});
 
 	await usertype.validateCastingDirectorLogintest();

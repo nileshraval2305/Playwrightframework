@@ -158,9 +158,9 @@ export default class PerformerJoinNow {
 		this.performerTypeValue = page.locator('.SelectFormik__option.css-ff68kf-option');
 		this.performerPreviousEmail = page.locator('#currentEmail');
 		this.performerPublishAge = page.locator('input[name=\'publishAge\']');
-		this.performerPlayingAgeFrom = page.locator('//section[1]/main[1]/section[3]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]');
+		this.performerPlayingAgeFrom = page.locator('//label[normalize-space()=\'Playing age from\']//following::div[3]');
 		this.performerPlayingAgeFromValue = page.locator('//div[normalize-space()=\'20 years\']');
-		this.performerPlayingAgeTo = page.locator('//section[1]/main[1]/section[3]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]');
+		this.performerPlayingAgeTo = page.locator('//label[normalize-space()=\'Playing age to\']//following::div[3]');
 
 		this.performerPlayingAgeToValue = page.locator('//div[normalize-space()=\'22 years\']');
 		this.performerSelectGenderDropdown = page.locator('section[class=\'flex flex-col pt-2 border-b border-grey-light\'] div div[class=\' css-1bnsk3c-placeholder\']');

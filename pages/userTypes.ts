@@ -23,11 +23,11 @@ export default class UserTypes {
 		await this.performerOption.click();
 	}
 
-	async doagentOption() {
+	async agentOptiontest() {
 		await this.agentOption.click();
 	}
 
-	async docastingDirectorOption() {
+	async castingDirectorOptiontest() {
 		await this.castingDirectorOption.click();
 	}
 
