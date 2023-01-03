@@ -7,5 +7,7 @@
   "Agent_password": "P4rasite1927",
   "Casting_username": "ddula",
   "Casting_password": "J0ker27",
-  "Young_Performer_DEV_URL": "https://stagingaws-www.spotlabs.uk/joining/young-performer?agentcode=BC3F71AA-D764-4C6C-A7A4-D8A5A8852D19"
+  "Young_Performer_DEV_URL": "https://stagingaws-www.spotlabs.uk/joining/young-performer?agentcode=BC3F71AA-D764-4C6C-A7A4-D8A5A8852D19",
+   "Casting_Director_Dev_URL":"https://devaws-www.spotlabs.uk/joining/casting",
+   "Casting_Director_Staging_URL":"https://Stagingaws-www.spotlabs.uk/joining/casting"
 }

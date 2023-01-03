@@ -9,6 +9,9 @@ import Performerstorage from '../../session-Storage/performer_Storage.page';
 import YoungPerformerpage from '../../pages/youngPerformerJoinnow.page';
 import WebApplicationactions from '../../lib/webapplicationActions';
 import PaymentOption from '../../pages/joinNowPaymentOptions.page';
+import CDJoiningPage from '../../pages/castingDirectorJoining.page';
+import GeneralPaymentOption from '../../pages/generalPaymentOption.page';
+import CDPaymentOption from '../../pages/castingDirectorPaymentOptions.page';
 
 type pages = {
 	joinpage: JoinNowPage;
@@ -20,7 +23,9 @@ type pages = {
 	youngperformer: YoungPerformerpage;
 	webevents: WebApplicationactions;
 	Payment: PaymentOption;
-
+	cdjoining: CDJoiningPage;
+	doPaymentoption: GeneralPaymentOption;
+	cdpaymentoption: CDPaymentOption;
 };
 
 const testpages = basetest.extend<pages>({
@@ -51,6 +56,17 @@ const testpages = basetest.extend<pages>({
 	},
 	async Payment({page}, use) {
 		await use(new PaymentOption(page));
+	},
+	async cdjoining({page}, use) {
+		await use(new CDJoiningPage(page));
+	},
+
+	async doPaymentoption({page}, use) {
+		await use(new GeneralPaymentOption(page));
+	},
+
+	async cdpaymentoption({page}, use) {
+		await use(new CDPaymentOption(page));
 	},
 });
 export const test = testpages;

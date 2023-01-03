@@ -1,11 +1,13 @@
 /* eslint-disable default-case */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 /* eslint-disable @typescript-eslint/naming-convention */
 import type {Page, Locator} from '@playwright/test';
 import {expect} from '@playwright/test';
 import {v4 as uuidv4} from 'uuid';
 export default class webApplicationActions {
 	readonly unicid: string;
+	Loc: any;
+	Locator: any;
 	constructor(public page: Page) {
 		this.unicid = uuidv4();
 	}
@@ -39,12 +41,12 @@ export default class webApplicationActions {
 		});
 	}
 
-	async clickElement(locator: string): Promise<void> {
-		await this.page.locator(locator).click();
+	async clickElement(locator: Locator): Promise<void> {
+		await locator.click();
 	}
 
-	async enterElementText(locator: string, text: string): Promise<void> {
-		await this.page.locator(locator).fill(text);
+	async enterElementText(locator: Locator, text: string): Promise<void> {
+		await locator.fill(text);
 	}
 
 	async dragAndDrop(dragElementLocator: string, dropElementLocator: string): Promise<void> {
@@ -74,9 +76,9 @@ export default class webApplicationActions {
 		expect(textValue.trim()).toBe(text);
 	}
 
-	async verifyElementAttribute(locator: string, attribute: string, value: string): Promise<void> {
-		const textValue = await this.page.getAttribute(locator, attribute);
-		expect(textValue.trim()).toBe(value);
+	async verifyElementAttribute(locator: Locator, attribute: string, actualValue: string): Promise<void> {
+		const textValue = await locator.getAttribute(attribute);
+		expect(textValue.trim()).toBe(actualValue);
 	}
 
 	async verifyElementIsDisplayed(locator: string, errorMessage: string): Promise<void> {
@@ -96,5 +98,13 @@ export default class webApplicationActions {
 
 	async validateGetAndCompareText(Expected_Locator: Locator, Expected_Value: string) {
 		await expect(Expected_Locator).toHaveText(Expected_Value);
+	}
+
+	async uploadFileImages(File_Location: string, Locator: Locator) {
+		await Locator.setInputFiles(File_Location);
+	}
+
+	async selectdropdownvalue(Locator: Locator, value: string) {
+		await Locator.selectOption(value);
 	}
 }
