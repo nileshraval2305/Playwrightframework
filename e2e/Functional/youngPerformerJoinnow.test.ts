@@ -82,6 +82,7 @@ test('Young perfomer joining application End to End Flow', async ({page, loginpa
 
 	await test.step('Validate Young Performer Review page compare all field', async () => {
 		await youngperformer.validateYoungPerformerReviewPageEligibilityCreditsLabelText();
+		await youngperformer.validateYoungPerformerReviewAgent();
 	});
 
 	await test.step('Click on Continue Checkout button', async () => {
@@ -202,6 +203,7 @@ test('Young Perfomer Joining Application End to End Flow Using Annual Direct Pay
 
 	await test.step('Validate Young Performer Review page compare all field', async () => {
 		await youngperformer.validateYoungPerformerReviewPageEligibilityCreditsLabelText();
+		await youngperformer.validateYoungPerformerReviewAgent();
 	});
 
 	await test.step('Click on Continue Checkout button', async () => {
@@ -305,6 +307,7 @@ test('Young Perfomer Joining Application End to End Flow Using Monthly Direct Pa
 
 	await test.step('Validate Young Performer Review page compare all field', async () => {
 		await youngperformer.validateYoungPerformerReviewPageEligibilityCreditsLabelText();
+		await youngperformer.validateYoungPerformerReviewAgent();
 	});
 
 	await test.step('Click on Continue Checkout button', async () => {

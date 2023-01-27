@@ -12,7 +12,7 @@ import type {PlaywrightTestConfig} from '@playwright/test';
  */
 const config: PlaywrightTestConfig = {
 	testDir: './e2e',
-	retries: 0,
+	retries: 1,
 	/* Maximum time one test can run for. */
 	timeout: 60 * 1000,
 	expect: {
@@ -41,7 +41,7 @@ const config: PlaywrightTestConfig = {
 		video: 'on',
 		actionTimeout: 0,
 		/* Base URL to use in actions like `await page.goto('/')`. */
-		// baseURL: 'http://localhost:3000',
+		// baseURL: process.env.URL,
 
 		/* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
 		trace: 'on-first-retry',

@@ -150,7 +150,7 @@ export default class PerformerJoinNow {
 		this.performerSelectDropdownDobMonVal = page.locator('.react-datepicker__month-select');
 		this.performerSelectDropdownDobYear = page.locator('.react-datepicker__year-select');
 		this.performerSpotlightDobClickDropdown = page.locator('input[name=\'dateOfBirth\']');
-		this.performerPhotographerName = page.locator('.css-ackcql input');
+		this.performerPhotographerName = page.locator('//input[@autocapitalize=\'none\']');
 		this.performerChoosePoto = page.locator('#btn-headshot-choose-photo');
 		this.performerPhotographerNameVal = page.locator('.SelectFormik__option.css-ff68kf-option');
 		this.performerPreviousName = page.locator('#currentName');
@@ -218,8 +218,8 @@ export default class PerformerJoinNow {
 		this.performerAddCourseBtn = page.locator('#btn-add-course');
 		this.performerSchoolname = page.locator('#schoolName');
 		this.performerCoursename = page.locator('#courseName');
-		this.performerSelectQualificationLevelDropdown = page.locator('.css-1d8n9bt');
-		this.performerSelectQualificationLevelDropdownValue = page.locator('.SelectFormik__option.css-ff68kf-option');
+		this.performerSelectQualificationLevelDropdown = page.locator('//input[@inputmode=\'none\']//parent::div');
+		this.performerSelectQualificationLevelDropdownValue = page.locator('//div[text()=\'BA (Hons)\']');
 		this.performerCourseUrl = page.locator('#courseUrl');
 		this.performerSelectCourseFulltimeOption = page.locator('//span[contains(text(),\'Full-time\')]');
 		this.performerSaveCourseBtn = page.locator('a[id=\'btn-save-course\'] span[class=\'c-button__text\']');
@@ -313,7 +313,7 @@ export default class PerformerJoinNow {
 
 	async performerSelectPhotographer() {
 		await this.performerPhotographerName.isVisible();
-		await this.performerPhotographerName.type('Alex Norton');
+		await this.performerPhotographerName.fill('Alex Norton');
 		await this.performerPhotographerNameVal.click();
 		// Await this.page.press(".css-ackcql input",'Tab');
 	}

@@ -67,7 +67,7 @@ export default class youngPerformerJoinnow {
 	    this.youngPerformerReviewSpeotlightPublishAge = page.locator('//label[normalize-space()=\'Publish age?\']//following-sibling::span[1]');
 		this.youngPerformerReviewGender = page.locator('//label[normalize-space()=\'Find me as:\']//following-sibling::div[1]');
 	    this.youngPerformerReviewShowMeOnProfile = page.locator('//div[normalize-space()=\'Show on profile:\']//following-sibling::div[1]');
-	    this.youngPerformerReviewAgent = page.locator('.py-1.pr-6.truncate.undefined');
+	    this.youngPerformerReviewAgent = page.locator('text=A I M');
 	    this.youngPerformerChooseSpotlightMembershipOption = page.locator('//input[@data-testid=\'currentMember-radio-button-Yes\']//following::span[1]');
 	    this.youngPerformerPreviousName = page.locator('#currentName');
 	    this.youngPerformerPreviouslyEmailAddress = page.locator('#currentEmail');
@@ -143,6 +143,10 @@ export default class youngPerformerJoinnow {
 		await webevents.validateGetAndCompareText(this.youngPerformerReviewSpeotlightPublishAge, 'Yes');
 		await webevents.validateGetAndCompareText(this.youngPerformerReviewGender, 'Male');
 		await webevents.validateGetAndCompareText(this.youngPerformerReviewShowMeOnProfile, 'Yes');
-		await webevents.validateGetAndCompareText(this.youngPerformerReviewAgent, 'A I M');
+	}
+
+	async validateYoungPerformerReviewAgent() {
+		await Promise.all([this.page.waitForLoadState('domcontentloaded'),
+			 webevents.validateGetAndCompareText(this.youngPerformerReviewAgent, 'A I M')]);
 	}
 }

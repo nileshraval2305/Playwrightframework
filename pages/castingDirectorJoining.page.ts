@@ -2,6 +2,7 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import type {Page, Locator} from '@playwright/test';
 import {expect} from '@playwright/test';
+import webApplicationActions from '../lib/webapplicationActions';
 import WebActions from '../lib/webapplicationActions';
 import * as userdata from '../test-Data/Spotlight-testdata.json';
 let webevents: WebActions;
@@ -115,7 +116,7 @@ export default class CastingDirector {
 		this.getSpotlightAccountNameInReviewPage = page.locator('//label[normalize-space()=\'Spotlight account name:\']//following::span[1]');
 		this.getSpotlightMemberTypeInReviewPage = page.locator('//label[normalize-space()=\'Spotlight member type:\']//following::span[1]');
 		this.getSpotlightEmailAddresInReviewPage = page.locator('//label[normalize-space()=\'Spotlight email address:\']//following::span[1]');
-	    this.selectCastingYearsDropdown = page.locator('.css-1d8n9bt .css-1bnsk3c-placeholder');
+	    this.selectCastingYearsDropdown = page.locator('//input[@inputmode=\'none\']');
 	    this.selectCastingYearsDropdownValue = page.locator('//div[text()=\'1-2 years\']');
 	    this.cdWorkingCondtions = page.locator('//span[text()=\'Yes, I am aware\']');
 		this.cdspotlightfollowing = page.locator('//span[text()=\'Both\']');
@@ -186,8 +187,9 @@ export default class CastingDirector {
 		await this.cdCompanyName.fill(userdata.CD_Companyname);
 	}
 
-	async enterWebsiteUrl() {
+	async enterWebsiteUrl(locator: Locator, data: string) {
 		await this.cdWebsite.fill(userdata.CD_Website);
+		await webevents.enterElementText(locator, data);
 	}
 
 	async selectMembershipOraginzationOptionAsNo() {
