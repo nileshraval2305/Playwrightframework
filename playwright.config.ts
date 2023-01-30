@@ -49,6 +49,7 @@ const config: PlaywrightTestConfig = {
 
 	},
 	globalSetup: 'utils/globalSetup.ts',
+	testMatch: ['**.test.ts'],
 	/* Configure projects for major browsers */
 	// projects: [
 	//   {
