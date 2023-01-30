@@ -1,12 +1,12 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
-
+import ENV from '../../utils/env';
 import {test} from '../Fixtures/spotlight_Fixture';
 import * as testdata from '../../test-Data/login-Testdata.json';
 import * as userdata from '../../test-Data/Spotlight-testdata.json';
 
 test('Young perfomer joining application End to End Flow', async ({page, loginpage, webevents, youngperformer, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.Young_Performer_DEV_URL);
+		await loginpage.navigateToUrl(ENV.baseUrl.concat(testdata.Young_Performer_URL));
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
@@ -127,7 +127,7 @@ test('Young perfomer joining application End to End Flow', async ({page, loginpa
 
 test('Young Perfomer Joining Application End to End Flow Using Annual Direct Payment Option', async ({page, loginpage, youngperformer, Performer_registerpage, Payment}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.Young_Performer_DEV_URL);
+		await loginpage.navigateToUrl(ENV.baseUrl.concat(testdata.Young_Performer_URL));
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
@@ -231,7 +231,7 @@ test('Young Perfomer Joining Application End to End Flow Using Annual Direct Pay
 });
 test('Young Perfomer Joining Application End to End Flow Using Monthly Direct Payment Option', async ({page, loginpage, youngperformer, Performer_registerpage, Payment}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.Young_Performer_DEV_URL);
+		await loginpage.navigateToUrl(ENV.baseUrl.concat(testdata.Young_Performer_URL));
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {

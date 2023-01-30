@@ -1,4 +1,5 @@
 import type {PlaywrightTestConfig} from '@playwright/test';
+
 // Import { devices } from '@playwright/test';
 
 /**
@@ -47,7 +48,7 @@ const config: PlaywrightTestConfig = {
 		trace: 'on-first-retry',
 
 	},
-
+	globalSetup: 'utils/globalSetup.ts',
 	/* Configure projects for major browsers */
 	// projects: [
 	//   {
@@ -108,6 +109,7 @@ const config: PlaywrightTestConfig = {
 	//   command: 'npm run start',
 	//   port: 3000,
 	// },
+
 };
 
 export default config;

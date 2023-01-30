@@ -1,12 +1,12 @@
 /* eslint-disable no-trailing-spaces */
 import {test} from '../Fixtures/spotlight_Fixture';
-
+import ENV from '../../utils/env';
 import * as testdata from '../../test-Data/login-Testdata.json';
 import * as userdata from '../../test-Data/Spotlight-testdata.json';
 
 test('Perform joining application using Experience Option', async ({page, loginpage, performerpage, joinpage, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
 	});
 	await test.step('Click on Join Now button in Home Page', async () => {
 		await joinpage.joinnowbtnOnMainPage();
@@ -168,7 +168,7 @@ test('Perform joining application using Experience Option', async ({page, loginp
 
 test('Perform joining application using Training Option', async ({page, loginpage, performerpage, joinpage, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
 	});
 	await test.step('Click on Join Now button in Home Page', async () => {
 		await joinpage.joinnowbtnOnMainPage();
@@ -326,7 +326,7 @@ test('Perform joining application using Training Option', async ({page, loginpag
 
 test('Perform joining application using Recommended Option', async ({page, loginpage, performerpage, joinpage, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
 	});
 	await test.step('Click on Join Now button in Home Page', async () => {
 		await joinpage.joinnowbtnOnMainPage();
@@ -489,7 +489,7 @@ test('Perform joining application using Recommended Option', async ({page, login
 
 test('Validate Back Button in Eligibility section from Performers', async ({page, loginpage, performerpage, joinpage, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
 	});
 	await test.step('Click on Join Now button in Home Page', async () => {
 		await joinpage.joinnowbtnOnMainPage();
@@ -554,7 +554,7 @@ test('Validate Back Button in Eligibility section from Performers', async ({page
 
 test('Perform Back button on About to page using Experience Option', async ({page, loginpage, performerpage, joinpage, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
 	});
 	await test.step('Click on Join Now button in Home Page', async () => {
 		await joinpage.joinnowbtnOnMainPage();
@@ -631,7 +631,7 @@ test('Perform Back button on About to page using Experience Option', async ({pag
 
 test('Validate Back Button on Review page Training Option', async ({page, loginpage, performerpage, joinpage, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
 	});
 	await test.step('Click on Join Now button in Home Page', async () => {
 		await joinpage.joinnowbtnOnMainPage();
@@ -748,7 +748,7 @@ test('Validate Back Button on Review page Training Option', async ({page, loginp
 
 test('Validate Back Button on Payment Page', async ({page, loginpage, performerpage, joinpage, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
 	});
 	await test.step('Click on Join Now button in Home Page', async () => {
 		await joinpage.joinnowbtnOnMainPage();
@@ -872,7 +872,7 @@ test('Validate Back Button on Payment Page', async ({page, loginpage, performerp
 
 test('Validate Cancel button on Review page', async ({page, loginpage, performerpage, joinpage, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
 	});
 	await test.step('Click on Join Now button in Home Page', async () => {
 		await joinpage.joinnowbtnOnMainPage();
@@ -995,7 +995,7 @@ test('Validate Cancel button on Review page', async ({page, loginpage, performer
 
 test('Validate Cancel button on About page', async ({page, loginpage, performerpage, joinpage, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
 	});
 	await test.step('Click on Join Now button in Home Page', async () => {
 		await joinpage.joinnowbtnOnMainPage();
@@ -1112,7 +1112,7 @@ test('Validate Cancel button on About page', async ({page, loginpage, performerp
 
 test('Validate Cancel button on Eligibility page', async ({page, loginpage, performerpage, joinpage, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
 	});
 	await test.step('Click on Join Now button in Home Page', async () => {
 		await joinpage.joinnowbtnOnMainPage();

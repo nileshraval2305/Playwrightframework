@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "playwright:install": "npx playwright install",
-    "test:e2e": "npx playwright test"
+    "test:e2e": "npx playwright test",
+    "env:prod": "cross-env test_env=prod npx playwright test",
+    "env:dev": "cross-env test_env=dev npx playwright test",
+    "env:staging": "cross-env test_env=staging npx playwright test"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +18,8 @@
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "^5.38.1",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
     "eslint": "8.22.0",
     "eslint-config-xo": "^0.42.0",
     "eslint-config-xo-typescript": "^0.53.0",
@@ -23,6 +28,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "dotenv": "^16.0.3"
   }
 }

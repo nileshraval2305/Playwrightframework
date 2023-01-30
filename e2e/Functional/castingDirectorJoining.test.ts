@@ -1,10 +1,23 @@
 import * as userdata from '../../test-Data/Spotlight-testdata.json';
 import {test} from '../Fixtures/spotlight_Fixture';
 import * as testdata from '../../test-Data/login-Testdata.json';
+import ENV from '../../utils/env';
 
-test('Validate Welcome Page from Casting Director Joining', async ({page, loginpage, cdjoining, cdpaymentoption, doPaymentoption}) => {
+test('Validate Welcome Page from Casting Director Joining', async ({loginpage, cdjoining, joinpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.Casting_Director_Staging_URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
+	});
+
+	await test.step('Click on Join now button from header', async () => {
+		await joinpage.joinnowbtnOnMainPage();
+	});
+
+	await test.step('Click on Findmore Button in Casting professional section ', async () => {
+		await cdjoining.cdFindmoreBtn();
+	});
+
+	await test.step('Click on join now Button in Casting professional section ', async () => {
+		await cdjoining.cdJoinnowPagebtn();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
@@ -56,9 +69,21 @@ test('Validate Welcome Page from Casting Director Joining', async ({page, loginp
 	});
 });
 
-test('Validate Welcome Page of Casting Director who has part of Professional group and Existing Member of spotlight', async ({page, loginpage, cdjoining}) => {
+test('Validate Welcome Page of Casting Director who has part of Professional group and Existing Member of spotlight', async ({loginpage, cdjoining, joinpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.Casting_Director_Staging_URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
+	});
+
+	await test.step('Click on Join now button from header', async () => {
+		await joinpage.joinnowbtnOnMainPage();
+	});
+
+	await test.step('Click on Findmore Button in Casting professional section ', async () => {
+		await cdjoining.cdFindmoreBtn();
+	});
+
+	await test.step('Click on join now Button in Casting professional section ', async () => {
+		await cdjoining.cdJoinnowPagebtn();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
@@ -136,9 +161,21 @@ test('Validate Welcome Page of Casting Director who has part of Professional gro
 	});
 });
 
-test('Validate Review Page of Casting Director who has part of Professional group and Existing Member of spotlight', async ({page, loginpage, cdjoining}) => {
+test('Validate Review Page of Casting Director who has part of Professional group and Existing Member of spotlight', async ({loginpage, cdjoining, joinpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.Casting_Director_Staging_URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
+	});
+
+	await test.step('Click on Join now button from header', async () => {
+		await joinpage.joinnowbtnOnMainPage();
+	});
+
+	await test.step('Click on Findmore Button in Casting professional section ', async () => {
+		await cdjoining.cdFindmoreBtn();
+	});
+
+	await test.step('Click on join now Button in Casting professional section ', async () => {
+		await cdjoining.cdJoinnowPagebtn();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
@@ -247,13 +284,25 @@ test('Validate Review Page of Casting Director who has part of Professional grou
 		await cdjoining.validateExistingSpotlightEmailInReviewPage();
 	});
 });
-test('Verified End to End flow with 2 years subscription plan from Casting Director Joining', async ({page, loginpage, cdjoining, cdpaymentoption, doPaymentoption}) => {
+test('Verified End to End flow with 2 years subscription plan from Casting Director Joining', async ({loginpage, cdjoining, cdpaymentoption, doPaymentoption, joinpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.Casting_Director_Staging_URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
+	});
+
+	await test.step('Click on Join now button from header', async () => {
+		await joinpage.joinnowbtnOnMainPage();
+	});
+
+	await test.step('Click on Findmore Button in Casting professional section ', async () => {
+		await cdjoining.cdFindmoreBtn();
+	});
+
+	await test.step('Click on join now Button in Casting professional section ', async () => {
+		await cdjoining.cdJoinnowPagebtn();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
-		// Await cdjoining.getwelcometext();
+		await cdjoining.getwelcometext();
 	});
 
 	await test.step('Enter First Name of Casting Director Application', async () => {
@@ -369,13 +418,25 @@ test('Verified End to End flow with 2 years subscription plan from Casting Direc
 	});
 });
 
-test('Verified End to End flow with 1 year subscription plan from Casting Director Joining', async ({page, loginpage, cdjoining, cdpaymentoption, doPaymentoption}) => {
+test('Verified End to End flow with 1 year subscription plan from Casting Director Joining', async ({loginpage, cdjoining, cdpaymentoption, doPaymentoption, joinpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.Casting_Director_Staging_URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
+	});
+
+	await test.step('Click on Join now button from header', async () => {
+		await joinpage.joinnowbtnOnMainPage();
+	});
+
+	await test.step('Click on Findmore Button in Casting professional section ', async () => {
+		await cdjoining.cdFindmoreBtn();
+	});
+
+	await test.step('Click on join now Button in Casting professional section ', async () => {
+		await cdjoining.cdJoinnowPagebtn();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
-		// Await cdjoining.getwelcometext();
+		await cdjoining.getwelcometext();
 	});
 
 	await test.step('Enter First Name of Casting Director Application', async () => {
@@ -491,13 +552,25 @@ test('Verified End to End flow with 1 year subscription plan from Casting Direct
 	});
 });
 
-test('Verified End to End flow with 3 months subscription plan from Casting Director Joining', async ({page, loginpage, cdjoining, cdpaymentoption, doPaymentoption}) => {
+test('Verified End to End flow with 3 months subscription plan from Casting Director Joining', async ({joinpage, loginpage, cdjoining, cdpaymentoption, doPaymentoption}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.Casting_Director_Staging_URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
+	});
+
+	await test.step('Click on Join now button from header', async () => {
+		await joinpage.joinnowbtnOnMainPage();
+	});
+
+	await test.step('Click on Findmore Button in Casting professional section ', async () => {
+		await cdjoining.cdFindmoreBtn();
+	});
+
+	await test.step('Click on join now Button in Casting professional section ', async () => {
+		await cdjoining.cdJoinnowPagebtn();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
-		// Await cdjoining.getwelcometext();
+		await cdjoining.getwelcometext();
 	});
 
 	await test.step('Enter First Name of Casting Director Application', async () => {
@@ -613,9 +686,21 @@ test('Verified End to End flow with 3 months subscription plan from Casting Dire
 	});
 });
 
-test('Verified End to End flow with 1 month subscription plan from Casting Director Joining', async ({page, loginpage, cdjoining, cdpaymentoption, doPaymentoption}) => {
+test('Verified End to End flow with 1 month subscription plan from Casting Director Joining', async ({loginpage, cdjoining, cdpaymentoption, doPaymentoption, joinpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.Casting_Director_Staging_URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
+	});
+
+	await test.step('Click on Join now button from header', async () => {
+		await joinpage.joinnowbtnOnMainPage();
+	});
+
+	await test.step('Click on Findmore Button in Casting professional section ', async () => {
+		await cdjoining.cdFindmoreBtn();
+	});
+
+	await test.step('Click on join now Button in Casting professional section ', async () => {
+		await cdjoining.cdJoinnowPagebtn();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
@@ -735,13 +820,25 @@ test('Verified End to End flow with 1 month subscription plan from Casting Direc
 	});
 });
 
-test('Verified Supported extension in uploaded cv of Casting Director About page Joining', async ({page, loginpage, cdjoining, cdpaymentoption, doPaymentoption}) => {
+test('Verified Supported extension in uploaded cv of Casting Director About page Joining', async ({loginpage, cdjoining, cdpaymentoption, doPaymentoption, joinpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.Casting_Director_Staging_URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
+	});
+
+	await test.step('Click on Join now button from header', async () => {
+		await joinpage.joinnowbtnOnMainPage();
+	});
+
+	await test.step('Click on Findmore Button in Casting professional section ', async () => {
+		await cdjoining.cdFindmoreBtn();
+	});
+
+	await test.step('Click on join now Button in Casting professional section ', async () => {
+		await cdjoining.cdJoinnowPagebtn();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
-		// Await cdjoining.getwelcometext();
+		await cdjoining.getwelcometext();
 	});
 
 	await test.step('Enter First Name of Casting Director Application', async () => {
@@ -805,9 +902,21 @@ test('Verified Supported extension in uploaded cv of Casting Director About page
 	});
 });
 
-test('Verified About you page with casting performer underage 18 with using Existing spotlight account as Not sure option', async ({page, loginpage, cdjoining, cdpaymentoption, doPaymentoption}) => {
+test('Verified About you page with casting performer underage 18 with using Existing spotlight account as Not sure option', async ({joinpage, loginpage, cdjoining}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.Casting_Director_Staging_URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
+	});
+
+	await test.step('Click on Join now button from header', async () => {
+		await joinpage.joinnowbtnOnMainPage();
+	});
+
+	await test.step('Click on Findmore Button in Casting professional section ', async () => {
+		await cdjoining.cdFindmoreBtn();
+	});
+
+	await test.step('Click on join now Button in Casting professional section ', async () => {
+		await cdjoining.cdJoinnowPagebtn();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
@@ -901,13 +1010,25 @@ test('Verified About you page with casting performer underage 18 with using Exis
 	});
 });
 
-test('Verified End to End flow without entering optionals fields  as company website and casting experience dropdown from about page.', async ({page, loginpage, cdjoining, cdpaymentoption, doPaymentoption}) => {
+test('Verified End to End flow without entering optionals fields  as company website and casting experience dropdown from about page.', async ({joinpage, loginpage, cdjoining, cdpaymentoption, doPaymentoption}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.Casting_Director_Staging_URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
+	});
+
+	await test.step('Click on Join now button from header', async () => {
+		await joinpage.joinnowbtnOnMainPage();
+	});
+
+	await test.step('Click on Findmore Button in Casting professional section ', async () => {
+		await cdjoining.cdFindmoreBtn();
+	});
+
+	await test.step('Click on join now Button in Casting professional section ', async () => {
+		await cdjoining.cdJoinnowPagebtn();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
-		// Await cdjoining.getwelcometext();
+		await cdjoining.getwelcometext();
 	});
 
 	await test.step('Enter First Name of Casting Director Application', async () => {
@@ -1017,9 +1138,21 @@ test('Verified End to End flow without entering optionals fields  as company web
 		await doPaymentoption.validateApplicationCompletePage();
 	});
 });
-test('Verified End to End flow with social media handle from CD application Joining', async ({page, loginpage, cdjoining, cdpaymentoption, doPaymentoption}) => {
+test('Verified End to End flow with social media handle from CD application Joining', async ({joinpage, loginpage, cdjoining, cdpaymentoption, doPaymentoption}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
-		await loginpage.navigateToUrl(testdata.Casting_Director_Staging_URL);
+		await loginpage.navigateToUrl(ENV.baseUrl);
+	});
+
+	await test.step('Click on Join now button from header', async () => {
+		await joinpage.joinnowbtnOnMainPage();
+	});
+
+	await test.step('Click on Findmore Button in Casting professional section ', async () => {
+		await cdjoining.cdFindmoreBtn();
+	});
+
+	await test.step('Click on join now Button in Casting professional section ', async () => {
+		await cdjoining.cdJoinnowPagebtn();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {

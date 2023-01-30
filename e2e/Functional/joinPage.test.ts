@@ -1,9 +1,16 @@
+
 import {test} from '../Fixtures/spotlight_Fixture';
-
+import ENV from '../../utils/env';
 import * as testdata from '../../test-Data/login-Testdata.json';
+import * as dotenv from 'dotenv';
 
-test('Validate Join now page', async ({joinpage, loginpage}) => {
-	await loginpage.navigateToUrl(testdata.URL);
+dotenv.config({
+	path: 'env/.env.dev',
+	override: true,
+});
+
+test('Validate Join now page', async ({joinpage, loginpage, page}) => {
+	await page.goto(ENV.baseUrl);
 	await joinpage.joinnowbtnOnMainPage();
 	await joinpage.validatePerformerTitle();
 	await joinpage.validateAgentsTitle();

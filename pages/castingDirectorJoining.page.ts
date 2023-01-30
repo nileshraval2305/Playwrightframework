@@ -66,6 +66,8 @@ export default class CastingDirector {
 	readonly deleteuploadcv: Locator;
 	readonly cdspotlightfollowingNotsure: Locator;
 	readonly entertextinNotsureOption: Locator;
+	readonly cdProfessionalFindmoreBtn: Locator;
+	readonly cdjoinnowPageBtn: Locator;
 	private _getFirstnameval: string;
 	private _getLastnameval: string;
 	private _fullName: string;
@@ -129,6 +131,16 @@ export default class CastingDirector {
 		this.cdContinueBtnInReviewPage = page.locator('//span[normalize-space()=\'Continue\']');
 		this.deleteuploadcv = page.locator('div[class=\'icon-delete\']');
 		this.entertextinNotsureOption = page.locator('#aboutYou');
+		this.cdProfessionalFindmoreBtn = page.locator('a[href=\'/join-us/casting\']');
+		this.cdjoinnowPageBtn = page.locator('.heroItem .button');
+	}
+
+	async cdFindmoreBtn() {
+		await webevents.clickElement(this.cdProfessionalFindmoreBtn);
+	}
+
+	async cdJoinnowPagebtn() {
+		await webevents.clickElement(this.cdjoinnowPageBtn);
 	}
 
 	async getwelcometext() {
