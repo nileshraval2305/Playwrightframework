@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [Run-Testcases-on-Github-Action, master]
 env:
-  test_env: staging
+  baseURL: https://stagingaws-www.spotlabs.uk/
 
 jobs:
   Automation-Testexecution:
