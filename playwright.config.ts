@@ -37,7 +37,7 @@ const config: PlaywrightTestConfig = {
 	use: {
 		/* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
 		// --headed
-		headless: false,
+		headless: true,
 		screenshot: 'on',
 		video: 'on',
 		actionTimeout: 0,

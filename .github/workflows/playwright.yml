@@ -1,11 +1,11 @@
-name: Playwright Tests
+name: Playwright Tests execution
 on:
   push:
-    branches: [ main, master ]
+    branches: [ Run-Testcases-on-Github-Action, master]
   pull_request:
-    branches: [ main, master ]
+    branches: [Run-Testcases-on-Github-Action, master]
 jobs:
-  test:
+  Automation-Testexecution:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -17,8 +17,8 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test
+    - name: Run Playwright test on Dev enviourment
+      run: npm run env:dev
     - uses: actions/upload-artifact@v2
       if: always()
       with:
