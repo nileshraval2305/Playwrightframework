@@ -4,6 +4,8 @@ on:
     branches: [ Run-Testcases-on-Github-Action, master]
   pull_request:
     branches: [Run-Testcases-on-Github-Action, master]
+env:
+  test_env: staging
 
 jobs:
   Automation-Testexecution:
