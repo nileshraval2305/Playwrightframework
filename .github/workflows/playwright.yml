@@ -3,7 +3,7 @@ on:
   push:
   workflow_dispatch:
     inputs:
-      build-environment:
+      buildenv:
         description: 'Target environment'
         required: false
         type: string
@@ -15,11 +15,9 @@ jobs:
     runs-on: windows-latest
     steps:
     - run: |
-      USER_INPUT=${{ github.event.inputs.build-environment }}
-      # Use user input or fall back to "Octocat"
+      USER_INPUT=${{ github.event.inputs.buildenv }}
       BUILDENV=${USER_INPUT:-"dev"}
-      # use $NAME in your action, value will be always provided
-      
+
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
       with:
@@ -31,7 +29,7 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Playwright test on staging environment
-      run: npm run env:$BUILDENV
+      run: npm run env:${{BUILDENV}}
 
     - uses: actions/upload-artifact@v2
       if: always()
