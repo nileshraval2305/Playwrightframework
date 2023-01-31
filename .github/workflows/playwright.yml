@@ -24,10 +24,11 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Playwright test on environment
-      if: ${{ inputs.buildenv }}
+      if: github.event_name == 'workflow_dispatch' && github.event.inputs.buildenv != ''
       run: npm run env:${{ inputs.buildenv }}
 
-    - name: Run Playwright test on default environment
+    - name: Run Playwright test on default environment    
+      if: github.event_name != 'workflow_dispatch' || github.event.inputs.buildenv == ''
       run: npm run env:dev
 
     - uses: actions/upload-artifact@v2
