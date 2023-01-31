@@ -1,5 +1,6 @@
 name: Playwright Tests execution
 on:
+  push:
   workflow_dispatch:
     inputs:
       build-environment:
