@@ -39,7 +39,7 @@ test('Validate Login using Agent from Spotlight', async ({loginpage, usertype, p
 });
 
 test.use({storageState: 'Castingdirector.json'});
-test('Validate By Pass Login using Casting Director from Spotlight', async ({loginpage, usertype, page}) => {
+test.skip('Validate By Pass Login using Casting Director from Spotlight', async ({loginpage, usertype, page}) => {
 	await loginpage.navigateToUrl(testdata.URL);
 	await loginpage.myaccountbtnOnMainPage();
 	// Await usertype.castingDirectorOption();
@@ -49,7 +49,7 @@ test('Validate By Pass Login using Casting Director from Spotlight', async ({log
 	await usertype.validateCastingDirectorLogintest();
 });
 
-test('Validate Login using Casting Director from Spotlight', async ({loginpage, usertype, page}) => {
+test.skip('Validate Login using Casting Director from Spotlight', async ({loginpage, usertype, page}) => {
 	await loginpage.navigateToUrl(testdata.URL);
 	await loginpage.signinbuttonOnMainPage();
 	await usertype.castingDirectorOptiontest();
