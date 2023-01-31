@@ -4,12 +4,6 @@ on:
     branches: [ Run-Testcases-on-Github-Action, master]
   pull_request:
     branches: [Run-Testcases-on-Github-Action, master]
-env:
-
-  NODE_ENV: dev
-
-  baseURL: https://devaws-www.spotlabs.uk/
-
 
 jobs:
   Automation-Testexecution:
