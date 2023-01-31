@@ -1,12 +1,12 @@
 
 import type {FullConfig} from '@playwright/test';
-
 import * as dotenv from 'dotenv';
+import * as path from 'path';
 
 export default async function globalSetup(config: FullConfig) {
-	console.log("Root Directory: " + config.rootDir);
-	if (process.env.test_env) {
-		let envConfigPath = `${config.rootDir}/../env/.env.${process.env.test_env}`;
+	if (process.env.test_env) {		
+		const envConfigPath = path.join(process.cwd(), `env/.env.${process.env.test_env}`);
+
 		console.log("Using config path: " + envConfigPath);
 		dotenv.config({
 			path: envConfigPath,
