@@ -23,6 +23,7 @@ const config: PlaywrightTestConfig = {
      */
 		timeout: 20000,
 	},
+	testMatch: ['**.test.ts'],
 	/* Run tests in files in parallel */
 	fullyParallel: false,
 	/* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -37,7 +38,7 @@ const config: PlaywrightTestConfig = {
 	use: {
 		/* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
 		// --headed
-		headless: true,
+		headless: false,
 		screenshot: 'on',
 		video: 'on',
 		actionTimeout: 0,
@@ -49,7 +50,6 @@ const config: PlaywrightTestConfig = {
 
 	},
 	globalSetup: 'utils/globalSetup.ts',
-	testMatch: ['**.test.ts'],
 	/* Configure projects for major browsers */
 	// projects: [
 	//   {

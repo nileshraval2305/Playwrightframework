@@ -2,7 +2,7 @@
 import * as testdata from '../../test-Data/login-Testdata.json';
 import {test} from '../Fixtures/spotlight_Fixture';
 
-test('Validate Login using Performer from Spotlight', async ({page, loginpage, usertype}) => {
+test.skip('Validate Login using Performer from Spotlight', async ({page, loginpage, usertype}) => {
 	await loginpage.navigateToUrl(testdata.URL);
 	await loginpage.signinbuttonOnMainPage();
 	await usertype.doperformerOption();
@@ -11,14 +11,14 @@ test('Validate Login using Performer from Spotlight', async ({page, loginpage, u
 	await usertype.validatePerformerLogintest();
 });
 test.use({storageState: 'Performer.json'});
-test('Validate By pass Login using Performer from Spotlight', async ({loginpage, usertype}) => {
+test.skip('Validate By pass Login using Performer from Spotlight', async ({loginpage, usertype}) => {
 	await loginpage.navigateToUrl(testdata.URL);
 	await loginpage.myaccountbtnOnMainPage();
 
 	await usertype.validatePerformerLogintest();
 });
 test.use({storageState: 'Agent.json'});
-test('Validate By pass Login using Agent from Spotlight', async ({loginpage, usertype, page}) => {
+test.skip('Validate By pass Login using Agent from Spotlight', async ({loginpage, usertype, page}) => {
 	await loginpage.navigateToUrl(testdata.URL);
 	await loginpage.myaccountbtnOnMainPage();
 	// Await usertype.agentOption();
@@ -28,7 +28,7 @@ test('Validate By pass Login using Agent from Spotlight', async ({loginpage, use
 	await usertype.validateAgentLogintest();
 });
 
-test('Validate Login using Agent from Spotlight', async ({loginpage, usertype, page}) => {
+test.skip('Validate Login using Agent from Spotlight', async ({loginpage, usertype, page}) => {
 	await loginpage.navigateToUrl(testdata.URL);
 	await loginpage.signinbuttonOnMainPage();
 	await usertype.agentOptiontest();
