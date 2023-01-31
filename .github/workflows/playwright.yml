@@ -14,10 +14,6 @@ jobs:
     timeout-minutes: 60
     runs-on: windows-latest
     steps:
-    - run: |
-      USER_INPUT=${{ github.event.inputs.buildenv }}
-      BUILDENV=${USER_INPUT:-"dev"}
-
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
       with:
@@ -28,8 +24,12 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Run Playwright test on staging environment
-      run: npm run env:${{BUILDENV}}
+    - name: Run Playwright test on environment
+      if: ${{ inputs.buildenv }}
+      run: npm run env:${{ inputs.buildenv }}
+
+    - name: Run Playwright test on default environment
+      run: npm run env:dev
 
     - uses: actions/upload-artifact@v2
       if: always()
