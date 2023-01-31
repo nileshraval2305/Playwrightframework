@@ -3,6 +3,9 @@ import * as testdata from '../../test-Data/login-Testdata.json';
 import {test} from '../Fixtures/spotlight_Fixture';
 
 test('Validate Login using Performer from Spotlight', async ({page, loginpage, usertype}) => {
+	await page.evaluate(() => window.localStorage.clear());
+	await page.evaluate(() => window.sessionStorage.clear());
+
 	await loginpage.navigateToUrl(testdata.URL);
 	await loginpage.signinbuttonOnMainPage();
 	await usertype.doperformerOption();
@@ -10,6 +13,7 @@ test('Validate Login using Performer from Spotlight', async ({page, loginpage, u
 	await page.context().storageState({path: 'Performer.json'});
 	await usertype.validatePerformerLogintest();
 });
+
 test.use({storageState: 'Performer.json'});
 test('Validate By pass Login using Performer from Spotlight', async ({loginpage, usertype}) => {
 	await loginpage.navigateToUrl(testdata.URL);
@@ -17,6 +21,7 @@ test('Validate By pass Login using Performer from Spotlight', async ({loginpage,
 
 	await usertype.validatePerformerLogintest();
 });
+
 test.use({storageState: 'Agent.json'});
 test('Validate By pass Login using Agent from Spotlight', async ({loginpage, usertype, page}) => {
 	await loginpage.navigateToUrl(testdata.URL);
@@ -29,6 +34,9 @@ test('Validate By pass Login using Agent from Spotlight', async ({loginpage, use
 });
 
 test('Validate Login using Agent from Spotlight', async ({loginpage, usertype, page}) => {
+	await page.evaluate(() => window.localStorage.clear());
+	await page.evaluate(() => window.sessionStorage.clear());
+
 	await loginpage.navigateToUrl(testdata.URL);
 	await loginpage.signinbuttonOnMainPage();
 	await usertype.agentOptiontest();
@@ -50,6 +58,9 @@ test.skip('Validate By Pass Login using Casting Director from Spotlight', async 
 });
 
 test.skip('Validate Login using Casting Director from Spotlight', async ({loginpage, usertype, page}) => {
+	await page.evaluate(() => window.localStorage.clear());
+	await page.evaluate(() => window.sessionStorage.clear());
+	
 	await loginpage.navigateToUrl(testdata.URL);
 	await loginpage.signinbuttonOnMainPage();
 	await usertype.castingDirectorOptiontest();
