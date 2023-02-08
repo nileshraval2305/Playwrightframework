@@ -10,6 +10,7 @@ test.skip('Validate Login using Performer from Spotlight', async ({page, loginpa
 	await page.context().storageState({path: 'Performer.json'});
 	await usertype.validatePerformerLogintest();
 });
+
 test.use({storageState: 'Performer.json'});
 test.skip('Validate By pass Login using Performer from Spotlight', async ({loginpage, usertype}) => {
 	await loginpage.navigateToUrl(testdata.URL);
@@ -17,6 +18,7 @@ test.skip('Validate By pass Login using Performer from Spotlight', async ({login
 
 	await usertype.validatePerformerLogintest();
 });
+
 test.use({storageState: 'Agent.json'});
 test.skip('Validate By pass Login using Agent from Spotlight', async ({loginpage, usertype, page}) => {
 	await loginpage.navigateToUrl(testdata.URL);
