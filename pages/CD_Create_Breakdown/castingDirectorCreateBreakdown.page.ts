@@ -31,7 +31,6 @@ export default class CastingDirector {
 	readonly selectClosingDatePickerVal: Locator;
 	readonly castingDetailsnextBtn: Locator;
 	readonly castingroleName: Locator;
-	
 
 	constructor(readonly page: Page) {
 		this.page = page;
