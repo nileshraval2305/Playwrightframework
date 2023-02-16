@@ -3,8 +3,7 @@
 import type {Page, Locator} from '@playwright/test';
 import {FrameLocator} from '@playwright/test';
 import {expect} from '@playwright/test';
-import * as testdata from '../test-Data/Spotlight-testdata.json';
-import UserTypes from './userTypes';
+import * as testdata from '../../test-Data/Spotlight-testdata.json';
 
 export default class PerformerJoinNow {
 	readonly performerAddcreditBtn: Locator;
@@ -228,10 +227,10 @@ export default class PerformerJoinNow {
 		this.performerFullnameOfReferee = page.locator('#refereeName');
 		this.performerGetRecommendedHeader = page.locator('text=Please add your recommendation information');
 		this.performerRefereeMembershipDropdown = page.locator('text=Please select');
-		this.performerRefereeMembershipDropdownValue = page.locator('text=Association of Talent Agents');
+		this.performerRefereeMembershipDropdownValue = page.locator('text=Nederlandse Agenten Associatie');
 		this.validateFileIsLoaded = page.locator('.c-record-with-action-controls__title');
 		this.validateEligibilityRecommendation = page.locator('text=Eligibility - Recommendation');
-		this.validateRefereeMembership = page.locator('//span[contains(text(),\'Association of Talent Agents to update later when \')]');
+		this.validateRefereeMembership = page.locator('//span[contains(text(),\'Nederlandse Agenten Associatie\')]');
 		this.validateBackBtnInEligibility = page.locator('#btn-eligibility-back-0');
 		this.backBtnAboutToPage = page.locator('#btn-aboutyou-back');
 		this.backBtnReviewPage = page.locator('//div[@class=\'flex space-x-2\']//div[1]//a[1]');
@@ -397,7 +396,7 @@ export default class PerformerJoinNow {
 
 	async validatePerformerReviewPageAddRecommedationLabelText() {
 		await this.validateGetAndCompareText(this.validateEligibilityRecommendation, 'Eligibility - Recommendation');
-		await this.validateGetAndCompareText(this.validateRefereeMembership, 'Association of Talent Agents to update later when we have the options');
+		await this.validateGetAndCompareText(this.validateRefereeMembership, 'Nederlandse Agenten Associatie');
 	}
 
 	async performerContinueCheckoutClick() {

@@ -1,6 +1,5 @@
-import ENV from '../../utils/env';
-import {test} from '../Fixtures/spotlight_Fixture';
-import * as testdata from '../../test-Data/login-Testdata.json';
+import ENV from '../../../utils/env';
+import {test} from '../../Fixtures/spotlight_Fixture';
 
 test('Validate Findoutmore button in performer section', async ({loginpage, performerpage, joinpage}) => {
 	await loginpage.navigateToUrl(ENV.baseUrl);

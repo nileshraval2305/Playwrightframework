@@ -1,7 +1,6 @@
 
-import {test} from '../Fixtures/spotlight_Fixture';
-import ENV from '../../utils/env';
-import * as testdata from '../../test-Data/login-Testdata.json';
+import {test} from '../../Fixtures/spotlight_Fixture';
+import ENV from '../../../utils/env';
 import * as dotenv from 'dotenv';
 
 dotenv.config({

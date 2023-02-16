@@ -1,8 +1,7 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
-import ENV from '../../utils/env';
-import {test} from '../Fixtures/spotlight_Fixture';
-import * as testdata from '../../test-Data/login-Testdata.json';
-import * as userdata from '../../test-Data/Spotlight-testdata.json';
+import ENV from '../../../utils/env';
+import {test} from '../../Fixtures/spotlight_Fixture';
+import * as testdata from '../../../test-Data/login-Testdata.json';
 
 test('Young perfomer joining application End to End Flow', async ({page, loginpage, webevents, youngperformer, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {

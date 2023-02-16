@@ -4,8 +4,12 @@
 import type {Page, Locator} from '@playwright/test';
 import {expect} from '@playwright/test';
 import {v4 as uuidv4} from 'uuid';
+import moment from 'moment';
+
 export default class webApplicationActions {
 	readonly unicid: string;
+	date: string;
+	getday: number;
 	Loc: any;
 	Locator: any;
 	constructor(public page: Page) {
@@ -106,5 +110,10 @@ export default class webApplicationActions {
 
 	async selectdropdownvalue(Locator: Locator, value: string) {
 		await Locator.selectOption(value);
+	}
+
+	async selectDate(): Promise<string> {
+		
+		return this.date;
 	}
 }

@@ -1,8 +1,7 @@
 /* eslint-disable no-trailing-spaces */
-import {test} from '../Fixtures/spotlight_Fixture';
-import ENV from '../../utils/env';
-import * as testdata from '../../test-Data/login-Testdata.json';
-import * as userdata from '../../test-Data/Spotlight-testdata.json';
+import {test} from '../../Fixtures/spotlight_Fixture';
+import ENV from '../../../utils/env';
+import * as userdata from '../../../test-Data/Spotlight-testdata.json';
 
 test('Perform joining application using Experience Option', async ({page, loginpage, performerpage, joinpage, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {

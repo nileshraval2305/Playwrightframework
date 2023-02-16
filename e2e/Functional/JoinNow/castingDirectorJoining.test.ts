@@ -1,7 +1,7 @@
-import * as userdata from '../../test-Data/Spotlight-testdata.json';
-import {test} from '../Fixtures/spotlight_Fixture';
-import * as testdata from '../../test-Data/login-Testdata.json';
-import ENV from '../../utils/env';
+import * as userdata from '../../../test-Data/Spotlight-testdata.json';
+import {test} from '../../Fixtures/spotlight_Fixture';
+
+import ENV from '../../../utils/env';
 
 test('Validate Welcome Page from Casting Director Joining', async ({loginpage, cdjoining, joinpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {

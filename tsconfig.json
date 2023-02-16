@@ -8,7 +8,9 @@
     "sourceMap": true,
     "rootDir": "./",
     "resolveJsonModule": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
   },
   "compileOnSave": true,
   "include": ["./**/*.ts"],

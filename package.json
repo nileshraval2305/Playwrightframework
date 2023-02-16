@@ -8,6 +8,7 @@
     "test:e2e": "npx playwright test",
     "env:prod": "cross-env test_env=prod npx playwright test",
     "env:dev": "cross-env test_env=dev npx playwright test test.ts",
+    "env:testspec": "cross-env test_env=staging npx playwright test castingDirectorCreateBreakdown.test.ts",
     "env:staging": "cross-env test_env=staging npx playwright test"
   },
   "keywords": [],
@@ -28,7 +29,8 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "uuid": "^9.0.0",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "moment": "^2.29.4",
+    "uuid": "^9.0.0"
   }
 }

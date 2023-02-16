@@ -1,17 +1,18 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import {test as basetest} from '@playwright/test';
-import JoinNowPage from '../../pages/joinNow.page';
-import PerformerPage from '../../pages/Performer.page';
-import Performerjoinnowpage from '../../pages/PerformerJoinNow.page';
-import LoginPage from '../../pages/login.page';
-import UserTypes from '../../pages/userTypes';
+import JoinNowPage from '../../pages/JoinNow/joinNow.page';
+import PerformerPage from '../../pages/Performers/Performer.page';
+import Performerjoinnowpage from '../../pages/JoinNow/PerformerJoinNow.page';
+import LoginPage from '../../pages/Login/login.page';
+import UserTypes from '../../pages/Misc/userTypes';
 import Performerstorage from '../../session-Storage/performer_Storage.page';
-import YoungPerformerpage from '../../pages/youngPerformerJoinnow.page';
+import YoungPerformerpage from '../../pages/JoinNow/youngPerformerJoinnow.page';
 import WebApplicationactions from '../../lib/webapplicationActions';
-import PaymentOption from '../../pages/joinNowPaymentOptions.page';
-import CDJoiningPage from '../../pages/castingDirectorJoining.page';
-import GeneralPaymentOption from '../../pages/generalPaymentOption.page';
-import CDPaymentOption from '../../pages/castingDirectorPaymentOptions.page';
+import PaymentOption from '../../pages/JoinNow/joinNowPaymentOptions.page';
+import CDJoiningPage from '../../pages/JoinNow/castingDirectorJoining.page';
+import GeneralPaymentOption from '../../pages/Payment/generalPaymentOption.page';
+import CDPaymentOption from '../../pages/JoinNow/castingDirectorPaymentOptions.page';
+import CreateBreakdown from '../../pages/CD_Create_Breakdown/castingDirectorCreateBreakdown.page';
 
 type pages = {
 	joinpage: JoinNowPage;
@@ -26,6 +27,7 @@ type pages = {
 	cdjoining: CDJoiningPage;
 	doPaymentoption: GeneralPaymentOption;
 	cdpaymentoption: CDPaymentOption;
+	cdCreateBreakdown: CreateBreakdown;
 };
 
 const testpages = basetest.extend<pages>({
@@ -68,5 +70,9 @@ const testpages = basetest.extend<pages>({
 	async cdpaymentoption({page}, use) {
 		await use(new CDPaymentOption(page));
 	},
+	async cdCreateBreakdown({page}, use) {
+		await use(new CreateBreakdown(page));
+	},
+
 });
 export const test = testpages;

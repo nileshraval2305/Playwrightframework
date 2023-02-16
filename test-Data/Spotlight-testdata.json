@@ -42,6 +42,11 @@
      "CD_Review_Page_Text": "Review",
      "CD_Occupation_Text": "Casting Director",
      "CD_Spotlight_Previous_Account_Type": "Casting Professional",
-     "CD_Two_Year_Payment_Amount": "£495.00"
+     "CD_Two_Year_Payment_Amount": "£495.00",
+     "CD_ProductionName":"Fox studio",
+     "CD_ProductionSummary":"The Movie Production Project to make a movie",
+     "CD_ProductionLocation":"Production_Location",
+     "ProducerName":"Ajay Devgan",
+     "Casting_Location":"Newyork"
 
 }

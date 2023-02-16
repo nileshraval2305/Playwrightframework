@@ -4,9 +4,8 @@
 import type {Page, Locator} from '@playwright/test';
 import {Browser} from '@playwright/test';
 import {expect} from '@playwright/test';
-import WebActions from '../lib/webapplicationActions';
-import * as userdata from '../test-Data/Spotlight-testdata.json';
-import * as testdata from '../test-Data/login-Testdata.json';
+import WebActions from '../../lib/webapplicationActions';
+import * as userdata from '../../test-Data/Spotlight-testdata.json';
 
 let webevents: WebActions;
 

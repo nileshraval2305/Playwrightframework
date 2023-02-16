@@ -2,9 +2,8 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import type {Page, Locator} from '@playwright/test';
 import {expect} from '@playwright/test';
-import webApplicationActions from '../lib/webapplicationActions';
-import WebActions from '../lib/webapplicationActions';
-import * as userdata from '../test-Data/Spotlight-testdata.json';
+import WebActions from '../../lib/webapplicationActions';
+import * as userdata from '../../test-Data/Spotlight-testdata.json';
 let webevents: WebActions;
 export default class CastingDirector {
 	readonly cdGetwelcometext: Locator;
