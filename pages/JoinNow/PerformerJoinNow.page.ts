@@ -121,6 +121,11 @@ export default class PerformerJoinNow {
 	readonly backBtnCheckoutPage: Locator;
 	readonly performerCancelBtn: Locator;
 	readonly performerLeaveApplicationBtn: Locator;
+	readonly performerSpotlightMemberOptionAsNo: Locator;
+	readonly performerselectmembershipdropdown: Locator;
+	readonly performerselectmembershipdropdownoption: Locator;
+	readonly performerselectagencydropdown: Locator;
+	readonly performerselectagencydropdownoption: Locator;
 
 	constructor(public page: Page) {
 		this.performerAddcreditBtn = page.locator('#btn-add-credit span.c-button__text');
@@ -144,6 +149,7 @@ export default class PerformerJoinNow {
 		this.performerAboutToPagePhoneNumber = page.locator('input[name=\'mobileNumber\']');
 		this.performerAboutToPageLandlinenumber = page.locator('input[name=\'landlineNumber\']');
 		this.performerSpotlightMemberOption = page.locator('//section[@class=\'flex flex-col pb-4 space-y-4 border-b border-grey-light\']//span[@class=\'c-radio-formik__text\'][normalize-space()=\'Yes\']');
+		this.performerSpotlightMemberOptionAsNo = page.locator('//section[@class=\'flex flex-col pb-4 space-y-4 border-b border-grey-light\']//span[@class=\'c-radio-formik__text\'][normalize-space()=\'No\']');
 		this.performerSelectDropdownDobDate = page.locator('.react-datepicker__day.react-datepicker__day--006');
 		this.performerSelectDropdownDobMonth = page.locator('.react-datepicker__month-select');
 		this.performerSelectDropdownDobMonVal = page.locator('.react-datepicker__month-select');
@@ -237,6 +243,10 @@ export default class PerformerJoinNow {
 		this.backBtnCheckoutPage = page.locator('#cancel-button');
 		this.performerCancelBtn = page.locator('text=Cancel');
 		this.performerLeaveApplicationBtn = page.locator('text=Leave application');
+		this.performerselectmembershipdropdown = page.locator('//label[normalize-space()=\'Memberships (optional):\']//following::div[1]');
+		this.performerselectmembershipdropdownoption = page.locator('text=Equity');
+		this.performerselectagencydropdown = page.locator('//label[normalize-space()=\'Agent (optional):\']//following::div[1]');
+		this.performerselectagencydropdownoption = page.locator('text=11:11 ENTERTAINMENT');
 	}
 
 	async performerAddCreditBtnClick() {
@@ -348,6 +358,10 @@ export default class PerformerJoinNow {
 		await this.performerPreviousEmail.type(testdata.Performer_Previous_Register_Email);
 	}
 
+	async performerAboutToPagePreviousMembershipSelectasNo() {
+		await this.performerSpotlightMemberOptionAsNo.click();
+	}
+
 	async performerAboutToPageSelectPublishAgeCheckbox() {
 		await this.performerPublishAge.click();
 	}
@@ -366,6 +380,16 @@ export default class PerformerJoinNow {
 
 	async performerAboutToPageSelectDisplayedPublicProfile() {
 		await this.performerDisplayedPubllicProfile.click();
+	}
+
+	async performerAboutToPageselectmemebershipDropdown() {
+		await this.performerselectmembershipdropdown.click();
+		await this.performerselectmembershipdropdownoption.click();
+	}
+
+	async performerAboutToPageselectAgency() {
+		await this.performerselectagencydropdown.click();
+		await this.performerselectagencydropdownoption.click();
 	}
 
 	async performerAboutToPageContinueButtonClick() {

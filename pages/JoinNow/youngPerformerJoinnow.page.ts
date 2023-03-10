@@ -38,6 +38,7 @@ export default class youngPerformerJoinnow {
 	readonly youngPerformerChooseSpotlightMembershipOption: Locator;
 	readonly youngPerformerPreviousName: Locator;
 	readonly youngPerformerPreviouslyEmailAddress: Locator;
+	readonly youngPerformerChooseSpotlightMembershipOptionAsNo: Locator;
 
 	constructor(public page: Page) {
 		this.page = page;
@@ -68,7 +69,8 @@ export default class youngPerformerJoinnow {
 	    this.youngPerformerReviewShowMeOnProfile = page.locator('//div[normalize-space()=\'Show on profile:\']//following-sibling::div[1]');
 	    this.youngPerformerReviewAgent = page.locator('text=A I M');
 	    this.youngPerformerChooseSpotlightMembershipOption = page.locator('//input[@data-testid=\'currentMember-radio-button-Yes\']//following::span[1]');
-	    this.youngPerformerPreviousName = page.locator('#currentName');
+		this.youngPerformerChooseSpotlightMembershipOptionAsNo = page.locator('//input[@data-testid=\'currentMember-radio-button-No\']//following::span[1]');
+		this.youngPerformerPreviousName = page.locator('#currentName');
 	    this.youngPerformerPreviouslyEmailAddress = page.locator('#currentEmail');
 	}
 
@@ -134,10 +136,24 @@ export default class youngPerformerJoinnow {
 		await this.youngPerformerPreviouslyEmailAddress.fill(await webevents.uuidalphabet() + '@gmail.com');
 	}
 
+	async youngPerformerChooseSelectSpotlightMembershipAsNo() {
+		await this.youngPerformerChooseSpotlightMembershipOptionAsNo.click();
+	}
+
 	async validateYoungPerformerReviewPageEligibilityCreditsLabelText() {
 		await webevents.validateGetAndCompareText(this.youngPerformerJoingingAs, 'Young Performer');
 		await webevents.validateGetAndCompareText(this.youngPerformerReviewDob, '04.04.2006');
 		await webevents.validateGetAndCompareText(this.youngPerformerReviewSpeotlightMember, 'Yes');
+
+		await webevents.validateGetAndCompareText(this.youngPerformerReviewSpeotlightPublishAge, 'Yes');
+		await webevents.validateGetAndCompareText(this.youngPerformerReviewGender, 'Male');
+		await webevents.validateGetAndCompareText(this.youngPerformerReviewShowMeOnProfile, 'Yes');
+	}
+
+	async validateYoungPerformerReviewPageLabelTextWithoutSpotlightMemember() {
+		await webevents.validateGetAndCompareText(this.youngPerformerJoingingAs, 'Young Performer');
+		await webevents.validateGetAndCompareText(this.youngPerformerReviewDob, '04.04.2006');
+		await webevents.validateGetAndCompareText(this.youngPerformerReviewSpeotlightMember, 'No');
 
 		await webevents.validateGetAndCompareText(this.youngPerformerReviewSpeotlightPublishAge, 'Yes');
 		await webevents.validateGetAndCompareText(this.youngPerformerReviewGender, 'Male');

@@ -31,7 +31,7 @@ const config: PlaywrightTestConfig = {
 	/* Retry on CI only */
 	// retries: process.env.CI ? 2 : 0,
 	/* Opt out of parallel tests on CI. */
-	workers: process.env.CI ? 1 : 2,
+	workers: process.env.CI ? 1 : 1,
 
 	/* Reporter to use. See https://playwright.dev/docs/test-reporters */
 	reporter: 'html',
@@ -39,7 +39,7 @@ const config: PlaywrightTestConfig = {
 	use: {
 		/* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
 		// --headed
-		headless: true,
+		headless: false,
 		screenshot: 'on',
 		video: 'retain-on-failure',
 		actionTimeout: 0,
