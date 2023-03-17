@@ -83,4 +83,50 @@ test('Validate Create New Breakdown from Casting Director', async ({loginpage, c
 	await test.step('Click on next Button', async () => {
 		await cdCreateBreakdown.nextButtonClick();
 	});
+
+	await test.step('Enter Casting Role Name as Actor', async () => {
+		await cdCreateBreakdown.castingRoleName();
+	});
+
+	await test.step('Select Gender as Male', async () => {
+		await cdCreateBreakdown.selectGender();
+	});
+
+	await test.step('Select Playing Age Range for this role', async () => {
+		await cdCreateBreakdown.selectPlayingAgeRange();
+	});
+
+	await test.step('Click on metric to CM option', async () => {
+		await cdCreateBreakdown.changeInMetriclinkText();
+	});
+
+	await test.step('Select Height Range for this role', async () => {
+		await cdCreateBreakdown.selectHeightRange();
+	});
+
+	await test.step('Enter Cotract type Details', async () => {
+		await cdCreateBreakdown.enterContratTypeDetails();
+	});
+
+	await test.step('Select Agreement Option', async () => {
+		await cdCreateBreakdown.aceeptAgreementOption();
+	});
+
+	await test.step('Click on next Button', async () => {
+		await cdCreateBreakdown.nextButtonClick();
+	});
+
+	await test.step('Select Gloabal list options', async () => {
+		await cdCreateBreakdown.selectGloballistOptions();
+	});
+	await test.step('Select Exclusive spotlight  options', async () => {
+		await cdCreateBreakdown.selectexclusiveSpotlightOption();
+	});
+	await test.step('Click on next button from send option', async () => {
+		await cdCreateBreakdown.sendoptionsNextBtn();
+	});
+
+	await test.step('Click on SendBreakdownBtn', async () => {
+		await cdCreateBreakdown.sendBreakdownBtn();
+	});
 });

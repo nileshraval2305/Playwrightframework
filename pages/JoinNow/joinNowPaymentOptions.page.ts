@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import WebActions from '../../lib/webapplicationActions';
 import type {Page, Locator} from '@playwright/test';
-import {expect} from '@playwright/test';
+
 import * as userdata from '../../test-Data/Spotlight-testdata.json';
 let webaction: WebActions;
 export default class joinNowPaymentOptions {

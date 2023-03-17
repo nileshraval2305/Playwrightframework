@@ -41,7 +41,7 @@ const config: PlaywrightTestConfig = {
 		// --headed
 		headless: false,
 		screenshot: 'on',
-		video: 'retain-on-failure',
+		video: 'on',
 		actionTimeout: 0,
 		/* Base URL to use in actions like `await page.goto('/')`. */
 		// baseURL: process.env.URL,

@@ -31,6 +31,27 @@ export default class CastingDirector {
 	readonly selectClosingDatePickerVal: Locator;
 	readonly castingDetailsnextBtn: Locator;
 	readonly castingroleName: Locator;
+	readonly selectGenderspecificOptionBtn: Locator;
+	readonly selectApperancespecificOptionBtn: Locator;
+	readonly selectMinAgeDropdown: Locator;
+	readonly selectMinAgeDropdownValue: Locator;
+	readonly selectMaxAgeDropdown: Locator;
+	readonly selectMaxAgeDropdownValue: Locator;
+	readonly selectHeightMinDropdown: Locator;
+	readonly selectHeightMinDropdownValue: Locator;
+	readonly selectHeightMaxDropdown: Locator;
+	readonly selectHeightMaxDropdownValue: Locator;
+	readonly enterContractType: Locator;
+	readonly uploadFiles: Locator;
+	readonly acceptAgreement: Locator;
+	readonly globalListClick: Locator;
+	readonly agentAndPersonalManager: Locator;
+	readonly sendRoleDirectlyToPerformer: Locator;
+	readonly roleExclusiveOnSpotlight;
+	readonly sendOptionNextBtn;
+	readonly sendBreakdown;
+	readonly selectGenderMaleCheckbox;
+	readonly changeInMetric;
 
 	constructor(readonly page: Page) {
 		this.page = page;
@@ -60,7 +81,28 @@ export default class CastingDirector {
 		this.selectClosingDate = page.locator('input[name=\'closingDate\']');
 		this.selectClosingDatePickerVal = page.locator('button[class=\'react-calendar__tile react-calendar__tile--now react-calendar__month-view__days__day\']');
 		this.castingDetailsnextBtn = page.locator('a[class=\'c-button c-button__primary\'] span[class=\'c-button__text\']');
-	    this.castingroleName = page.locator('input[name=\'name\']');
+		this.castingroleName = page.locator('input[name=\'name\']');
+		this.selectGenderspecificOptionBtn = page.locator('(//span[text()=\'Specific\'])[1]');
+		this.selectGenderMaleCheckbox = page.locator('//input[@aria-label=\'Male\']');
+		this.selectApperancespecificOptionBtn = page.locator('(//span[text()=\'Specific\'])[1]');
+		this.selectMinAgeDropdown = page.locator('//input[@name=\'ageMin\']');
+		this.selectMinAgeDropdownValue = page.locator('//div[normalize-space()=\'18\']');
+		this.selectMaxAgeDropdown = page.locator('//input[@name=\'ageMax\']');
+		this.selectMaxAgeDropdownValue = page.locator('//div[normalize-space()=\'28\']');
+		this.changeInMetric = page.locator('//a[normalize-space()=\'Change to metric\']');
+		this.selectHeightMinDropdown = page.locator('//input[@name=\'heightMin\']');
+		this.selectHeightMinDropdownValue = page.locator('//div[normalize-space()=\'140 cm\']');
+		this.selectHeightMaxDropdown = page.locator('//input[@name=\'heightMax\']');
+		this.selectHeightMaxDropdownValue = page.locator('//div[normalize-space()=\'180 cm\']');
+		this.enterContractType = page.locator('//textarea[@name=\'contractTypeInfo\']');
+		this.uploadFiles = page.locator('.c-file-uploader__text');
+		this.acceptAgreement = page.locator('//input[@name=\'agreementAccepted\']');
+		this.globalListClick = page.locator('//div[contains(text(),\'Global lists\')]');
+		this.agentAndPersonalManager = page.locator('//input[@value=\'agentCategory0\']');
+		this.sendRoleDirectlyToPerformer = page.locator('//input[@value=\'performerCategory1\']');
+		this.roleExclusiveOnSpotlight = page.locator('//span[contains(text(),\'Yes\')]');
+		this.sendOptionNextBtn = page.locator('//span[normalize-space()=\'Next\']');
+		this.sendBreakdown = page.locator('//span[normalize-space()=\'Send breakdown\']');
 	}
 
 	async createBreakdownQuicklink() {
@@ -138,5 +180,58 @@ export default class CastingDirector {
 
 	async nextButtonClick() {
 		await webevents.clickElement(this.castingDetailsnextBtn);
+	}
+
+	async castingRoleName() {
+		await webevents.enterElementText(this.castingroleName, userdata.Casting_RoleName);
+	}
+
+	async selectGender() {
+		await webevents.clickElement(this.selectGenderspecificOptionBtn);
+		await webevents.clickElement(this.selectGenderMaleCheckbox);
+	}
+
+	async selectPlayingAgeRange() {
+		await webevents.clickElement(this.selectMinAgeDropdown);
+		await webevents.clickElement(this.selectMinAgeDropdownValue);
+		await webevents.clickElement(this.selectMaxAgeDropdown);
+		await webevents.clickElement(this.selectMaxAgeDropdownValue);
+	}
+
+	async changeInMetriclinkText() {
+		await webevents.clickElement(this.changeInMetric);
+	}
+
+	async selectHeightRange() {
+		await webevents.clickElement(this.selectHeightMinDropdown);
+		await webevents.clickElement(this.selectHeightMinDropdownValue);
+		await webevents.clickElement(this.selectHeightMaxDropdown);
+		await webevents.clickElement(this.selectHeightMaxDropdownValue);
+	}
+
+	async enterContratTypeDetails() {
+		await webevents.enterElementText(this.enterContractType, userdata.Role_ContractType);
+	}
+
+	async aceeptAgreementOption() {
+		await webevents.clickElement(this.acceptAgreement);
+	}
+
+	async selectGloballistOptions() {
+		await webevents.clickElement(this.globalListClick);
+		await webevents.clickElement(this.agentAndPersonalManager);
+		await webevents.clickElement(this.sendRoleDirectlyToPerformer);
+	}
+
+	async selectexclusiveSpotlightOption() {
+		await webevents.clickElement(this.roleExclusiveOnSpotlight);
+	}
+
+	async sendoptionsNextBtn() {
+		await webevents.clickElement(this.sendOptionNextBtn);
+	}
+
+	async sendBreakdownBtn() {
+		await webevents.clickElement(this.sendBreakdown);
 	}
 }

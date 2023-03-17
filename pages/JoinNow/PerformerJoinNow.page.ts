@@ -156,7 +156,7 @@ export default class PerformerJoinNow {
 		this.performerSelectDropdownDobYear = page.locator('.react-datepicker__year-select');
 		this.performerSpotlightDobClickDropdown = page.locator('input[name=\'dateOfBirth\']');
 		this.performerPhotographerName = page.locator('//input[@autocapitalize=\'none\']');
-		this.performerChoosePoto = page.locator('#btn-headshot-choose-photo');
+		this.performerChoosePoto = page.locator('//a[contains(@id,\'headshot-choose-photo\')]');
 		this.performerPhotographerNameVal = page.locator('.SelectFormik__option.css-ff68kf-option');
 		this.performerPreviousName = page.locator('#currentName');
 		this.performerType = page.locator('.css-n1zvgg-control');

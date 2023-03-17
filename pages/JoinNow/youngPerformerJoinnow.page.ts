@@ -39,6 +39,7 @@ export default class youngPerformerJoinnow {
 	readonly youngPerformerPreviousName: Locator;
 	readonly youngPerformerPreviouslyEmailAddress: Locator;
 	readonly youngPerformerChooseSpotlightMembershipOptionAsNo: Locator;
+	readonly youngPerformerChoosePoto: Locator;
 
 	constructor(public page: Page) {
 		this.page = page;
@@ -72,6 +73,7 @@ export default class youngPerformerJoinnow {
 		this.youngPerformerChooseSpotlightMembershipOptionAsNo = page.locator('//input[@data-testid=\'currentMember-radio-button-No\']//following::span[1]');
 		this.youngPerformerPreviousName = page.locator('#currentName');
 	    this.youngPerformerPreviouslyEmailAddress = page.locator('#currentEmail');
+		this.youngPerformerChoosePoto = page.locator('#btn-yp-headshot-choose-photo');
 	}
 
 	async getwelcometext() {
@@ -117,6 +119,10 @@ export default class youngPerformerJoinnow {
 
 	async youngPerformerContinueBtn() 	{
 		await this.youngPerformerContinueButton.click();
+	}
+
+	async youngPerformerChoosePotoBtn() 	{
+		await this.youngPerformerChoosePoto.click();
 	}
 
 	async youngPerformerAboutToPageSelectPlayingAge() {
