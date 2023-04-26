@@ -42,6 +42,7 @@ test('Validate Create New Breakdown from Casting Director', async ({loginpage, c
 	});
 	await test.step('Enter Production title Name', async () => {
 		await cdCreateBreakdown.enterProductionTitleName();
+		await cdCreateBreakdown.getProductionTitleName();
 	});
 	await test.step('Validate Production Type', async () => {
 		await cdCreateBreakdown.selectProductionType();
@@ -127,6 +128,6 @@ test('Validate Create New Breakdown from Casting Director', async ({loginpage, c
 	});
 
 	await test.step('Click on SendBreakdownBtn', async () => {
-		await cdCreateBreakdown.sendBreakdownBtn();
+		await cdCreateBreakdown.validateBreakdownIsCreated();
 	});
 });

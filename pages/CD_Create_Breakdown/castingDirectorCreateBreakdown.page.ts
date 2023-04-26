@@ -52,6 +52,9 @@ export default class CastingDirector {
 	readonly sendBreakdown;
 	readonly selectGenderMaleCheckbox;
 	readonly changeInMetric;
+	readonly getBreakdownTitle;
+	getTextBreakdowntextAfterCreated: string;
+	getTextBreakdowntextBeforeCreated: string;
 
 	constructor(readonly page: Page) {
 		this.page = page;
@@ -103,6 +106,7 @@ export default class CastingDirector {
 		this.roleExclusiveOnSpotlight = page.locator('//span[contains(text(),\'Yes\')]');
 		this.sendOptionNextBtn = page.locator('//span[normalize-space()=\'Next\']');
 		this.sendBreakdown = page.locator('//span[normalize-space()=\'Send breakdown\']');
+		this.getBreakdownTitle = page.locator('.c-table__title-content a');
 	}
 
 	async createBreakdownQuicklink() {
@@ -118,7 +122,7 @@ export default class CastingDirector {
 	}
 
 	async enterProjectName() {
-		await webevents.enterElementText(this.enterProjectFolderName, webevents.unicid);
+		await webevents.enterElementText(this.enterProjectFolderName, await webevents.uuidAlphabetWithFixLength('Project_'));
 	}
 
 	async continueBtnInProject() {
@@ -130,7 +134,12 @@ export default class CastingDirector {
 	}
 
 	async enterProductionTitleName() {
-		await webevents.enterElementText(this.enterProductionTitle, userdata.CD_ProductionName);
+		await webevents.enterElementText(this.enterProductionTitle, await webevents.uuidAlphabetWithFixLength('Movie_'));
+	}
+
+	async getProductionTitleName() {
+		this.getTextBreakdowntextBeforeCreated = await webevents.getElementText(this.enterProductionTitle);
+		return this.getTextBreakdowntextBeforeCreated;
 	}
 
 	async selectProductionType() {
@@ -233,5 +242,16 @@ export default class CastingDirector {
 
 	async sendBreakdownBtn() {
 		await webevents.clickElement(this.sendBreakdown);
+	}
+
+	async getBreakdowntitle() {
+		await webevents.getElementText(this.getBreakdownTitle);
+	}
+
+	async validateBreakdownIsCreated() {
+		await Promise.all([this.sendBreakdown.click(),
+			this.getBreakdownTitle.innerText()]);
+
+		await webevents.verifyElementContainsTextUsingLocator(await this.getBreakdownTitle.innerText(), this.getTextBreakdowntextBeforeCreated);
 	}
 }

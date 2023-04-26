@@ -126,6 +126,7 @@ export default class PerformerJoinNow {
 	readonly performerselectmembershipdropdownoption: Locator;
 	readonly performerselectagencydropdown: Locator;
 	readonly performerselectagencydropdownoption: Locator;
+	readonly performerAddress1: Locator;
 
 	constructor(public page: Page) {
 		this.performerAddcreditBtn = page.locator('#btn-add-credit span.c-button__text');

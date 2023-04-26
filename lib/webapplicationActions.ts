@@ -10,6 +10,7 @@ export default class webApplicationActions {
 	readonly unicid: string;
 	date: string;
 	getday: number;
+	getname: string;
 	Loc: any;
 	Locator: any;
 	constructor(public page: Page) {
@@ -39,6 +40,11 @@ export default class webApplicationActions {
 		return this.unicid.replace(/[0-9,-]/g, '');
 	}
 
+	async uuidAlphabetWithFixLength(startwith: string) {
+		this.getname = this.unicid.replace(/[0-9,-]/g, '');
+		return startwith.concat(this.getname.substring(0, 25));
+	}
+
 	async delay(time: number): Promise<void> {
 		return new Promise(resolve => {
 			setTimeout(resolve, time);
@@ -47,6 +53,10 @@ export default class webApplicationActions {
 
 	async clickElement(locator: Locator): Promise<void> {
 		await locator.click();
+	}
+
+	async getElementText(locator: Locator): Promise<string> {
+		return locator.innerText();
 	}
 
 	async enterElementText(locator: Locator, text: string): Promise<void> {
@@ -73,6 +83,10 @@ export default class webApplicationActions {
 
 	async verifyElementContainsText(locator: string, text: string): Promise<void> {
 		await expect(this.page.locator(locator)).toContainText(text);
+	}
+
+	async verifyElementContainsTextUsingLocator(expectedlocator: string, actualLocator: string): Promise<void> {
+		expect(expectedlocator).toContain(actualLocator);
 	}
 
 	async verifyJSElementValue(locator: string, text: string): Promise<void> {
@@ -113,7 +127,6 @@ export default class webApplicationActions {
 	}
 
 	async selectDate(): Promise<string> {
-		
 		return this.date;
 	}
 }
