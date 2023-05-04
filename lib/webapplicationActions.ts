@@ -63,6 +63,10 @@ export default class webApplicationActions {
 		await locator.fill(text);
 	}
 
+	async typeElement(locator: Locator, text: string): Promise<void> {
+		await locator.type(text);
+	}
+
 	async dragAndDrop(dragElementLocator: string, dropElementLocator: string): Promise<void> {
 		await this.page.dragAndDrop(dragElementLocator, dropElementLocator);
 	}

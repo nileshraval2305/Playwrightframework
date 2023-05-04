@@ -2,10 +2,12 @@
 import ENV from '../../../utils/env';
 import {test} from '../../Fixtures/spotlight_Fixture';
 import * as testdata from '../../../test-Data/login-Testdata.json';
+import * as userdata from '../../../test-Data/Spotlight-testdata.json';
 
-test('Young perfomer joining application End to End Flow', async ({page, loginpage, webevents, youngperformer, Performer_registerpage}) => {
+test('Young perfomer joining application End to End Flow', async ({Payment, loginpage, webevents, youngperformer, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
 		await loginpage.navigateToUrl(ENV.baseUrl.concat(testdata.Young_Performer_URL));
+		await loginpage.refreshUrl();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
@@ -34,6 +36,25 @@ test('Young perfomer joining application End to End Flow', async ({page, loginpa
 	});
 	await test.step('Enter phone number', async () => {
 		await youngperformer.enterYoungPerformerPhone();
+	});
+	await test.step('Enter Address 1', async () => {
+		await Performer_registerpage.performerAddAddress1();
+	});
+
+	await test.step('Enter Address 2', async () => {
+		await Performer_registerpage.performerAddAddress2();
+	});
+
+	await test.step('Enter City', async () => {
+		await Performer_registerpage.performerCity('London');
+	});
+
+	await test.step('Enter Zip code', async () => {
+		await Performer_registerpage.performerZipCode(userdata.Performer_Postcode);
+	});
+
+	await test.step('Select country', async () => {
+		await Performer_registerpage.performerCountry('United Kingdom');
 	});
 
 	await test.step('Select Term and condition checkbox', async () => {
@@ -87,46 +108,40 @@ test('Young perfomer joining application End to End Flow', async ({page, loginpa
 	await test.step('Click on Continue Checkout button', async () => {
 		await Performer_registerpage.performerContinueCheckoutClick();
 	});
+
 	await test.step('Validate Payment Subscription text', async () => {
-		await Performer_registerpage.youngPerformerValidatePaymentSubscriptionText();
+		await Performer_registerpage.performerValidatePaymentSubscriptionText('Young Performer annual subscription - credit/debit card', 'Young Performer annual subscription - Direct Debit', 'Young Performer monthly subscription - Direct Debit');
 	});
 	await test.step('Select Debit and Credit Card option', async () => {
-		await Performer_registerpage.performerselectcreditcardBtnClick();
+		await Performer_registerpage.youngperformerselectcreditcardBtnClick();
 	});
-	await test.step('Validate Payment Invoice Text', async () => {
-		await Performer_registerpage.performerValidatePaymentInvoiceText('£114.00', 'year');
-	});
-
-	await test.step('Click on Payment Continue Btn', async () => {
-		await Performer_registerpage.performercreditcardPaymentContinueBtnClick();
+	await test.step('Validate Payment subscription Invoice Text', async () => {
+		await Payment.performerValidateSubscriptionTypeOrderSummary('£114.00', '£19.00', '£95.00');
 	});
 
 	await test.step('Enter Performer Billing Details', async () => {
-		await Performer_registerpage.performerBillingDetails();
+		await Payment.performerBillingDetailsCreditcard('United Kingdom', userdata.Performer_Postcode);
 	});
 
-	await test.step('Click on Confirm Pay Button', async () => {
-		await Performer_registerpage.performerBillingConfirmPayBtnClick();
+	await test.step('Click on Payment Checkout Button', async () => {
+		await Payment.paymentCheckout();
 	});
 
-	await test.step('Select Payment using Visa Card', async () => {
-		await Performer_registerpage.performerPaymentUsingVisaCard();
+	await test.step('Enter OTP ', async () => {
+		await Performer_registerpage.performerPaymentByCardEnterOtp();
 	});
-
-	await test.step('Select Payment Processed Button', async () => {
-		await Performer_registerpage.performerPaymentProcessedBtnClick();
-	});
-	await test.step('Click on Pay Now Button', async () => {
-		await Performer_registerpage.performerPaymentPaynowBtn();
+	await test.step('Click on Next Button ', async () => {
+		await Performer_registerpage.performerPaymentByCardNextBtnClick();
 	});
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.validatePerformerRegistrationCompleteText();
+		await Performer_registerpage.validatePerformerRegistrationCompleteText('Payment successful!');
 	});
 });
 
-test('Young perfomer joining application End to End Flow without Existing Membership as NO', async ({page, loginpage, webevents, youngperformer, Performer_registerpage}) => {
+test('Young perfomer joining application End to End Flow without Existing Membership as NO', async ({Payment, loginpage, webevents, youngperformer, Performer_registerpage}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
 		await loginpage.navigateToUrl(ENV.baseUrl.concat(testdata.Young_Performer_URL));
+		await loginpage.refreshUrl();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
@@ -153,6 +168,26 @@ test('Young perfomer joining application End to End Flow without Existing Member
 	await test.step('Enter email Address', async () => {
 		await youngperformer.enterYoungPerformerEmail();
 	});
+	await test.step('Enter Address 1', async () => {
+		await Performer_registerpage.performerAddAddress1();
+	});
+
+	await test.step('Enter Address 2', async () => {
+		await Performer_registerpage.performerAddAddress2();
+	});
+
+	await test.step('Enter City', async () => {
+		await Performer_registerpage.performerCity('London');
+	});
+
+	await test.step('Enter Zip code', async () => {
+		await Performer_registerpage.performerZipCode(userdata.Performer_Postcode);
+	});
+
+	await test.step('Select country', async () => {
+		await Performer_registerpage.performerCountry('United Kingdom');
+	});
+
 	await test.step('Enter phone number', async () => {
 		await youngperformer.enterYoungPerformerPhone();
 	});
@@ -209,45 +244,38 @@ test('Young perfomer joining application End to End Flow without Existing Member
 		await Performer_registerpage.performerContinueCheckoutClick();
 	});
 	await test.step('Validate Payment Subscription text', async () => {
-		await Performer_registerpage.youngPerformerValidatePaymentSubscriptionText();
+		await Performer_registerpage.performerValidatePaymentSubscriptionText('Young Performer annual subscription - credit/debit card', 'Young Performer annual subscription - Direct Debit', 'Young Performer monthly subscription - Direct Debit');
 	});
 	await test.step('Select Debit and Credit Card option', async () => {
-		await Performer_registerpage.performerselectcreditcardBtnClick();
+		await Performer_registerpage.youngperformerselectcreditcardBtnClick();
 	});
-	await test.step('Validate Payment Invoice Text', async () => {
-		await Performer_registerpage.performerValidatePaymentInvoiceText('£114.00', 'year');
-	});
-
-	await test.step('Click on Payment Continue Btn', async () => {
-		await Performer_registerpage.performercreditcardPaymentContinueBtnClick();
+	await test.step('Validate Payment subscription Invoice Text', async () => {
+		await Payment.performerValidateSubscriptionTypeOrderSummary('£114.00', '£19.00', '£95.00');
 	});
 
 	await test.step('Enter Performer Billing Details', async () => {
-		await Performer_registerpage.performerBillingDetails();
+		await Payment.performerBillingDetailsCreditcard('United Kingdom', userdata.Performer_Postcode);
 	});
 
-	await test.step('Click on Confirm Pay Button', async () => {
-		await Performer_registerpage.performerBillingConfirmPayBtnClick();
+	await test.step('Click on Payment Checkout Button', async () => {
+		await Payment.paymentCheckout();
 	});
 
-	await test.step('Select Payment using Visa Card', async () => {
-		await Performer_registerpage.performerPaymentUsingVisaCard();
+	await test.step('Enter OTP ', async () => {
+		await Performer_registerpage.performerPaymentByCardEnterOtp();
 	});
-
-	await test.step('Select Payment Processed Button', async () => {
-		await Performer_registerpage.performerPaymentProcessedBtnClick();
-	});
-	await test.step('Click on Pay Now Button', async () => {
-		await Performer_registerpage.performerPaymentPaynowBtn();
+	await test.step('Click on Next Button ', async () => {
+		await Performer_registerpage.performerPaymentByCardNextBtnClick();
 	});
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.validatePerformerRegistrationCompleteText();
+		await Performer_registerpage.validatePerformerRegistrationCompleteText('Payment successful!');
 	});
 });
 
 test('Young Perfomer Joining Application End to End Flow Using Annual Direct Payment Option', async ({page, loginpage, youngperformer, Performer_registerpage, Payment}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
 		await loginpage.navigateToUrl(ENV.baseUrl.concat(testdata.Young_Performer_URL));
+		await loginpage.refreshUrl();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
@@ -274,6 +302,30 @@ test('Young Perfomer Joining Application End to End Flow Using Annual Direct Pay
 	await test.step('Enter email Address', async () => {
 		await youngperformer.enterYoungPerformerEmail();
 	});
+	await test.step('Enter Address 1', async () => {
+		await Performer_registerpage.performerAddAddress1();
+	});
+
+	await test.step('Enter Address 2', async () => {
+		await Performer_registerpage.performerAddAddress2();
+	});
+
+	await test.step('Enter City', async () => {
+		await Performer_registerpage.performerCity('London');
+	});
+
+	await test.step('Enter Zip code', async () => {
+		await Performer_registerpage.performerZipCode(userdata.Performer_Postcode);
+	});
+
+	await test.step('Select country', async () => {
+		await Performer_registerpage.performerCountry('United States');
+	});
+
+	await test.step('Select state', async () => {
+		await Performer_registerpage.performerState('California');
+	});
+
 	await test.step('Enter phone number', async () => {
 		await youngperformer.enterYoungPerformerPhone();
 	});
@@ -330,28 +382,40 @@ test('Young Perfomer Joining Application End to End Flow Using Annual Direct Pay
 		await Performer_registerpage.performerContinueCheckoutClick();
 	});
 	await test.step('Validate Payment Subscription text', async () => {
-		await Performer_registerpage.youngPerformerValidatePaymentSubscriptionText();
+		await Performer_registerpage.performerValidatePaymentSubscriptionText('Young Performer annual subscription - credit/debit card', 'Young Performer annual subscription - Direct Debit', 'Young Performer monthly subscription - Direct Debit');
 	});
-	await test.step('Select Direct Debit option', async () => {
-		await Payment.youngPerformerAnnuaalDirectDebitSelectBtnClick();
+	await test.step('Select Direct debit Card Annualy option', async () => {
+		await Payment.youngPerformerAnnualDirectDebitSelectBtnClick();
 	});
-	await test.step('Validate Payment Invoice Text', async () => {
-		await Performer_registerpage.performerValidatePaymentInvoiceText('£114.00', 'year');
+
+	await test.step('Click on Confirm Payment option', async () => {
+		await Payment.confirmBtnfromAuthorizationPopup();
 	});
-	await test.step('Click on Confirm Pay Button', async () => {
-		await Performer_registerpage.performerBillingConfirmPayBtnClick();
+
+	await test.step('Validate Payment subscription Invoice Text', async () => {
+		await Payment.performerValidateSubscriptionTypeOrderSummary('£114.00', '£19.00', '£95.00');
 	});
-	await test.step('Validate Direct Debit page', async () => {
-		await Payment.validateDirectDebitBillingDetails();
+
+	await test.step('Enter billing and Payment Details', async () => {
+		await Payment.performerBillingDirectDebit(userdata.Performer_Postcode);
+	});
+
+	await test.step('Click on Payment Checkout Button', async () => {
+		await Payment.paymentCheckout();
+	});
+
+	await test.step('Click on Setup direct debit button Click ', async () => {
+		await Payment.performerDirectDebitAnnually();
 	});
 
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.validatePerformerRegistrationCompleteText();
+		await Performer_registerpage.validatePerformerRegistrationCompleteText('Direct Debit set up successfully!');
 	});
 });
 test('Young Perfomer Joining Application End to End Flow Using Monthly Direct Payment Option', async ({page, loginpage, youngperformer, Performer_registerpage, Payment}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
 		await loginpage.navigateToUrl(ENV.baseUrl.concat(testdata.Young_Performer_URL));
+		await loginpage.refreshUrl();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
@@ -378,6 +442,27 @@ test('Young Perfomer Joining Application End to End Flow Using Monthly Direct Pa
 	await test.step('Enter email Address', async () => {
 		await youngperformer.enterYoungPerformerEmail();
 	});
+
+	await test.step('Enter Address 1', async () => {
+		await Performer_registerpage.performerAddAddress1();
+	});
+
+	await test.step('Enter Address 2', async () => {
+		await Performer_registerpage.performerAddAddress2();
+	});
+
+	await test.step('Enter City', async () => {
+		await Performer_registerpage.performerCity('London');
+	});
+
+	await test.step('Enter Zip code', async () => {
+		await Performer_registerpage.performerZipCode(userdata.Performer_Postcode);
+	});
+
+	await test.step('Select country', async () => {
+		await Performer_registerpage.performerCountry('United Kingdom');
+	});
+
 	await test.step('Enter phone number', async () => {
 		await youngperformer.enterYoungPerformerPhone();
 	});
@@ -434,29 +519,39 @@ test('Young Perfomer Joining Application End to End Flow Using Monthly Direct Pa
 		await Performer_registerpage.performerContinueCheckoutClick();
 	});
 	await test.step('Validate Payment Subscription text', async () => {
-		await Performer_registerpage.youngPerformerValidatePaymentSubscriptionText();
+		await Performer_registerpage.performerValidatePaymentSubscriptionText('Young Performer annual subscription - credit/debit card', 'Young Performer annual subscription - Direct Debit', 'Young Performer monthly subscription - Direct Debit');
 	});
-	await test.step('Select Direct Debit option', async () => {
-		await Payment.youngPerformerMonthlyDirectDebitSelectBtnClick();
-	});
-	await test.step('Validate Payment Invoice Text', async () => {
-		await Performer_registerpage.performerValidatePaymentInvoiceText('£123.84', 'month');
-	});
-	await test.step('Click on Confirm Pay Button', async () => {
-		await Performer_registerpage.performerBillingConfirmPayBtnClick();
-	});
-	await test.step('Validate Direct Debit page', async () => {
-		await Payment.validateDirectDebitBillingDetails();
+	await test.step('Select Direct debit Card montly option', async () => {
+		await Payment.selectDirectDebitMonthlyOption();
 	});
 
+	await test.step('Click on Confirm Payment option', async () => {
+		await Payment.confirmBtnfromAuthorizationPopup();
+	});
+
+	await test.step('Validate Payment subscription Invoice Text', async () => {
+		await Payment.performerValidateSubscriptionTypeOrderSummary('£10.32', '£1.72', '£8.60');
+	});
+
+	await test.step('Enter billing and Payment Details', async () => {
+		await Payment.performerBillingDirectDebit(userdata.Performer_Postcode);
+	});
+	await test.step('Click on Payment Checkout Button', async () => {
+		await Payment.paymentCheckout();
+	});
+
+	await test.step('Click on Setup direct debit button Click ', async () => {
+		await Payment.performerDirectDebitAnnually();
+	});
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.validatePerformerRegistrationCompleteText();
+		await Performer_registerpage.validatePerformerRegistrationCompleteText('Direct Debit set up successfully!');
 	});
 });
 
 test('Young Perfomer Joining Application End to End Flow Using Annual Direct Payment Option without select Spotlight membership as NO', async ({page, loginpage, youngperformer, Performer_registerpage, Payment}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
 		await loginpage.navigateToUrl(ENV.baseUrl.concat(testdata.Young_Performer_URL));
+		await loginpage.refreshUrl();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
@@ -483,6 +578,26 @@ test('Young Perfomer Joining Application End to End Flow Using Annual Direct Pay
 	await test.step('Enter email Address', async () => {
 		await youngperformer.enterYoungPerformerEmail();
 	});
+	await test.step('Enter Address 1', async () => {
+		await Performer_registerpage.performerAddAddress1();
+	});
+
+	await test.step('Enter Address 2', async () => {
+		await Performer_registerpage.performerAddAddress2();
+	});
+
+	await test.step('Enter City', async () => {
+		await Performer_registerpage.performerCity('London');
+	});
+
+	await test.step('Enter Zip code', async () => {
+		await Performer_registerpage.performerZipCode(userdata.Performer_Postcode);
+	});
+
+	await test.step('Select country', async () => {
+		await Performer_registerpage.performerCountry('United Kingdom');
+	});
+
 	await test.step('Enter phone number', async () => {
 		await youngperformer.enterYoungPerformerPhone();
 	});
@@ -539,29 +654,41 @@ test('Young Perfomer Joining Application End to End Flow Using Annual Direct Pay
 		await Performer_registerpage.performerContinueCheckoutClick();
 	});
 	await test.step('Validate Payment Subscription text', async () => {
-		await Performer_registerpage.youngPerformerValidatePaymentSubscriptionText();
+		await Performer_registerpage.performerValidatePaymentSubscriptionText('Young Performer annual subscription - credit/debit card', 'Young Performer annual subscription - Direct Debit', 'Young Performer monthly subscription - Direct Debit');
 	});
-	await test.step('Select Direct Debit option', async () => {
-		await Payment.youngPerformerAnnuaalDirectDebitSelectBtnClick();
+	await test.step('Select Direct debit Card Annualy option', async () => {
+		await Payment.youngPerformerAnnualDirectDebitSelectBtnClick();
 	});
-	await test.step('Validate Payment Invoice Text', async () => {
-		await Performer_registerpage.performerValidatePaymentInvoiceText('£114.00', 'year');
+
+	await test.step('Click on Confirm Payment option', async () => {
+		await Payment.confirmBtnfromAuthorizationPopup();
 	});
-	await test.step('Click on Confirm Pay Button', async () => {
-		await Performer_registerpage.performerBillingConfirmPayBtnClick();
+
+	await test.step('Validate Payment subscription Invoice Text', async () => {
+		await Payment.performerValidateSubscriptionTypeOrderSummary('£114.00', '£19.00', '£95.00');
 	});
-	await test.step('Validate Direct Debit page', async () => {
-		await Payment.validateDirectDebitBillingDetails();
+
+	await test.step('Enter billing and Payment Details', async () => {
+		await Payment.performerBillingDirectDebit(userdata.Performer_Postcode);
+	});
+
+	await test.step('Click on Payment Checkout Button', async () => {
+		await Payment.paymentCheckout();
+	});
+
+	await test.step('Click on Setup direct debit button Click ', async () => {
+		await Payment.performerDirectDebitAnnually();
 	});
 
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.validatePerformerRegistrationCompleteText();
+		await Performer_registerpage.validatePerformerRegistrationCompleteText('Direct Debit set up successfully!');
 	});
 });
 
 test('Young Perfomer Joining Application End to End Flow Using Monthly Direct Payment Option with Select Spotlight Memebship option as No', async ({page, loginpage, youngperformer, Performer_registerpage, Payment}) => {
 	await test.step('Navigate to Webapplication URL', async () => {
 		await loginpage.navigateToUrl(ENV.baseUrl.concat(testdata.Young_Performer_URL));
+		await loginpage.refreshUrl();
 	});
 
 	await test.step('Validate Welcome Text Header ', async () => {
@@ -588,6 +715,26 @@ test('Young Perfomer Joining Application End to End Flow Using Monthly Direct Pa
 	await test.step('Enter email Address', async () => {
 		await youngperformer.enterYoungPerformerEmail();
 	});
+	await test.step('Enter Address 1', async () => {
+		await Performer_registerpage.performerAddAddress1();
+	});
+
+	await test.step('Enter Address 2', async () => {
+		await Performer_registerpage.performerAddAddress2();
+	});
+
+	await test.step('Enter City', async () => {
+		await Performer_registerpage.performerCity('London');
+	});
+
+	await test.step('Enter Zip code', async () => {
+		await Performer_registerpage.performerZipCode(userdata.Performer_Postcode);
+	});
+
+	await test.step('Select country', async () => {
+		await Performer_registerpage.performerCountry('United Kingdom');
+	});
+
 	await test.step('Enter phone number', async () => {
 		await youngperformer.enterYoungPerformerPhone();
 	});
@@ -644,22 +791,31 @@ test('Young Perfomer Joining Application End to End Flow Using Monthly Direct Pa
 		await Performer_registerpage.performerContinueCheckoutClick();
 	});
 	await test.step('Validate Payment Subscription text', async () => {
-		await Performer_registerpage.youngPerformerValidatePaymentSubscriptionText();
+		await Performer_registerpage.performerValidatePaymentSubscriptionText('Young Performer annual subscription - credit/debit card', 'Young Performer annual subscription - Direct Debit', 'Young Performer monthly subscription - Direct Debit');
 	});
-	await test.step('Select Direct Debit option', async () => {
-		await Payment.youngPerformerMonthlyDirectDebitSelectBtnClick();
-	});
-	await test.step('Validate Payment Invoice Text', async () => {
-		await Performer_registerpage.performerValidatePaymentInvoiceText('£123.84', 'month');
-	});
-	await test.step('Click on Confirm Pay Button', async () => {
-		await Performer_registerpage.performerBillingConfirmPayBtnClick();
-	});
-	await test.step('Validate Direct Debit page', async () => {
-		await Payment.validateDirectDebitBillingDetails();
+	await test.step('Select Direct debit Card montly option', async () => {
+		await Payment.selectDirectDebitMonthlyOption();
 	});
 
+	await test.step('Click on Confirm Payment option', async () => {
+		await Payment.confirmBtnfromAuthorizationPopup();
+	});
+
+	await test.step('Validate Payment subscription Invoice Text', async () => {
+		await Payment.performerValidateSubscriptionTypeOrderSummary('£10.32', '£1.72', '£8.60');
+	});
+
+	await test.step('Enter billing and Payment Details', async () => {
+		await Payment.performerBillingDirectDebit(userdata.Performer_Postcode);
+	});
+	await test.step('Click on Payment Checkout Button', async () => {
+		await Payment.paymentCheckout();
+	});
+
+	await test.step('Click on Setup direct debit button Click ', async () => {
+		await Payment.performerDirectDebitAnnually();
+	});
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.validatePerformerRegistrationCompleteText();
+		await Performer_registerpage.validatePerformerRegistrationCompleteText('Direct Debit set up successfully!');
 	});
 });

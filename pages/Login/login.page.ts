@@ -25,6 +25,10 @@ export default class LoginPage {
 		await this.page.goto(URL);
 	}
 
+	async refreshUrl() {
+		await this.page.reload();
+	}
+
 	async signinbuttonOnMainPage() {
 		await this.signInLink.click();
 	}

@@ -15,10 +15,15 @@
     "Performer_BillingAddress":"Blackfaulds Cottage, Doggetts Park",
     "Performer_City":"London",
     "Performer_Postcode":"WC2N 5DU",
+    "Performer_Postcode_USA":"35013",
     "Visa_Card":"4929000000006",
+    "Visa_Month":"04",
+    "Visa_Year":"2034",
     "Visa_CVV":"123",
     "Visa_OTP":"challenge",
     "Performer_SchoolName":"London School of Dramatic Art",
+    "Performer_Address1":"Address 1",
+    "Performer_Address2":"Address 2",
     "Performer_CourseName":"Diploma in Acting",
     "Performer_Course_URL":"https://lsda-acting.com/",
     "Performer_Credit_Header_Text":"FOX STAR STUDIOS",
@@ -49,5 +54,8 @@
      "ProducerName":"Ajay Devgan",
      "Casting_Location":"Newyork",
      "Casting_RoleName":"Actor",
-     "Role_ContractType":"This is legal contract Type"
-}
+     "Role_ContractType":"This is legal contract Type",
+     "Performer_Total_Fees_Annual":"£172.50",
+     "Performer_Total_VAT_Annual":"£28.75",
+     "Performer_Total_Fees_Without_VAT_Annual":"£143.75"
+    }

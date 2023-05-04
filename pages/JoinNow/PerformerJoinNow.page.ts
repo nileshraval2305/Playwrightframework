@@ -3,8 +3,9 @@
 import type {Page, Locator} from '@playwright/test';
 import {FrameLocator} from '@playwright/test';
 import {expect} from '@playwright/test';
+import WebActions from '../../lib/webapplicationActions';
 import * as testdata from '../../test-Data/Spotlight-testdata.json';
-
+let webevents: WebActions;
 export default class PerformerJoinNow {
 	readonly performerAddcreditBtn: Locator;
 
@@ -65,6 +66,7 @@ export default class PerformerJoinNow {
 	readonly validatePerformerAnnualCreditDebitCardText: Locator;
 	readonly validatePerformerMonthlyInstalmentDirectDebitText: Locator;
 	readonly performerSelectCreditcardOption: Locator;
+	readonly youngPerformerCreditCardOption: Locator;
 	readonly performerGetMembershipFeeText: Locator;
 	readonly performerTotalPayText: Locator;
 	readonly performerGetFrequencyText: Locator;
@@ -127,8 +129,22 @@ export default class PerformerJoinNow {
 	readonly performerselectagencydropdown: Locator;
 	readonly performerselectagencydropdownoption: Locator;
 	readonly performerAddress1: Locator;
+	readonly performerAddress2: Locator;
+	readonly stateandProviance: Locator;
+	readonly city: Locator;
+	readonly postalCode: Locator;
+	readonly selectCountryDropdown: Locator;
+	public countryName: string;
+	public stateName: string;
+	readonly selectCountryDropdownValue: Locator;
+	readonly selectStateProvince: Locator;
+	readonly selectStateProvinceValue: Locator;
+	readonly enterCountryName: Locator;
 
 	constructor(public page: Page) {
+		this.page = page;
+		webevents = new WebActions(this.page);
+
 		this.performerAddcreditBtn = page.locator('#btn-add-credit span.c-button__text');
 		this.performerProductNameTextbox = page.locator('#productionName');
 		this.performerSelectTypeDropdown = page.locator('text=Please select');
@@ -186,11 +202,12 @@ export default class PerformerJoinNow {
 		this.performerDobText = page.locator('text=06.03.1995');
 		this.performerGenderText = page.locator('text=Male');
 		this.performerContinueCheckout = page.locator('.c-button.c-button__primary.c-button--medium');
-		this.validatePaymentSubscriptionText = page.locator('h1:has-text(\'Your Spotlight Subscription\')');
-		this.validatePerformerAnnualDirectDebitText = page.locator('h3:has-text(\'Performer Annual Direct Debit\')');
-		this.validatePerformerAnnualCreditDebitCardText = page.locator('h3:has-text(\'Performer Annual Credit / Debit Card\')');
-		this.validatePerformerMonthlyInstalmentDirectDebitText = page.locator('h3:has-text(\'Performer Monthly Instalment Direct Debit\')');
-		this.performerSelectCreditcardOption = page.locator('//div[2]/div[3]/a[1]/button[1]');
+		this.validatePaymentSubscriptionText = page.locator('//h1[normalize-space()=\'Your subscription plan\']');
+		this.validatePerformerAnnualDirectDebitText = page.locator('//div[@class="checkout-single-page__subscription"]/div[3]//h3');
+		this.validatePerformerAnnualCreditDebitCardText = page.locator('//div[@class="checkout-single-page__subscription"]/div[2]//h3');
+		this.validatePerformerMonthlyInstalmentDirectDebitText = page.locator('//div[@class="checkout-single-page__subscription"]/div[1]//h3');
+		this.performerSelectCreditcardOption = page.locator('//div[@class=\'checkout-single-page__subscription\']//div[2]//a[1]//span[1]');
+		this.youngPerformerCreditCardOption = page.locator('//div[@class=\'checkout-single-page__subscription\']//div[3]//a[1]//span[1]');
 		this.performerGetBillingDetailsHeaderText = page.locator('div[class=\'billing-form\'] h1');
 		this.performerGetMembershipFeeText = page.locator('#net-total');
 		this.performerTotalPayText = page.locator('#gross-total');
@@ -219,7 +236,7 @@ export default class PerformerJoinNow {
 		this.performerPaymentPayNowBtn = page.locator('img[alt=\'Pay Now\']');
 
 		this.performerPaymentByCardNextBtn = page.locator('input[value=\'Next\']');
-		this.performerRegistrationCompleteGetText = page.locator('.py-4.text-2xl');
+		this.performerRegistrationCompleteGetText = page.locator('//div[@class="w-full px-2 md:px-4 max-w-7xl"]//div//h1');
 
 		this.performerAddCourseBtn = page.locator('#btn-add-course');
 		this.performerSchoolname = page.locator('#schoolName');
@@ -248,6 +265,50 @@ export default class PerformerJoinNow {
 		this.performerselectmembershipdropdownoption = page.locator('text=Equity');
 		this.performerselectagencydropdown = page.locator('//label[normalize-space()=\'Agent (optional):\']//following::div[1]');
 		this.performerselectagencydropdownoption = page.locator('text=11:11 ENTERTAINMENT');
+		this.performerAddress1 = page.locator('#street1');
+		this.performerAddress2 = page.locator('#street2');
+		this.city = page.locator('#city');
+		this.postalCode = page.locator('#postal_code');
+		this.selectCountryDropdown = page.locator('//div[text()=\'Select country\']');
+		this.enterCountryName = page.locator('//input[@autocorrect=\'off\']');
+		this.selectCountryDropdownValue = page.locator('//div[text()=\'' + this.countryName + '\']');
+		this.selectStateProvince = page.locator('//div[text()=\'Select State/Province\']');
+		this.selectStateProvinceValue = page.locator('//div[text()=\'"' + this.stateName + '"\'"]');
+	}
+
+	async performerAddAddress1() {
+		await webevents.enterElementText(this.performerAddress1, testdata.Performer_Address);
+	}
+
+	async performerAddAddress2() {
+		await webevents.enterElementText(this.performerAddress2, testdata.Performer_Address2);
+	}
+
+	async performerCity(city: string) {
+		await webevents.enterElementText(this.city, city);
+	}
+
+	async performerZipCode(zipcode: string) {
+		await webevents.enterElementText(this.postalCode, zipcode);
+	}
+
+	async performerCountry(country: string) {
+		this.countryName = country;
+		await webevents.clickElement(this.selectCountryDropdown);
+		await webevents.clickElement(this.enterCountryName);
+		await webevents.typeElement(this.enterCountryName, this.countryName);
+
+		// Await webevents.enterElementText(this.enterCountryName, country);
+
+		await this.page.locator('//div[text()=\'' + this.countryName + '\']').click();
+	}
+
+	async performerState(state: string) {
+		this.stateName = state;
+		await webevents.clickElement(this.selectStateProvince);
+		await webevents.clickElement(this.enterCountryName);
+		await webevents.enterElementText(this.enterCountryName, this.stateName);
+		await this.page.locator('//div[text()=\'' + this.stateName + '\']').click();
 	}
 
 	async performerAddCreditBtnClick() {
@@ -428,16 +489,20 @@ export default class PerformerJoinNow {
 		await this.performerContinueCheckout.click();
 	}
 
-	async performerValidatePaymentSubscriptionText() {
-		await expect(this.validatePaymentSubscriptionText).toHaveText('Your Spotlight Subscription');
-		await expect(this.validatePerformerAnnualDirectDebitText).toHaveText('Performer Annual Direct Debit');
-		await expect(this.validatePerformerAnnualCreditDebitCardText).toHaveText('Performer Annual Credit / Debit Card');
-		await expect(this.validatePerformerMonthlyInstalmentDirectDebitText).toHaveText('Performer Monthly Instalment Direct Debit');
+	async performerValidatePaymentSubscriptionText(annualDirectdebit: string, annualCreditcard: string, monthlyDirectDebit: string) {
+		await this.page.waitForLoadState('domcontentloaded');
+		await expect(this.validatePaymentSubscriptionText).toHaveText('Your subscription plan');
+		await expect(this.validatePerformerAnnualDirectDebitText).toHaveText(annualDirectdebit);
+		await expect(this.validatePerformerAnnualCreditDebitCardText).toHaveText(annualCreditcard);
+		await expect(this.validatePerformerMonthlyInstalmentDirectDebitText).toHaveText(monthlyDirectDebit);
 	}
 
 	async performerselectcreditcardBtnClick() {
-		await Promise.all([this.page.waitForNavigation(),
-			this.performerSelectCreditcardOption.click()]);
+		await	this.performerSelectCreditcardOption.click();
+	}
+
+	async youngperformerselectcreditcardBtnClick() {
+		await	this.youngPerformerCreditCardOption.click();
 	}
 
 	async performerValidatePaymentInvoiceText(Membershipfee: string, installmentfrequency: string) {
@@ -489,7 +554,7 @@ export default class PerformerJoinNow {
 	}
 
 	async performerPaymentByCardEnterOtp() {
-		const otp = this.page.frameLocator('iframe[name=\'3diframe\']').getByPlaceholder('xxxxxx');
+		const otp = this.page.frameLocator('//div[@data-recurly=\'three-d-secure-container\']//iframe').getByPlaceholder('xxxxxx');
 		await otp.fill(testdata.Visa_OTP);
 	}
 
@@ -498,15 +563,14 @@ export default class PerformerJoinNow {
 	}
 
 	async performerPaymentByCardNextBtnClick() {
-		const nextbutton = this.page.frameLocator('iframe[name=\'3diframe\']').locator('input[value=\'Next\']');
+		const nextbutton = this.page.frameLocator('//div[@data-recurly=\'three-d-secure-container\']//iframe').locator('input[value=\'Next\']');
 
 		await nextbutton.click();
 	}
 
-	async validatePerformerRegistrationCompleteText() {
-		await Promise.all([this.page.waitForNavigation(),
-
-			await expect(this.performerRegistrationCompleteGetText).toHaveText('Application complete!')]);
+	async validatePerformerRegistrationCompleteText(registrationcompleted: string) {
+		await this.page.waitForLoadState('domcontentloaded');
+		await expect(this.performerRegistrationCompleteGetText).toHaveText(registrationcompleted);
 	}
 
 	async performerAddCreditSection() {
@@ -582,12 +646,5 @@ export default class PerformerJoinNow {
 
 	async doperformerLeaveApplicationBtn() {
 		await this.performerLeaveApplicationBtn.click();
-	}
-
-	async youngPerformerValidatePaymentSubscriptionText() {
-		await expect(this.validatePaymentSubscriptionText).toHaveText('Your Spotlight Subscription');
-		await expect(this.validatePerformerAnnualDirectDebitText).toHaveText('Young Performer Annual Direct Debit');
-		await expect(this.validatePerformerAnnualCreditDebitCardText).toHaveText('Young Performer Annual Credit / Debit Card');
-		await expect(this.validatePerformerMonthlyInstalmentDirectDebitText).toHaveText('Young Performer Monthly Instalment Direct Debit');
 	}
 }
