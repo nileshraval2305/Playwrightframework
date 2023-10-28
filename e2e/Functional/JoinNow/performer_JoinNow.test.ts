@@ -160,14 +160,8 @@ test('Perform joining application using Experience Option Along with New Address
 		await Payment.paymentCheckout();
 	});
 	
-	await test.step('Enter OTP ', async () => {
-		await Performer_registerpage.performerPaymentByCardEnterOtp();
-	});
-	await test.step('Click on Next Button ', async () => {
-		await Performer_registerpage.performerPaymentByCardNextBtnClick();
-	});
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.validatePerformerRegistrationCompleteText('Payment successful!');
+		await Performer_registerpage.validatePerformerRegistrationCompleteText('Application complete!');
 	});
 });
 
@@ -334,14 +328,8 @@ test('Perform joining application using Experience Option Along with New Address
 		await Payment.paymentCheckout();
 	});
 	
-	await test.step('Enter OTP ', async () => {
-		await Performer_registerpage.performerPaymentByCardEnterOtp();
-	});
-	await test.step('Click on Next Button ', async () => {
-		await Performer_registerpage.performerPaymentByCardNextBtnClick();
-	});
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.validatePerformerRegistrationCompleteText('Payment successful!');
+		await Performer_registerpage.validatePerformerRegistrationCompleteText('Application complete!');
 	});
 });
 
@@ -514,14 +502,8 @@ test('Perform joining application using Experience Option with select Membership
 		await Payment.paymentCheckout();
 	});
 	
-	await test.step('Enter OTP ', async () => {
-		await Performer_registerpage.performerPaymentByCardEnterOtp();
-	});
-	await test.step('Click on Next Button ', async () => {
-		await Performer_registerpage.performerPaymentByCardNextBtnClick();
-	});
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.validatePerformerRegistrationCompleteText('Payment successful!');
+		await Performer_registerpage.validatePerformerRegistrationCompleteText('Application complete!');
 	});
 });
 
@@ -864,15 +846,9 @@ test('Perform joining application using Training Option without select Membershi
 	await test.step('Click on Payment Checkout Button', async () => {
 		await Payment.paymentCheckout();
 	});
-	
-	await test.step('Enter OTP ', async () => {
-		await Performer_registerpage.performerPaymentByCardEnterOtp();
-	});
-	await test.step('Click on Next Button ', async () => {
-		await Performer_registerpage.performerPaymentByCardNextBtnClick();
-	});
+		
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.validatePerformerRegistrationCompleteText('Payment successful!');
+		await Performer_registerpage.validatePerformerRegistrationCompleteText('Application complete!');
 	});
 });
 
@@ -1226,14 +1202,8 @@ test('Perform joining application using Recommended Option with select Membershi
 		await Payment.paymentCheckout();
 	});
 	
-	await test.step('Enter OTP ', async () => {
-		await Performer_registerpage.performerPaymentByCardEnterOtp();
-	});
-	await test.step('Click on Next Button ', async () => {
-		await Performer_registerpage.performerPaymentByCardNextBtnClick();
-	});
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.validatePerformerRegistrationCompleteText('Payment successful!');
+		await Performer_registerpage.validatePerformerRegistrationCompleteText('Application complete!');
 	});
 });
 

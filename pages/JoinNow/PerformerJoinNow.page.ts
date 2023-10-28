@@ -203,11 +203,11 @@ export default class PerformerJoinNow {
 		this.performerGenderText = page.locator('text=Male');
 		this.performerContinueCheckout = page.locator('.c-button.c-button__primary.c-button--medium');
 		this.validatePaymentSubscriptionText = page.locator('//h1[normalize-space()=\'Your subscription plan\']');
-		this.validatePerformerAnnualDirectDebitText = page.locator('//div[@class="checkout-single-page__subscription"]/div[3]//h3');
-		this.validatePerformerAnnualCreditDebitCardText = page.locator('//div[@class="checkout-single-page__subscription"]/div[2]//h3');
+		this.validatePerformerAnnualDirectDebitText = page.locator('//div[@class="checkout-single-page__subscription"]/div[2]//h3');
+		this.validatePerformerAnnualCreditDebitCardText = page.locator('//div[@class="checkout-single-page__subscription"]/div[3]//h3');
 		this.validatePerformerMonthlyInstalmentDirectDebitText = page.locator('//div[@class="checkout-single-page__subscription"]/div[1]//h3');
-		this.performerSelectCreditcardOption = page.locator('//div[@class=\'checkout-single-page__subscription\']//div[2]//a[1]//span[1]');
-		this.youngPerformerCreditCardOption = page.locator('//div[@class=\'checkout-single-page__subscription\']//div[3]//a[1]//span[1]');
+		this.performerSelectCreditcardOption = page.locator('//div[@class="checkout-single-page__subscription"]//div[3]//a[1]');
+		this.youngPerformerCreditCardOption = page.locator('//div[@class=\'checkout-single-page__subscription\']//div[2]//a[1]//span[1]');
 		this.performerGetBillingDetailsHeaderText = page.locator('div[class=\'billing-form\'] h1');
 		this.performerGetMembershipFeeText = page.locator('#net-total');
 		this.performerTotalPayText = page.locator('#gross-total');

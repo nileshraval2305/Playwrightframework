@@ -71,8 +71,8 @@ export default class joinNowPaymentOptions {
 		this.validatePerformerSubscriptionAnnualDirectDebitFee = page.locator('//div[contains(@class,\'container\')]//div[1]//div[1]//following::h4[1]');
 		this.validatePerformerSubscriptionAnnualDebitCreditFee = page.locator('//div[contains(@class,\'container\')]//div[1]//div[1]//following::h4[2]');
 		this.validatePerformerSubscriptionMonthlyDebitCreditFee = page.locator('//div[contains(@class,\'container\')]//div[1]//div[1]//following::h4[3]/span');
-	    this.youngPerformerDirectDebitSelectBtn = page.locator('//div[@class="checkout-single-page__subscription"]//div[2]//a[1]//span[1]');
-		this.youngPerformerMonthlyDirectDebitBtn = page.locator('//div[3]//div[3]//a[1]//button[1]//span[1]');
+	    this.youngPerformerDirectDebitSelectBtn = page.locator('//div[@class="checkout-single-page__subscription"]//div[3]//a[1]//span[1]');
+		this.youngPerformerMonthlyDirectDebitBtn = page.locator('//div[3]//div[1]//a[1]//button[1]//span[1]');
 	    this.validateDirectdebittext = page.locator('.css-ggp4ev');
 		this.enterFirstNameofCardholder = page.locator('//input[@name=\'first_name\']');
 		this.enterLastNameofCardholder = page.locator('//input[@name=\'last_name\']');
@@ -108,7 +108,7 @@ export default class joinNowPaymentOptions {
 		this.phoneNumber = page.locator('#phone');
 		this.selectStateProvince = page.locator('//input[@placeholder="Select State/Province"]');
 		this.enterStateName = page.locator('//div[@class="c-dropdown-input__options-container c-dropdown-input__options-container--open-down"]//input[@type="text"]');
-		this.selectDirectDebitAnnualPaymentOption = page.locator('//div[@class="checkout-single-page__subscription"]//div[3]//a[1]//span[1]');
+		this.selectDirectDebitAnnualPaymentOption = page.locator('//div[@class="checkout-single-page__subscription"]//div[2]//a[1]');
 		this.youngperformerDirectDebitAnnualPaymentOption = page.locator('//div[@class="checkout-single-page__subscription"]//div[3]//a[1]//span[1]');
 		this.confirmAuthorizationBtn = page.locator('//span[normalize-space()="Confirm"]');
 		this.enterAccountNumber = page.locator('//input[@name="account_number"]');

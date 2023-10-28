@@ -69,16 +69,12 @@ test('Validate Create New Breakdown from Casting Director', async ({loginpage, c
 		await cdCreateBreakdown.selectcontracttypeofProject();
 	});
 
-	await test.step('Enter Casting location', async () => {
-		await cdCreateBreakdown.enterCastingLocationVal();
-	});
-
-	await test.step('Select Casting country', async () => {
-		await cdCreateBreakdown.selectCastingCountryDropdownval();
-	});
-
 	await test.step('Select closing date of Breakdown', async () => {
 		await cdCreateBreakdown.selectClosingDateofBreakdown();
+	});
+
+	await test.step('Select Casting Type value', async () => {
+		await cdCreateBreakdown.selectCastingtypeValue();
 	});
 
 	await test.step('Click on next Button', async () => {

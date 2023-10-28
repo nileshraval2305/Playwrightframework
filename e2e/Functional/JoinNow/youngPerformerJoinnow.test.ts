@@ -127,14 +127,8 @@ test('Young perfomer joining application End to End Flow', async ({Payment, logi
 		await Payment.paymentCheckout();
 	});
 
-	await test.step('Enter OTP ', async () => {
-		await Performer_registerpage.performerPaymentByCardEnterOtp();
-	});
-	await test.step('Click on Next Button ', async () => {
-		await Performer_registerpage.performerPaymentByCardNextBtnClick();
-	});
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.validatePerformerRegistrationCompleteText('Payment successful!');
+		await Performer_registerpage.validatePerformerRegistrationCompleteText('Application complete!');
 	});
 });
 
@@ -261,14 +255,8 @@ test('Young perfomer joining application End to End Flow without Existing Member
 		await Payment.paymentCheckout();
 	});
 
-	await test.step('Enter OTP ', async () => {
-		await Performer_registerpage.performerPaymentByCardEnterOtp();
-	});
-	await test.step('Click on Next Button ', async () => {
-		await Performer_registerpage.performerPaymentByCardNextBtnClick();
-	});
 	await test.step('Validate Registration Completed Text', async () => {
-		await Performer_registerpage.validatePerformerRegistrationCompleteText('Payment successful!');
+		await Performer_registerpage.validatePerformerRegistrationCompleteText('Application complete!');
 	});
 });
 
@@ -311,11 +299,11 @@ test('Young Perfomer Joining Application End to End Flow Using Annual Direct Pay
 	});
 
 	await test.step('Enter City', async () => {
-		await Performer_registerpage.performerCity('London');
+		await Performer_registerpage.performerCity('Newyork');
 	});
 
 	await test.step('Enter Zip code', async () => {
-		await Performer_registerpage.performerZipCode(userdata.Performer_Postcode);
+		await Performer_registerpage.performerZipCode(userdata.Performer_Postcode_USA);
 	});
 
 	await test.step('Select country', async () => {

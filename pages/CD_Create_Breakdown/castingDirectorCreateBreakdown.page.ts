@@ -55,11 +55,12 @@ export default class CastingDirector {
 	readonly getBreakdownTitle;
 	getTextBreakdowntextAfterCreated: string;
 	getTextBreakdowntextBeforeCreated: string;
+	readonly castingtypeOnline: Locator;
 
 	constructor(readonly page: Page) {
 		this.page = page;
 		webevents = new WebActions(this.page);
-		this.cdCreateBreakdown = page.locator('//a[normalize-space()=\'Create a breakdown\']');
+		this.cdCreateBreakdown = page.locator('//a[normalize-space()=\'Create a breakdown\']').first();
 		this.selectProjectFolderDropdown = page.locator('input[placeholder=\'Please select\']');
 		this.projectFolderDropdownValNewfolder = page.locator('//div[contains(text(),\'New folder\')]');
 		this.enterProjectFolderName = page.locator('input[name=\'name\']');
@@ -70,9 +71,9 @@ export default class CastingDirector {
 		this.selectProdctionTypeDropdownVal = page.locator('//div[normalize-space()=\'Feature Film\']');
 		this.enterProductionSummary = page.locator('textarea[name=\'productionSummary\']');
 		this.enterProductionDates = page.locator('textarea[name=\'productionDates\']');
-		this.enterProductionLocation = page.locator('input[name=\'productionLocation\']');
+		this.enterProductionLocation = page.locator('//input[@name="productionLocationObject"]');
 		this.selectProductionCountry = page.locator('input[placeholder=\'Select country\'][name=\'productionCountryCode\']');
-		this.selectProductionCountryVal = page.locator('//div[normalize-space()=\'United Kingdom\']');
+		this.selectProductionCountryVal = page.locator('//b[normalize-space()=\'United Kingdom\']').first();
 		this.enterDirectorName = page.locator('input[name=\'productionDirector\']');
 		this.enterProducerName = page.locator('input[name=\'productionProducer\']');
 		this.enterProductionCompany = page.locator('input[name=\'productionProducer\']');
@@ -107,6 +108,7 @@ export default class CastingDirector {
 		this.sendOptionNextBtn = page.locator('//span[normalize-space()=\'Next\']');
 		this.sendBreakdown = page.locator('//span[normalize-space()=\'Send breakdown\']');
 		this.getBreakdownTitle = page.locator('.c-table__title-content a');
+		this.castingtypeOnline = page.locator('//input[@id="0 - Online"]');
 	}
 
 	async createBreakdownQuicklink() {
@@ -156,7 +158,6 @@ export default class CastingDirector {
 	}
 
 	async selectProductionCountryvalue() {
-		await webevents.clickElement(this.selectProductionCountry);
 		await webevents.clickElement(this.selectProductionCountryVal);
 	}
 
@@ -185,6 +186,10 @@ export default class CastingDirector {
 	async selectClosingDateofBreakdown() {
 		await webevents.clickElement(this.selectClosingDate);
 		await webevents.clickElement(this.selectClosingDatePickerVal);
+	}
+
+	async selectCastingtypeValue() {
+		await webevents.clickElement(this.castingtypeOnline);
 	}
 
 	async nextButtonClick() {
